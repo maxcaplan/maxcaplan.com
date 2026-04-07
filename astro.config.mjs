@@ -3,11 +3,18 @@ import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    resolve: {
+      alias: {
+        "@/": "src/",
+      },
+    },
+  },
   fonts: [
     {
       provider: fontProviders.local(),
       name: "Fira Code",
-      cssVariable: "--type--font--display",
+      cssVariable: "--mc--type--font--display",
       fallbacks: ["monospace"],
       options: {
         variants: [
@@ -37,7 +44,7 @@ export default defineConfig({
     {
       provider: fontProviders.local(),
       name: "Fira Sans",
-      cssVariable: "--type--font--body",
+      cssVariable: "--mc--type--font--body",
       options: {
         variants: [
           {
