@@ -1,0 +1,183 @@
+@use "../abstract/type";
+@use "../abstract/layout";
+
+:root {
+  #{type.$body-size-var}: type.$mobile-body-size-value;
+  #{type.$body-height-var}: type.$mobile-body-height-value;
+
+  #{type.$label-size-var}: type.$mobile-label-size-value;
+  #{type.$label-height-var}: type.$mobile-label-height-value;
+
+  #{type.$heading-1-size-var}: type.$mobile-heading-1-size-value;
+  #{type.$heading-1-height-var}: type.$mobile-heading-1-height-value;
+
+  #{type.$heading-2-size-var}: type.$mobile-heading-2-size-value;
+  #{type.$heading-2-height-var}: type.$mobile-heading-2-height-value;
+
+  #{type.$heading-3-size-var}: type.$mobile-heading-3-size-value;
+  #{type.$heading-3-height-var}: type.$mobile-heading-3-height-value;
+
+  #{type.$heading-4-size-var}: type.$mobile-heading-4-size-value;
+  #{type.$heading-4-height-var}: type.$mobile-heading-4-height-value;
+
+  #{type.$heading-5-size-var}: type.$mobile-heading-5-size-value;
+  #{type.$heading-5-height-var}: type.$mobile-heading-5-height-value;
+
+  #{type.$eyebrow-size-var}: type.$mobile-eyebrow-size-value;
+  #{type.$eyebrow-height-var}: type.$mobile-eyebrow-height-value;
+
+  #{type.$title-1-size-var}: type.$mobile-title-1-size-value;
+  #{type.$title-1-height-var}: type.$mobile-title-1-height-value;
+
+  #{type.$title-2-size-var}: type.$mobile-title-2-size-value;
+  #{type.$title-2-height-var}: type.$mobile-title-2-height-value;
+
+  #{type.$subtitle-1-size-var}: type.$mobile-subtitle-1-size-value;
+  #{type.$subtitle-1-height-var}: type.$mobile-subtitle-1-height-value;
+
+  #{type.$subtitle-2-size-var}: type.$mobile-subtitle-2-size-value;
+  #{type.$subtitle-2-height-var}: type.$mobile-subtitle-2-height-value;
+
+  #{type.$display-1-size-var}: type.$mobile-display-1-size-value;
+  #{type.$display-1-height-var}: type.$mobile-display-1-height-value;
+
+  #{type.$display-2-size-var}: type.$mobile-display-2-size-value;
+  #{type.$display-2-height-var}: type.$mobile-display-2-height-value;
+
+  #{type.$ui-sm-size-var}: type.$ui-sm-size-value;
+  #{type.$ui-sm-height-var}: type.$ui-sm-height-value;
+
+  #{type.$ui-md-size-var}: type.$ui-md-size-value;
+  #{type.$ui-md-height-var}: type.$ui-md-height-value;
+
+  #{type.$ui-lg-size-var}: type.$ui-lg-size-value;
+  #{type.$ui-lg-height-var}: type.$ui-lg-height-value;
+
+  #{type.$ui-xl-size-var}: type.$ui-xl-size-value;
+  #{type.$ui-xl-height-var}: type.$ui-xl-height-value;
+
+  @include layout.media-breakpoint("sm") {
+    #{type.$body-size-var}: type.$desktop-body-size-value;
+    #{type.$body-height-var}: type.$desktop-body-height-value;
+
+    #{type.$label-size-var}: type.$desktop-label-size-value;
+    #{type.$label-height-var}: type.$desktop-label-height-value;
+
+    #{type.$heading-1-size-var}: type.$desktop-heading-1-size-value;
+    #{type.$heading-1-height-var}: type.$desktop-heading-1-height-value;
+
+    #{type.$heading-2-size-var}: type.$desktop-heading-2-size-value;
+    #{type.$heading-2-height-var}: type.$desktop-heading-2-height-value;
+
+    #{type.$heading-3-size-var}: type.$desktop-heading-3-size-value;
+    #{type.$heading-3-height-var}: type.$desktop-heading-3-height-value;
+
+    #{type.$heading-4-size-var}: type.$desktop-heading-4-size-value;
+    #{type.$heading-4-height-var}: type.$desktop-heading-4-height-value;
+
+    #{type.$heading-5-size-var}: type.$desktop-heading-5-size-value;
+    #{type.$heading-5-height-var}: type.$desktop-heading-5-height-value;
+
+    #{type.$eyebrow-size-var}: type.$desktop-eyebrow-size-value;
+    #{type.$eyebrow-height-var}: type.$desktop-eyebrow-height-value;
+
+    #{type.$title-1-size-var}: type.$desktop-title-1-size-value;
+    #{type.$title-1-height-var}: type.$desktop-title-1-height-value;
+
+    #{type.$title-2-size-var}: type.$desktop-title-2-size-value;
+    #{type.$title-2-height-var}: type.$desktop-title-2-height-value;
+
+    #{type.$subtitle-1-size-var}: type.$desktop-subtitle-1-size-value;
+    #{type.$subtitle-1-height-var}: type.$desktop-subtitle-1-height-value;
+
+    #{type.$subtitle-2-size-var}: type.$desktop-subtitle-2-size-value;
+    #{type.$subtitle-2-height-var}: type.$desktop-subtitle-2-height-value;
+
+    #{type.$display-1-size-var}: type.$desktop-display-1-size-value;
+    #{type.$display-1-height-var}: type.$desktop-display-1-height-value;
+
+    #{type.$display-2-size-var}: type.$desktop-display-2-size-value;
+    #{type.$display-2-height-var}: type.$desktop-display-2-height-value;
+  }
+}
+
+body,
+p,
+.body {
+  @include type.body;
+}
+
+label,
+.label {
+  @include type.label;
+}
+
+h1,
+.heading-1 {
+  @include type.heading-1;
+}
+
+h2,
+.heading-2 {
+  @include type.heading-2;
+}
+
+h3,
+.heading-3 {
+  @include type.heading-3;
+}
+
+h4,
+.heading-4 {
+  @include type.heading-4;
+}
+
+h5,
+.heading-5 {
+  @include type.heading-5;
+}
+
+h6,
+.eyebrow {
+  @include type.eyebrow;
+}
+
+.subtitle-1 {
+  @include type.subtitle-1;
+}
+
+.subtitle-2 {
+  @include type.subtitle-2;
+}
+
+.title-1 {
+  @include type.title-1;
+}
+
+.title-2 {
+  @include type.title-2;
+}
+
+.display-1 {
+  @include type.display-1;
+}
+
+.display-2 {
+  @include type.display-2;
+}
+
+.ui-sm {
+  @include type.ui-sm;
+}
+
+.ui-md {
+  @include type.ui-md;
+}
+
+.ui-lg {
+  @include type.ui-lg;
+}
+
+.ui-xl {
+  @include type.ui-xl;
+}
