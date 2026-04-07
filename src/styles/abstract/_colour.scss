@@ -1,0 +1,394 @@
+@use "sass:color";
+
+// Primitive Tokens
+
+$warp-50: #0b090f;
+$warp-100: #0d0b13;
+$warp-200: #100d16;
+$warp-300: #120f1a;
+$warp-400: #191523;
+$warp-500: #201b2c;
+$warp-600: #272136;
+$warp-700: #2d2640;
+$warp-800: #393050;
+$warp-900: #463c62;
+$warp-1000: #574a7d;
+$warp-1100: #7463a1;
+$warp-1200: #8779af;
+$warp-1300: #9e93be;
+$warp-1400: #b4aacf;
+$warp-1500: #c5bbdd;
+$warp-1600: #d5cdea;
+$warp-1700: #e5def7;
+$warp-1800: #f1ecfd;
+$warp-1900: #f4f1fe;
+$warp-2000: #f7f5ff;
+$warp-2050: #fbfaff;
+
+$thunder-50: #06070e;
+$thunder-100: #090a16;
+$thunder-200: #0e1025;
+$thunder-300: #141739;
+$thunder-400: #1b1f50;
+$thunder-500: #232971;
+$thunder-600: #2a3393;
+$thunder-700: #313db9;
+$thunder-800: #3946d5;
+$thunder-900: #424dea;
+$thunder-1000: #4b56ef;
+$thunder-1100: #535df3;
+$thunder-1200: #5c66f5;
+$thunder-1300: #646ef7;
+$thunder-1400: #6d77f8;
+$thunder-1500: #7b83f9;
+$thunder-1600: #8990fb;
+$thunder-1700: #979efc;
+$thunder-1800: #aab1fd;
+$thunder-1900: #c8ccfe;
+$thunder-2000: #e1e3ff;
+$thunder-2050: #f5f6ff;
+
+$springer-50: #010402;
+$springer-100: #020804;
+$springer-200: #031108;
+$springer-300: #06230e;
+$springer-400: #083515;
+$springer-500: #0c4b1f;
+$springer-600: #0f6228;
+$springer-700: #11742e;
+$springer-800: #148f38;
+$springer-900: #19a944;
+$springer-1000: #1cb94c;
+$springer-1100: #1dc44f;
+$springer-1200: #1fd255;
+$springer-1300: #21dc59;
+$springer-1400: #34df67;
+$springer-1500: #46e777;
+$springer-1600: #69ec91;
+$springer-1700: #86f3a7;
+$springer-1800: #9ff9ba;
+$springer-1900: #c1fbd2;
+$springer-2000: #e2fdea;
+$springer-2050: #f5fff8;
+
+$buzz-50: #040301;
+$buzz-100: #080602;
+$buzz-200: #141005;
+$buzz-300: #201a08;
+$buzz-400: #29200a;
+$buzz-500: #392d0e;
+$buzz-600: #534113;
+$buzz-700: #755c1a;
+$buzz-800: #91711d;
+$buzz-900: #ac8620;
+$buzz-1000: #c49721;
+$buzz-1100: #d7a41d;
+$buzz-1200: #e8b121;
+$buzz-1300: #edbb35;
+$buzz-1400: #f1c246;
+$buzz-1500: #f5cb5c;
+$buzz-1600: #f8d372;
+$buzz-1700: #fadc8f;
+$buzz-1800: #fce5a6;
+$buzz-1900: #fdedbe;
+$buzz-2000: #fff4d7;
+$buzz-2050: #fffbf0;
+
+$cliff-50: #0c0303;
+$cliff-100: #110404;
+$cliff-200: #150505;
+$cliff-300: #1d0707;
+$cliff-400: #2a0909;
+$cliff-500: #3b0c0c;
+$cliff-600: #541212;
+$cliff-700: #6d1717;
+$cliff-800: #831b1b;
+$cliff-900: #951d1d;
+$cliff-1000: #a72020;
+$cliff-1100: #b82323;
+$cliff-1200: #cb2525;
+$cliff-1300: #dc3232;
+$cliff-1400: #e54343;
+$cliff-1500: #ec5555;
+$cliff-1600: #f57575;
+$cliff-1700: #f99090;
+$cliff-1800: #fbb1b1;
+$cliff-1900: #fdc9c9;
+$cliff-2000: #fee1e1;
+$cliff-2050: #fff5f5;
+
+// Semantic Tokens
+
+// Dark Theme
+
+$dark-surface-50: $warp-50;
+$dark-surface-100: $warp-100;
+$dark-surface-200: $warp-200;
+$dark-surface-300: $warp-300;
+$dark-surface-400: $warp-400;
+$dark-surface-500: $warp-500;
+$dark-surface-600: $warp-600;
+
+$dark-outline-100: $warp-1100;
+$dark-outline-200: $warp-1200;
+$dark-outline-300: $warp-1300;
+$dark-outline-400: $warp-1400;
+$dark-outline-500: $warp-1500;
+$dark-outline-600: $warp-1600;
+
+$dark-text: $warp-1800;
+$dark-text-medium: $warp-1600;
+$dark-text-dim: $warp-1400;
+$dark-text-inverse: $warp-500;
+
+$dark-primary: $springer-1600;
+$dark-primary-contrast: $springer-400;
+$dark-primary-outline: $springer-1800;
+$dark-primary-text: $springer-1700;
+$dark-primary-dim: $springer-1100;
+$dark-primary-dim-contrast: $springer-500;
+$dark-primary-surface: $springer-100;
+$dark-primary-surface-contrast: $springer-1900;
+$dark-primary-surface-outline: $springer-1600;
+$dark-primary-surface-icon: $springer-1400;
+
+$dark-secondary: $thunder-1700;
+$dark-secondary-contrast: $thunder-200;
+$dark-secondary-outline: $thunder-1800;
+$dark-secondary-text: $thunder-1800;
+$dark-secondary-dim: $thunder-1400;
+$dark-secondary-dim-contrast: $thunder-200;
+$dark-secondary-surface: $thunder-100;
+$dark-secondary-surface-contrast: $thunder-1900;
+$dark-secondary-surface-outline: $thunder-1300;
+$dark-secondary-surface-icon: $thunder-1500;
+
+$dark-warning: $buzz-1600;
+$dark-warning-contrast: $buzz-200;
+$dark-warning-outline: $buzz-1800;
+$dark-warning-text: $buzz-1700;
+$dark-warning-dim: $buzz-1200;
+$dark-warning-dim-contrast: $buzz-400;
+$dark-warning-surface: $buzz-100;
+$dark-warning-surface-contrast: $buzz-1900;
+$dark-warning-surface-outline: $buzz-900;
+$dark-warning-surface-icon: $buzz-1400;
+
+$dark-danger: $cliff-1700;
+$dark-danger-contrast: $cliff-300;
+$dark-danger-outline: $cliff-1800;
+$dark-danger-text: $cliff-1800;
+$dark-danger-dim: $cliff-1500;
+$dark-danger-dim-contrast: $cliff-300;
+$dark-danger-surface: $cliff-100;
+$dark-danger-surface-contrast: $cliff-1800;
+$dark-danger-surface-outline: $cliff-1500;
+$dark-danger-surface-icon: $cliff-1600;
+
+$dark-shadow: rgba(0, 0, 0, 0.85);
+$dark-shadow-dark: $dark-shadow;
+
+// Light Theme
+
+$light-surface-50: $warp-2050;
+$light-surface-100: $warp-2000;
+$light-surface-200: $warp-1900;
+$light-surface-300: $warp-1800;
+$light-surface-400: $warp-1700;
+$light-surface-500: $warp-1600;
+$light-surface-600: $warp-1500;
+
+$light-outline-100: $warp-1300;
+$light-outline-200: $warp-1200;
+$light-outline-300: $warp-1100;
+$light-outline-400: $warp-1000;
+$light-outline-500: $warp-900;
+$light-outline-600: $warp-800;
+
+$light-text: $warp-500;
+$light-text-medium: $warp-700;
+$light-text-dim: $warp-1000;
+$light-text-inverse: $warp-1800;
+
+$light-primary: $springer-700;
+$light-primary-contrast: $springer-2050;
+$light-primary-outline: $springer-400;
+$light-primary-text: $springer-500;
+$light-primary-dim: $springer-800;
+$light-primary-dim-contrast: $springer-1900;
+$light-primary-surface: $springer-2050;
+$light-primary-surface-contrast: $springer-600;
+$light-primary-surface-outline: $springer-700;
+$light-primary-surface-icon: $springer-500;
+
+$light-secondary: $thunder-1000;
+$light-secondary-contrast: $thunder-2050;
+$light-secondary-outline: $thunder-500;
+$light-secondary-text: $thunder-900;
+$light-secondary-dim: $thunder-1400;
+$light-secondary-dim-contrast: $thunder-300;
+$light-secondary-surface: $thunder-2050;
+$light-secondary-surface-contrast: $thunder-600;
+$light-secondary-surface-outline: $thunder-800;
+$light-secondary-surface-icon: $thunder-500;
+
+$light-warning: $buzz-1400;
+$light-warning-contrast: $buzz-200;
+$light-warning-outline: $buzz-800;
+$light-warning-text: $buzz-600;
+$light-warning-dim: $buzz-1200;
+$light-warning-dim-contrast: $buzz-400;
+$light-warning-surface: $buzz-2050;
+$light-warning-surface-contrast: $buzz-400;
+$light-warning-surface-outline: $buzz-800;
+$light-warning-surface-icon: $buzz-600;
+
+$light-danger: $cliff-1100;
+$light-danger-contrast: $cliff-2050;
+$light-danger-outline: $cliff-600;
+$light-danger-text: $cliff-700;
+$light-danger-dim: $cliff-1400;
+$light-danger-dim-contrast: $cliff-300;
+$light-danger-surface: $cliff-2050;
+$light-danger-surface-contrast: $cliff-800;
+$light-danger-surface-outline: $cliff-1000;
+$light-danger-surface-icon: $cliff-700;
+
+$light-shadow: color.change($warp-600, $alpha: 0.15);
+$light-shadow-dark: color.change($warp-600, $alpha: 0.25);
+
+// CSS Variables
+
+$surface-50-var: --mc--colour--surface--50;
+$surface-100-var: --mc--colour--surface--100;
+$surface-200-var: --mc--colour--surface--200;
+$surface-300-var: --mc--colour--surface--300;
+$surface-400-var: --mc--colour--surface--400;
+$surface-500-var: --mc--colour--surface--500;
+$surface-600-var: --mc--colour--surface--600;
+
+$outline-100-var: --mc--colour--outline--100;
+$outline-200-var: --mc--colour--outline--200;
+$outline-300-var: --mc--colour--outline--300;
+$outline-400-var: --mc--colour--outline--400;
+$outline-500-var: --mc--colour--outline--500;
+$outline-600-var: --mc--colour--outline--600;
+
+$text-var: --mc--colour--text;
+$text-medium-var: --mc--colour--text--medium;
+$text-dim-var: --mc--colour--text--dim;
+$text-inverse-var: --mc--colour--text--inverse;
+
+$primary-var: --mc--colour--primary;
+$primary-contrast-var: --mc--colour--primary--contrast;
+$primary-outline-var: --mc--colour--primary--outline;
+$primary-text-var: --mc--colour--primary--text;
+$primary-dim-var: --mc--colour--primary--dim;
+$primary-dim-contrast-var: --mc--colour--primary--dim-contrast;
+$primary-surface-var: --mc--colour--primary--surface;
+$primary-surface-contrast-var: --mc--colour--primary--surface-contrast;
+$primary-surface-outline-var: --mc--colour--primary--surface-outline;
+$primary-surface-icon-var: --mc--colour--primary--surface-icon;
+
+$secondary-var: --mc--colour--secondary;
+$secondary-contrast-var: --mc--colour--secondary--contrast;
+$secondary-outline-var: --mc--colour--secondary--outline;
+$secondary-text-var: --mc--colour--secondary--text;
+$secondary-dim-var: --mc--colour--secondary--dim;
+$secondary-dim-contrast-var: --mc--colour--secondary--dim-contrast;
+$secondary-surface-var: --mc--colour--secondary--surface;
+$secondary-surface-contrast-var: --mc--colour--secondary--surface-contrast;
+$secondary-surface-outline-var: --mc--colour--secondary--surface-outline;
+$secondary-surface-icon-var: --mc--colour--secondary--surface-icon;
+
+$warning-var: --mc--colour--warning;
+$warning-contrast-var: --mc--colour--warning--contrast;
+$warning-outline-var: --mc--colour--warning--outline;
+$warning-text-var: --mc--colour--warning--text;
+$warning-dim-var: --mc--colour--warning--dim;
+$warning-dim-contrast-var: --mc--colour--warning--dim-contrast;
+$warning-surface-var: --mc--colour--warning--surface;
+$warning-surface-contrast-var: --mc--colour--warning--surface-contrast;
+$warning-surface-outline-var: --mc--colour--warning--surface-outline;
+$warning-surface-icon-var: --mc--colour--warning--surface-icon;
+
+$danger-var: --mc--colour--danger;
+$danger-contrast-var: --mc--colour--danger--contrast;
+$danger-outline-var: --mc--colour--danger--outline;
+$danger-text-var: --mc--colour--danger--text;
+$danger-dim-var: --mc--colour--danger--dim;
+$danger-dim-contrast-var: --mc--colour--danger--dim-contrast;
+$danger-surface-var: --mc--colour--danger--surface;
+$danger-surface-contrast-var: --mc--colour--danger--surface-contrast;
+$danger-surface-outline-var: --mc--colour--danger--surface-outline;
+$danger-surface-icon-var: --mc--colour--danger--surface-icon;
+
+$shadow-var: --mc--colour--shadow;
+$shadow-dark-var: --mc--colour--shadow--dark;
+
+$surface-50: var(--mc--colour--surface--50);
+$surface-100: var(--mc--colour--surface--100);
+$surface-200: var(--mc--colour--surface--200);
+$surface-300: var(--mc--colour--surface--300);
+$surface-400: var(--mc--colour--surface--400);
+$surface-500: var(--mc--colour--surface--500);
+$surface-600: var(--mc--colour--surface--600);
+
+$outline-100: var(--mc--colour--outline--100);
+$outline-200: var(--mc--colour--outline--200);
+$outline-300: var(--mc--colour--outline--300);
+$outline-400: var(--mc--colour--outline--400);
+$outline-500: var(--mc--colour--outline--500);
+$outline-600: var(--mc--colour--outline--600);
+
+$text: var(--mc--colour--text);
+$text-medium: var(--mc--colour--text--medium);
+$text-dim: var(--mc--colour--text--dim);
+$text-inverse: var(--mc--colour--text--inverse);
+
+$primary: var(--mc--colour--primary);
+$primary-contrast: var(--mc--colour--primary--contrast);
+$primary-outline: var(--mc--colour--primary--outline);
+$primary-text: var(--mc--colour--primary--text);
+$primary-dim: var(--mc--colour--primary--dim);
+$primary-dim-contrast: var(--mc--colour--primary--dim-contrast);
+$primary-surface: var(--mc--colour--primary--surface);
+$primary-surface-contrast: var(--mc--colour--primary--surface-contrast);
+$primary-surface-outline: var(--mc--colour--primary--surface-outline);
+$primary-surface-icon: var(--mc--colour--primary--surface-icon);
+
+$secondary: var(--mc--colour--secondary);
+$secondary-contrast: var(--mc--colour--secondary--contrast);
+$secondary-outline: var(--mc--colour--secondary--outline);
+$secondary-text: var(--mc--colour--secondary--text);
+$secondary-dim: var(--mc--colour--secondary--dim);
+$secondary-dim-contrast: var(--mc--colour--secondary--dim-contrast);
+$secondary-surface: var(--mc--colour--secondary--surface);
+$secondary-surface-contrast: var(--mc--colour--secondary--surface-contrast);
+$secondary-surface-outline: var(--mc--colour--secondary--surface-outline);
+$secondary-surface-icon: var(--mc--colour--secondary--surface-icon);
+
+$warning: var(--mc--colour--warning);
+$warning-contrast: var(--mc--colour--warning--contrast);
+$warning-outline: var(--mc--colour--warning--outline);
+$warning-text: var(--mc--colour--warning--text);
+$warning-dim: var(--mc--colour--warning--dim);
+$warning-dim-contrast: var(--mc--colour--warning--dim-contrast);
+$warning-surface: var(--mc--colour--warning--surface);
+$warning-surface-contrast: var(--mc--colour--warning--surface-contrast);
+$warning-surface-outline: var(--mc--colour--warning--surface-outline);
+$warning-surface-icon: var(--mc--colour--warning--surface-icon);
+
+$danger: var(--mc--colour--danger);
+$danger-contrast: var(--mc--colour--danger--contrast);
+$danger-outline: var(--mc--colour--danger--outline);
+$danger-text: var(--mc--colour--danger--text);
+$danger-dim: var(--mc--colour--danger--dim);
+$danger-dim-contrast: var(--mc--colour--danger--dim-contrast);
+$danger-surface: var(--mc--colour--danger--surface);
+$danger-surface-contrast: var(--mc--colour--danger--surface-contrast);
+$danger-surface-outline: var(--mc--colour--danger--surface-outline);
+$danger-surface-icon: var(--mc--colour--danger--surface-icon);
+
+$shadow: var(--mc--colour--shadow);
+$shadow-dark: var(--mc--colour--shadow--dark);
