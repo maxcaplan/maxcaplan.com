@@ -1,0 +1,36 @@
+@use "spacing";
+
+$width-content: 34.5rem;
+$width-container: spacing.step-up(spacing.step-up(1rem, 9), 1, $quarter: true);
+$width-full: 120rem;
+
+$min-width-sm: 640px;
+$min-width-md: 768px;
+$min-width-lg: 1024px;
+
+/// Media breakpoint wrapper
+/// @param {"sm" | "md" | "lg"} $breakpoint
+/// @content
+@mixin media-breakpoint($breakpoint) {
+  $min-width: false;
+
+  @if $breakpoint == sm {
+    $min-width: $min-width-sm;
+  }
+
+  @if $breakpoint == md {
+    $min-width: $min-width-md;
+  }
+
+  @if $breakpoint == lg {
+    $min-width: $min-width-lg;
+  }
+
+  @if not $min-width {
+    @content;
+  } @else {
+    @media (min-width: $min-width) {
+      @content;
+    }
+  }
+}
