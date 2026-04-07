@@ -1,0 +1,105 @@
+/// Base scaling factor for all sizing and relative
+$scaling-factor: 1.618;
+
+/// Scaling factor for a full step
+$full-step: $scaling-factor;
+/// Scaling factor for a half step
+$half-step: calc(round(pow($scaling-factor, 0.5), 0.001));
+/// Scaling factor for a quarter step
+$quarter-step: calc(round(pow($scaling-factor, 0.25), 0.001));
+/// Scaling factor for a quarter step
+$eighth-step: calc(round(pow($scaling-factor, 0.125), 0.001));
+
+// Base sizing values
+
+/// Increase a value by one or more steps
+/// @param {Number} $value - value to increase
+/// @param {Number} $steps - number of steps to decrease by
+/// @param {Boolean} $full - step by a full step
+/// @param {Boolean} $half - step by a half step
+/// @param {Boolean} $quarter - step by a quarter step
+/// @param {Boolean} $eighth - step by a eighth step
+@function step-up(
+  $value: 1em,
+  $steps: 1,
+  $full: false,
+  $half: false,
+  $quarter: false,
+  $eighth: false
+) {
+  $step-size: $full-step;
+
+  @if $full {
+    $step-size: $full-step;
+  } @else if $half {
+    $step-size: $half-step;
+  } @else if $quarter {
+    $step-size: $quarter-step;
+  } @else if $eighth {
+    $step-size: $eighth-step;
+  }
+
+  @return calc($value * round(pow($step-size, $steps), 0.001));
+}
+
+/// Decrease a value by one or more steps
+/// @param {Number} $value - value to decrease
+/// @param {Number} $steps - number of steps to decrease by
+/// @param {Boolean} $full - step by a full step
+/// @param {Boolean} $half - step by a half step
+/// @param {Boolean} $quarter - step by a quarter step
+/// @param {Boolean} $eighth - step by a eighth step
+@function step-down(
+  $value: 1em,
+  $steps: 1,
+  $full: false,
+  $half: false,
+  $quarter: false,
+  $eighth: false
+) {
+  $step-size: $full-step;
+
+  @if $full {
+    $step-size: $full-step;
+  } @else if $half {
+    $step-size: $half-step;
+  } @else if $quarter {
+    $step-size: $quarter-step;
+  } @else if $eighth {
+    $step-size: $eighth-step;
+  }
+
+  @return calc($value / round(pow($step-size, $steps), 0.001));
+}
+
+$base-100: step-down(1rem, 4);
+$base-200: step-down(1rem, 3);
+$base-300: step-down(1rem, 2);
+$base-400: step-down(1rem, 1);
+$base-500: 1rem;
+$base-600: step-up(1rem, 1);
+$base-700: step-up(1rem, 2);
+$base-800: step-up(1rem, 3);
+$base-900: step-up(1rem, 4);
+$base-1000: step-up(1rem, 5);
+$base-1100: step-up(1rem, 6);
+$base-1200: step-up(1rem, 7);
+$base-1300: step-up(1rem, 8);
+$base-1400: step-up(1rem, 9);
+$base-1500: step-up(1rem, 10);
+
+$relative-100: step-down(1em, 4);
+$relative-200: step-down(1em, 3);
+$relative-300: step-down(1em, 2);
+$relative-400: step-down(1em, 1);
+$relative-500: 1em;
+$relative-600: step-up(1em, 1);
+$relative-700: step-up(1em, 2);
+$relative-800: step-up(1em, 3);
+$relative-900: step-up(1em, 4);
+$relative-1000: step-up(1em, 5);
+$relative-1100: step-up(1em, 6);
+$relative-1200: step-up(1em, 7);
+$relative-1300: step-up(1em, 8);
+$relative-1400: step-up(1em, 9);
+$relative-1500: step-up(1em, 10);
