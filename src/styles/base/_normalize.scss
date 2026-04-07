@@ -1,0 +1,116 @@
+// Based on: https://github.com/sindresorhus/modern-normalize
+
+// Use border box by default
+// Remove default padding and margin
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Default font consistency
+html {
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+// Font weight consistency
+b,
+strong {
+  font-weight: bolder;
+}
+
+// Monospace text consistency
+code,
+kbd,
+samp,
+pre {
+  font-family:
+    ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 1rem;
+}
+
+// Font size consistency
+small {
+  font-size: 80%;
+}
+
+// Prevent sub and sup affecting line height
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+// Table color inheritence consistency
+table {
+  border-color: currentColor;
+}
+
+// Form element consistency
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+}
+
+// Button element consistency
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+// Vertical alignment consistency
+progress {
+  vertical-align: baseline;
+}
+
+// Cursor style consistency
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+// Appearance consistency
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+// Inner padding consistency
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Styling consistency
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+// Display consistency
+summary {
+  display: list-item;
+}
