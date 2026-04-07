@@ -1,4 +1,6 @@
 ---
+import "@/styles/main.scss";
+
 import { Font } from "astro:assets";
 ---
 
@@ -10,10 +12,11 @@ import { Font } from "astro:assets";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <title>Max Caplan - Portfolio | Developer && Designer</title>
-    <Font cssVariable="--type--font--display" />
-    <Font cssVariable="--type--font--body" />
+    <Font cssVariable="--mc--type--font--display" />
+    <Font cssVariable="--mc--type--font--body" />
   </head>
-  <body>
+
+  <body class="theme-system">
     <slot />
   </body>
 </html>
