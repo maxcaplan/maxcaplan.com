@@ -1,4 +1,6 @@
 // @ts-check
+
+import preact from "@astrojs/preact";
 import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
@@ -10,6 +12,7 @@ export default defineConfig({
       },
     },
   },
+
   fonts: [
     {
       provider: fontProviders.local(),
@@ -91,4 +94,6 @@ export default defineConfig({
       },
     },
   ],
+
+  integrations: [preact({ compat: true })],
 });
