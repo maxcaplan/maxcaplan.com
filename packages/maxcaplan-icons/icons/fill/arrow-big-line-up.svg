@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
-   sodipodi:docname="arrow_big_line_up.svg"
+   sodipodi:docname="arrow-big-line-up.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -30,11 +30,11 @@
      showguides="false"
      guidecolor="#d900e5"
      guideopacity="0.34509804"
-     inkscape:zoom="23.240608"
-     inkscape:cx="16.71643"
-     inkscape:cy="14.651079"
-     inkscape:window-width="1691"
-     inkscape:window-height="990"
+     inkscape:zoom="11.620304"
+     inkscape:cx="10.498865"
+     inkscape:cy="16.350691"
+     inkscape:window-width="1707"
+     inkscape:window-height="1035"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -233,8 +233,7 @@
     <path
        id="rect2"
        style="fill:#000000;stroke-width:0.359035;stroke-linejoin:round;paint-order:fill markers stroke"
-       d="m -10.875,3 v 1.8046875 h 1.96875 V 6.609375 h 1.96875 v 1.8046875 h 1.96875 V 10.21875 H -3 v 4 H -7.5 V 17.5 h -9 V 14.21875 H -21 v -4 h 1.96875 V 8.4140625 h 1.96875 V 6.609375 h 1.96875 V 4.8046875 H -13.125 V 3 Z M -7.5,19 v 2 h -9 v -2 z"
-       transform="scale(-1,1)"
+       d="m 13.125,3 v 1.8046875 h 1.96875 V 6.609375 h 1.96875 v 1.8046875 h 1.96875 V 10.21875 H 21 v 4 H 16.5 V 17.5 h -9 V 14.21875 H 3 v -4 H 4.96875 V 8.4140625 H 6.9375 V 6.609375 H 8.90625 V 4.8046875 H 10.875 V 3 Z M 16.5,19 v 2 h -9 v -2 z"
        sodipodi:nodetypes="cccccccccccccccccccccccccccccc" />
   </g>
 </svg>
