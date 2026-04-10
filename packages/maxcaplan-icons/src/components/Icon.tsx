@@ -4,6 +4,7 @@ export interface IconProps<
   Styles extends string | number | symbol,
 > extends Omit<React.ComponentPropsWithRef<"svg">, "children"> {
   ["icon-style"]?: Styles;
+  title?: string;
 }
 
 export type Icon<Styles extends string | number | symbol> = (
@@ -27,6 +28,7 @@ export function createIconComponent<Styles extends string | number | symbol>(
   return function Icon(props) {
     const {
       "icon-style": icon_style,
+      title,
       className,
       ...element_props
     } = props ?? {};
@@ -46,6 +48,7 @@ export function createIconComponent<Styles extends string | number | symbol>(
           .join(" ")}
         {...element_props}
       >
+        {title && <title>{title}</title>}
         {IconStyle.content}
       </IconStyle.root>
     );
