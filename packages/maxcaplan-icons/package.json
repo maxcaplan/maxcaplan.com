@@ -15,6 +15,14 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/types.d.ts",
+  "targets": {
+    "main": {
+      "optimize": true
+    },
+    "module": {
+      "optimize": true
+    }
+  },
   "scripts": {
     "generate:icons": "node -r @swc-node/register ./scripts/generate-icons.ts",
     "watch": "parcel watch",
