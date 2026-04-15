@@ -1,0 +1,167 @@
+@use "colour";
+@use "spacing";
+
+// Primitive Tokens
+
+$width: 1px;
+$width-select: spacing.$base-100;
+$width-focus: spacing.$base-100;
+
+$radius-md: spacing.$base-100;
+$radius-lg: spacing.$base-200;
+$radius-xl: spacing.$base-300;
+
+// Composite Tokens
+
+/// Border styles
+/// @param {String|Number} $variant - Colour variant of the border
+/// @param {String} $thickness - Border width
+/// @param {String} $style [solid] - Border style
+/// @param {Boolean} $surface [false] - Surface border variant
+/// @param {Boolean} $top - Has top border
+/// @param {Boolean} $bottom - Has bottom border
+/// @param {Boolean} $left - Has left border
+/// @param {Boolean} $right - Has right border
+@mixin border(
+  $variant,
+  $thickness: null,
+  $style: solid,
+  $surface: false,
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null
+) {
+  $all-sides: not $top and not $bottom and not $left and not $right;
+
+  border-color: getBorderColour($variant, $surface);
+  border-width: getBorderWidth($thickness);
+  border-style: $style;
+
+  @if $all-sides {
+    @if $top == false {
+      border-top-style: none;
+    }
+
+    @if $bottom == false {
+      border-bottom-style: none;
+    }
+
+    @if $left == false {
+      border-left-style: none;
+    }
+
+    @if $right == false {
+      border-right-style: none;
+    }
+  } @else {
+    @if not $top {
+      border-top-style: none;
+    }
+
+    @if not $bottom {
+      border-bottom-style: none;
+    }
+
+    @if not $left {
+      border-left-style: none;
+    }
+
+    @if not $right {
+      border-right-style: none;
+    }
+  }
+}
+
+/// Outline styles
+/// @param {String|Number} $variant - Outline colour variant
+/// @param {String} $thickness - Outline width
+/// @param {String} $style [solid] - Outline style
+/// @param {Boolean} $surface [false] - Surface outline variant
+@mixin outline($variant, $thickness: null, $style: solid, $surface: false) {
+  outline-color: getBorderColour($variant, $surface);
+  outline-width: getBorderWidth($thickness);
+  outline-style: $style;
+}
+
+// Helpers
+
+/// Get corresponding colour value for a border variant
+@function getBorderColour($variant, $surface: false) {
+  @if $variant == 100 {
+    @return colour.$border-100;
+  }
+
+  @if $variant == 200 {
+    @return colour.$border-200;
+  }
+
+  @if $variant == 300 {
+    @return colour.$border-300;
+  }
+
+  @if $variant == 400 {
+    @return colour.$border-400;
+  }
+
+  @if $variant == 500 {
+    @return colour.$border-500;
+  }
+
+  @if not $surface {
+    @if $variant == primary {
+      @return colour.$primary-border;
+    }
+
+    @if $variant == secondary {
+      @return colour.$secondary-border;
+    }
+
+    @if $variant == success {
+      @return colour.$success-border;
+    }
+
+    @if $variant == warning {
+      @return colour.$warning-border;
+    }
+
+    @if $variant == danger {
+      @return colour.$warning-danger;
+    }
+  } @else {
+    @if $variant == primary {
+      @return colour.$primary-surface-border;
+    }
+
+    @if $variant == secondary {
+      @return colour.$secondary-surface-border;
+    }
+
+    @if $variant == success {
+      @return colour.$success-surface-border;
+    }
+
+    @if $variant == warning {
+      @return colour.$warning-surface-border;
+    }
+
+    @if $variant == danger {
+      @return colour.$warning-surface-danger;
+    }
+  }
+
+  @return colour.$border-100;
+}
+
+/// Get corresponding width value for a border variant
+@function getBorderWidth($variant) {
+  @if $variant == select {
+    @return $width-select;
+  }
+
+  @if $variant == focus {
+    @return $width-focus;
+  }
+
+  @return $width;
+}
