@@ -40,8 +40,8 @@ const NavLink = (props: NavLinkProps) => {
 
 export function Navbar() {
   return (
-    <header class="navbar">
-      <div class="navbar__inner">
+    <header class="navbar root-padding">
+      <div class="navbar__inner container">
         <div class="navbar__brand">
           <a
             href="/"
@@ -50,37 +50,6 @@ export function Navbar() {
           >
             <Logo className="navbar__logo" variant="logo" />
             <Logo className="navbar__logo" variant="lettermark" />
-            {/* <img */}
-            {/*   src={logoDark.src} */}
-            {/*   alt="Max Caplan" */}
-            {/*   width={logoDark.width} */}
-            {/*   height={logoDark.height} */}
-            {/*   class="navbar__logo--dark" */}
-            {/* /> */}
-            {/**/}
-            {/* <img */}
-            {/*   src={logoLight.src} */}
-            {/*   alt="Max Caplan" */}
-            {/*   width={logoLight.width} */}
-            {/*   height={logoLight.height} */}
-            {/*   class="navbar__logo--light" */}
-            {/* /> */}
-            {/**/}
-            {/* <img */}
-            {/*   src={lettermarkDark.src} */}
-            {/*   alt="Max Caplan" */}
-            {/*   width={lettermarkDark.width} */}
-            {/*   height={lettermarkDark.height} */}
-            {/*   class="navbar__lettermark--dark" */}
-            {/* /> */}
-            {/**/}
-            {/* <img */}
-            {/*   src={lettermarkLight.src} */}
-            {/*   alt="Max Caplan" */}
-            {/*   width={lettermarkLight.width} */}
-            {/*   height={lettermarkLight.height} */}
-            {/*   class="navbar__lettermark--light" */}
-            {/* /> */}
           </a>
         </div>
 

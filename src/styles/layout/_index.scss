@@ -1,0 +1,17 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/layout";
+
+@use "containers";
+
+:root {
+  #{spacing.$root-padding-var}: spacing.$root-padding-sm;
+
+  @include layout.media-breakpoint(sm) {
+    #{spacing.$root-padding-var}: spacing.$root-padding-lg;
+  }
+}
+
+.root-padding {
+  padding-left: spacing.$root-padding;
+  padding-right: spacing.$root-padding;
+}

@@ -1,0 +1,13 @@
+@use "styles/abstract/layout";
+
+.container {
+  @include layout.container;
+}
+
+.container-full {
+  @include layout.container("full");
+}
+
+.container-content {
+  @include layout.container("content");
+}
