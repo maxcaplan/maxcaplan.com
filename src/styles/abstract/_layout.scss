@@ -4,26 +4,26 @@ $width-content: 34.5rem;
 $width-container: spacing.step-up(spacing.step-up(1rem, 9), 1, $quarter: true);
 $width-full: 120rem;
 
-$min-width-sm: 640px;
-$min-width-md: 768px;
-$min-width-lg: 1024px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
 
 /// Media breakpoint wrapper
-/// @param {"sm" | "md" | "lg"} $breakpoint
+/// @param {'sm'|'md'|'lg'} $breakpoint - Media min width
 /// @content
 @mixin media-breakpoint($breakpoint) {
   $min-width: false;
 
   @if $breakpoint == sm {
-    $min-width: $min-width-sm;
+    $min-width: $breakpoint-sm;
   }
 
   @if $breakpoint == md {
-    $min-width: $min-width-md;
+    $min-width: $breakpoint-md;
   }
 
   @if $breakpoint == lg {
-    $min-width: $min-width-lg;
+    $min-width: $breakpoint-lg;
   }
 
   @if not $min-width {
@@ -33,4 +33,23 @@ $min-width-lg: 1024px;
       @content;
     }
   }
+}
+
+/// Layout container
+/// @param {'container'|'full'|'content'} $width ['container'] - Max container width
+@mixin container($width: container) {
+  $max-width: $width-container;
+
+  @if $width == full {
+    $max-width: $width-full;
+  }
+
+  @if $width == content {
+    $max-width: $width-container;
+  }
+
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
