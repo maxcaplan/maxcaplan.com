@@ -17,6 +17,9 @@ importers:
       astro:
         specifier: ^6.1.4
         version: 6.1.4(@types/node@25.5.2)(lightningcss@1.32.0)(rollup@4.60.1)(sass-embedded@1.99.0)(sass@1.99.0)(typescript@6.0.2)(yaml@2.8.3)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       maxcaplan-icons:
         specifier: workspace:*
         version: link:packages/maxcaplan-icons
@@ -63,6 +66,12 @@ importers:
       vitest:
         specifier: ^4.1.2
         version: 4.1.2(@types/node@25.5.2)(jsdom@29.0.2)(vite@7.3.2(@types/node@25.5.2)(lightningcss@1.32.0)(sass-embedded@1.99.0)(sass@1.99.0)(yaml@2.8.3))
+
+  node_modules/.pnpm/sass-embedded-linux-x64@1.99.0/node_modules/sass-embedded-linux-x64:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
 
   packages/maxcaplan-icons:
     dependencies:

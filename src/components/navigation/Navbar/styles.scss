@@ -1,0 +1,212 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
+@use "styles/abstract/border";
+
+$mobile-menu-breakpoint: md;
+
+.navbar {
+  background: colour.$surface-100;
+  padding: 0 0 0 spacing.$root-padding;
+  @include border.border(100, $bottom: true);
+
+  &__inner {
+    @include layout.container(full);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: spacing.$base-400;
+    align-items: center;
+  }
+
+  &__brand {
+    flex-basis: 100%;
+  }
+
+  &__homepage-link {
+    position: relative;
+    display: inline-flex;
+    padding: spacing.$base-500 0 spacing.$base-500 0;
+    outline: 0;
+
+    img {
+      height: spacing.$base-600;
+      width: auto;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: spacing.$base-400;
+      bottom: spacing.$base-400;
+      left: calc(-1 * spacing.$base-300);
+      right: calc(-1 * spacing.$base-300);
+      border-radius: border.$radius-md;
+    }
+
+    &:focus-visible::after {
+      @include border.outline(500, focus);
+    }
+  }
+
+  &__nav {
+    align-self: stretch;
+    display: none;
+
+    @include layout.media-breakpoint($mobile-menu-breakpoint) {
+      display: flex;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    column-gap: spacing.$base-400;
+    height: 100%;
+    list-style: none;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__nav-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: spacing.$base-400 spacing.$base-500;
+    color: colour.$text-medium;
+    text-decoration: none;
+    outline: 0;
+    @include type.ui-md;
+
+    &--current {
+      color: colour.$text;
+      font-weight: type.$weight-emphasis;
+    }
+
+    &:hover {
+      color: colour.$secondary-text;
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: spacing.$base-400;
+      bottom: spacing.$base-400;
+      left: 0;
+      right: 0;
+      border-radius: border.$radius-md;
+    }
+
+    &:focus-visible::after {
+      @include border.outline(500, focus);
+    }
+  }
+
+  &__settings-menu-button,
+  &__menu-button {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: thin colour.$border-100 solid;
+    outline: 0;
+
+    @include layout.media-breakpoint(sm) {
+      padding: 0 spacing.$base-600;
+    }
+
+    &:hover {
+      background-color: colour.$surface-400;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: spacing.$base-300;
+      bottom: spacing.$base-300;
+      left: spacing.$base-300;
+      right: spacing.$base-300;
+      border-radius: border.$radius-md;
+    }
+
+    &:focus-visible::after {
+      @include border.outline(500, focus);
+    }
+  }
+
+  &__settings-menu-button {
+    padding: 0 spacing.$base-600;
+    display: none;
+
+    @include layout.media-breakpoint($mobile-menu-breakpoint) {
+      display: flex;
+    }
+  }
+
+  &__menu-button {
+    padding: 0 spacing.$base-500;
+    display: flex;
+
+    @include layout.media-breakpoint($mobile-menu-breakpoint) {
+      display: none;
+    }
+  }
+
+  @include colour.theme(dark) {
+    &__logo--dark {
+      display: none;
+    }
+
+    &__lettermark--dark {
+      display: block;
+    }
+
+    &__logo--light,
+    &__lettermark--light {
+      display: none;
+    }
+
+    @include layout.media-breakpoint(md) {
+      &__lettermark--dark {
+        display: none;
+      }
+
+      &__logo--dark {
+        display: block;
+      }
+    }
+  }
+
+  @include colour.theme(light) {
+    &__logo--light {
+      display: none;
+    }
+
+    &__lettermark--light {
+      display: block;
+    }
+
+    &__logo--dark,
+    &__lettermark--dark {
+      display: none;
+    }
+
+    @include layout.media-breakpoint(md) {
+      &__lettermark--light {
+        display: none;
+      }
+
+      &__logo--light {
+        display: block;
+      }
+    }
+  }
+}
