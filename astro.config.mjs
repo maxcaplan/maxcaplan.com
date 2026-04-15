@@ -3,12 +3,21 @@
 import preact from "@astrojs/preact";
 import { defineConfig, fontProviders } from "astro/config";
 
+import path from "path";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: ["src"],
+        },
+      },
+    },
     resolve: {
       alias: {
-        "@/": "src/",
+        "@": path.resolve(process.cwd(), "src"),
       },
     },
   },

@@ -1,3 +1,34 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/layout";
+
 @use "normalize";
 @use "theme";
 @use "typography";
+@use "helpers";
+
+:root {
+  #{spacing.$root-padding-var}: spacing.$root-padding-sm;
+
+  @include layout.media-breakpoint(sm) {
+    #{spacing.$root-padding-var}: spacing.$root-padding-lg;
+  }
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  border: none;
+  background-color: unset;
+  color: currentColor;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.mc-icon {
+  width: spacing.$base-600;
+  height: spacing.$base-600;
+  fill: currentColor;
+}

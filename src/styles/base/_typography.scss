@@ -1,5 +1,5 @@
-@use "../abstract/type";
-@use "../abstract/layout";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
 
 :root {
   #{type.$body-size-var}: type.$mobile-body-size-value;
@@ -56,7 +56,7 @@
   #{type.$ui-xl-size-var}: type.$ui-xl-size-value;
   #{type.$ui-xl-height-var}: type.$ui-xl-height-value;
 
-  @include layout.media-breakpoint("sm") {
+  @include layout.media-breakpoint(sm) {
     #{type.$body-size-var}: type.$desktop-body-size-value;
     #{type.$body-height-var}: type.$desktop-body-height-value;
 

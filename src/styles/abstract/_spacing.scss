@@ -72,6 +72,8 @@ $eighth-step: calc(round(pow($scaling-factor, 0.125), 0.001));
   @return calc($value / round(pow($step-size, $steps), 0.001));
 }
 
+// Primitive tokens
+
 $base-100: step-down(1rem, 4);
 $base-200: step-down(1rem, 3);
 $base-300: step-down(1rem, 2);
@@ -103,3 +105,10 @@ $relative-1200: step-up(1em, 7);
 $relative-1300: step-up(1em, 8);
 $relative-1400: step-up(1em, 9);
 $relative-1500: step-up(1em, 10);
+
+// Semantic tokens
+
+$root-padding-var: --mc--spacing--root-padding;
+$root-padding-sm: $base-500;
+$root-padding-lg: $base-600;
+$root-padding: var($root-padding-var);

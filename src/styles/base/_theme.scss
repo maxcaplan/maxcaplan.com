@@ -1,4 +1,4 @@
-@use "../abstract/colour";
+@use "styles/abstract/colour";
 
 body {
   background: colour.$surface-50;
@@ -14,12 +14,12 @@ body {
   #{colour.$surface-500-var}: colour.$dark-surface-500;
   #{colour.$surface-600-var}: colour.$dark-surface-600;
 
-  #{colour.$outline-100-var}: colour.$dark-outline-100;
-  #{colour.$outline-200-var}: colour.$dark-outline-200;
-  #{colour.$outline-300-var}: colour.$dark-outline-300;
-  #{colour.$outline-400-var}: colour.$dark-outline-400;
-  #{colour.$outline-500-var}: colour.$dark-outline-500;
-  #{colour.$outline-600-var}: colour.$dark-outline-600;
+  #{colour.$border-100-var}: colour.$dark-border-100;
+  #{colour.$border-200-var}: colour.$dark-border-200;
+  #{colour.$border-300-var}: colour.$dark-border-300;
+  #{colour.$border-400-var}: colour.$dark-border-400;
+  #{colour.$border-500-var}: colour.$dark-border-500;
+  #{colour.$border-600-var}: colour.$dark-border-600;
 
   #{colour.$text-var}: colour.$dark-text;
   #{colour.$text-medium-var}: colour.$dark-text-medium;
@@ -28,46 +28,46 @@ body {
 
   #{colour.$primary-var}: colour.$dark-primary;
   #{colour.$primary-contrast-var}: colour.$dark-primary-contrast;
-  #{colour.$primary-outline-var}: colour.$dark-primary-outline;
+  #{colour.$primary-border-var}: colour.$dark-primary-border;
   #{colour.$primary-text-var}: colour.$dark-primary-text;
   #{colour.$primary-dim-var}: colour.$dark-primary-dim;
   #{colour.$primary-dim-contrast-var}: colour.$dark-primary-dim-contrast;
   #{colour.$primary-surface-var}: colour.$dark-primary-surface;
   #{colour.$primary-surface-contrast-var}: colour.$dark-primary-surface-contrast;
-  #{colour.$primary-surface-outline-var}: colour.$dark-primary-surface-outline;
+  #{colour.$primary-surface-border-var}: colour.$dark-primary-surface-border;
   #{colour.$primary-surface-icon-var}: colour.$dark-primary-surface-icon;
 
   #{colour.$secondary-var}: colour.$dark-secondary;
   #{colour.$secondary-contrast-var}: colour.$dark-secondary-contrast;
-  #{colour.$secondary-outline-var}: colour.$dark-secondary-outline;
+  #{colour.$secondary-border-var}: colour.$dark-secondary-border;
   #{colour.$secondary-text-var}: colour.$dark-secondary-text;
   #{colour.$secondary-dim-var}: colour.$dark-secondary-dim;
   #{colour.$secondary-dim-contrast-var}: colour.$dark-secondary-dim-contrast;
   #{colour.$secondary-surface-var}: colour.$dark-secondary-surface;
   #{colour.$secondary-surface-contrast-var}: colour.$dark-secondary-surface-contrast;
-  #{colour.$secondary-surface-outline-var}: colour.$dark-secondary-surface-outline;
+  #{colour.$secondary-surface-border-var}: colour.$dark-secondary-surface-border;
   #{colour.$secondary-surface-icon-var}: colour.$dark-secondary-surface-icon;
 
   #{colour.$warning-var}: colour.$dark-warning;
   #{colour.$warning-contrast-var}: colour.$dark-warning-contrast;
-  #{colour.$warning-outline-var}: colour.$dark-warning-outline;
+  #{colour.$warning-border-var}: colour.$dark-warning-border;
   #{colour.$warning-text-var}: colour.$dark-warning-text;
   #{colour.$warning-dim-var}: colour.$dark-warning-dim;
   #{colour.$warning-dim-contrast-var}: colour.$dark-warning-dim-contrast;
   #{colour.$warning-surface-var}: colour.$dark-warning-surface;
   #{colour.$warning-surface-contrast-var}: colour.$dark-warning-surface-contrast;
-  #{colour.$warning-surface-outline-var}: colour.$dark-warning-surface-outline;
+  #{colour.$warning-surface-border-var}: colour.$dark-warning-surface-border;
   #{colour.$warning-surface-icon-var}: colour.$dark-warning-surface-icon;
 
   #{colour.$danger-var}: colour.$dark-danger;
   #{colour.$danger-contrast-var}: colour.$dark-danger-contrast;
-  #{colour.$danger-outline-var}: colour.$dark-danger-outline;
+  #{colour.$danger-border-var}: colour.$dark-danger-border;
   #{colour.$danger-text-var}: colour.$dark-danger-text;
   #{colour.$danger-dim-var}: colour.$dark-danger-dim;
   #{colour.$danger-dim-contrast-var}: colour.$dark-danger-dim-contrast;
   #{colour.$danger-surface-var}: colour.$dark-danger-surface;
   #{colour.$danger-surface-contrast-var}: colour.$dark-danger-surface-contrast;
-  #{colour.$danger-surface-outline-var}: colour.$dark-danger-surface-outline;
+  #{colour.$danger-surface-border-var}: colour.$dark-danger-surface-border;
   #{colour.$danger-surface-icon-var}: colour.$dark-danger-surface-icon;
 
   #{colour.$shadow-var}: colour.$dark-shadow;
@@ -84,12 +84,12 @@ body {
   #{colour.$surface-500-var}: colour.$light-surface-500;
   #{colour.$surface-600-var}: colour.$light-surface-600;
 
-  #{colour.$outline-100-var}: colour.$light-outline-100;
-  #{colour.$outline-200-var}: colour.$light-outline-200;
-  #{colour.$outline-300-var}: colour.$light-outline-300;
-  #{colour.$outline-400-var}: colour.$light-outline-400;
-  #{colour.$outline-500-var}: colour.$light-outline-500;
-  #{colour.$outline-600-var}: colour.$light-outline-600;
+  #{colour.$border-100-var}: colour.$light-border-100;
+  #{colour.$border-200-var}: colour.$light-border-200;
+  #{colour.$border-300-var}: colour.$light-border-300;
+  #{colour.$border-400-var}: colour.$light-border-400;
+  #{colour.$border-500-var}: colour.$light-border-500;
+  #{colour.$border-600-var}: colour.$light-border-600;
 
   #{colour.$text-var}: colour.$light-text;
   #{colour.$text-medium-var}: colour.$light-text-medium;
@@ -98,46 +98,46 @@ body {
 
   #{colour.$primary-var}: colour.$light-primary;
   #{colour.$primary-contrast-var}: colour.$light-primary-contrast;
-  #{colour.$primary-outline-var}: colour.$light-primary-outline;
+  #{colour.$primary-border-var}: colour.$light-primary-border;
   #{colour.$primary-text-var}: colour.$light-primary-text;
   #{colour.$primary-dim-var}: colour.$light-primary-dim;
   #{colour.$primary-dim-contrast-var}: colour.$light-primary-dim-contrast;
   #{colour.$primary-surface-var}: colour.$light-primary-surface;
   #{colour.$primary-surface-contrast-var}: colour.$light-primary-surface-contrast;
-  #{colour.$primary-surface-outline-var}: colour.$light-primary-surface-outline;
+  #{colour.$primary-surface-border-var}: colour.$light-primary-surface-border;
   #{colour.$primary-surface-icon-var}: colour.$light-primary-surface-icon;
 
   #{colour.$secondary-var}: colour.$light-secondary;
   #{colour.$secondary-contrast-var}: colour.$light-secondary-contrast;
-  #{colour.$secondary-outline-var}: colour.$light-secondary-outline;
+  #{colour.$secondary-border-var}: colour.$light-secondary-border;
   #{colour.$secondary-text-var}: colour.$light-secondary-text;
   #{colour.$secondary-dim-var}: colour.$light-secondary-dim;
   #{colour.$secondary-dim-contrast-var}: colour.$light-secondary-dim-contrast;
   #{colour.$secondary-surface-var}: colour.$light-secondary-surface;
   #{colour.$secondary-surface-contrast-var}: colour.$light-secondary-surface-contrast;
-  #{colour.$secondary-surface-outline-var}: colour.$light-secondary-surface-outline;
+  #{colour.$secondary-surface-border-var}: colour.$light-secondary-surface-border;
   #{colour.$secondary-surface-icon-var}: colour.$light-secondary-surface-icon;
 
   #{colour.$warning-var}: colour.$light-warning;
   #{colour.$warning-contrast-var}: colour.$light-warning-contrast;
-  #{colour.$warning-outline-var}: colour.$light-warning-outline;
+  #{colour.$warning-border-var}: colour.$light-warning-border;
   #{colour.$warning-text-var}: colour.$light-warning-text;
   #{colour.$warning-dim-var}: colour.$light-warning-dim;
   #{colour.$warning-dim-contrast-var}: colour.$light-warning-dim-contrast;
   #{colour.$warning-surface-var}: colour.$light-warning-surface;
   #{colour.$warning-surface-contrast-var}: colour.$light-warning-surface-contrast;
-  #{colour.$warning-surface-outline-var}: colour.$light-warning-surface-outline;
+  #{colour.$warning-surface-border-var}: colour.$light-warning-surface-border;
   #{colour.$warning-surface-icon-var}: colour.$light-warning-surface-icon;
 
   #{colour.$danger-var}: colour.$light-danger;
   #{colour.$danger-contrast-var}: colour.$light-danger-contrast;
-  #{colour.$danger-outline-var}: colour.$light-danger-outline;
+  #{colour.$danger-border-var}: colour.$light-danger-border;
   #{colour.$danger-text-var}: colour.$light-danger-text;
   #{colour.$danger-dim-var}: colour.$light-danger-dim;
   #{colour.$danger-dim-contrast-var}: colour.$light-danger-dim-contrast;
   #{colour.$danger-surface-var}: colour.$light-danger-surface;
   #{colour.$danger-surface-contrast-var}: colour.$light-danger-surface-contrast;
-  #{colour.$danger-surface-outline-var}: colour.$light-danger-surface-outline;
+  #{colour.$danger-surface-border-var}: colour.$light-danger-surface-border;
   #{colour.$danger-surface-icon-var}: colour.$light-danger-surface-icon;
 
   #{colour.$shadow-var}: colour.$light-shadow;
@@ -149,20 +149,12 @@ body {
   @include theme-dark;
 }
 
-.theme-dark {
+@include colour.theme(dark) {
   @include theme-dark;
 }
 
-.theme-light {
+@include colour.theme(light) {
   @include theme-light;
-}
-
-.theme-system {
-  @include theme-dark;
-
-  @media (prefers-color-scheme: light) {
-    @include theme-light;
-  }
 }
 
 .surface-50 {
