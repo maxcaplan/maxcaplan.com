@@ -7,6 +7,7 @@ import lettermarkDark from "@/assets/images/brand/lettermark_dark.svg";
 import lettermarkLight from "@/assets/images/brand/lettermark_light.svg";
 import logoDark from "@/assets/images/brand/logo_dark.svg";
 import logoLight from "@/assets/images/brand/logo_light.svg";
+import { Logo } from "@/components/brand/Logo";
 
 interface NavItemProps {
   children?: ComponentChildren;
@@ -47,37 +48,39 @@ export function Navbar() {
             aria-label="Go to the maxcaplan.com homepage"
             class="navbar__homepage-link"
           >
-            <img
-              src={logoDark.src}
-              alt="Max Caplan"
-              width={logoDark.width}
-              height={logoDark.height}
-              class="navbar__logo--dark"
-            />
-
-            <img
-              src={logoLight.src}
-              alt="Max Caplan"
-              width={logoLight.width}
-              height={logoLight.height}
-              class="navbar__logo--light"
-            />
-
-            <img
-              src={lettermarkDark.src}
-              alt="Max Caplan"
-              width={lettermarkDark.width}
-              height={lettermarkDark.height}
-              class="navbar__lettermark--dark"
-            />
-
-            <img
-              src={lettermarkLight.src}
-              alt="Max Caplan"
-              width={lettermarkLight.width}
-              height={lettermarkLight.height}
-              class="navbar__lettermark--light"
-            />
+            <Logo className="navbar__logo" variant="logo" />
+            <Logo className="navbar__logo" variant="lettermark" />
+            {/* <img */}
+            {/*   src={logoDark.src} */}
+            {/*   alt="Max Caplan" */}
+            {/*   width={logoDark.width} */}
+            {/*   height={logoDark.height} */}
+            {/*   class="navbar__logo--dark" */}
+            {/* /> */}
+            {/**/}
+            {/* <img */}
+            {/*   src={logoLight.src} */}
+            {/*   alt="Max Caplan" */}
+            {/*   width={logoLight.width} */}
+            {/*   height={logoLight.height} */}
+            {/*   class="navbar__logo--light" */}
+            {/* /> */}
+            {/**/}
+            {/* <img */}
+            {/*   src={lettermarkDark.src} */}
+            {/*   alt="Max Caplan" */}
+            {/*   width={lettermarkDark.width} */}
+            {/*   height={lettermarkDark.height} */}
+            {/*   class="navbar__lettermark--dark" */}
+            {/* /> */}
+            {/**/}
+            {/* <img */}
+            {/*   src={lettermarkLight.src} */}
+            {/*   alt="Max Caplan" */}
+            {/*   width={lettermarkLight.width} */}
+            {/*   height={lettermarkLight.height} */}
+            {/*   class="navbar__lettermark--light" */}
+            {/* /> */}
           </a>
         </div>
 

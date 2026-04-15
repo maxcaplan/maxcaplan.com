@@ -30,11 +30,6 @@ $mobile-menu-breakpoint: md;
     padding: spacing.$base-500 0 spacing.$base-500 0;
     outline: 0;
 
-    img {
-      height: spacing.$base-600;
-      width: auto;
-    }
-
     &::after {
       content: "";
       position: absolute;
@@ -47,6 +42,29 @@ $mobile-menu-breakpoint: md;
 
     &:focus-visible::after {
       @include border.outline(500, focus);
+    }
+  }
+
+  &__logo {
+    height: spacing.$base-600;
+    width: auto;
+
+    &.logo--lettermark {
+      display: block;
+    }
+
+    &:not(.logo--lettermark) {
+      display: none;
+    }
+
+    @include layout.media-breakpoint(md) {
+      &.logo--lettermark {
+        display: none;
+      }
+
+      &:not(.logo--lettermark) {
+        display: block;
+      }
     }
   }
 
@@ -157,56 +175,6 @@ $mobile-menu-breakpoint: md;
 
     @include layout.media-breakpoint($mobile-menu-breakpoint) {
       display: none;
-    }
-  }
-
-  @include colour.theme(dark) {
-    &__logo--dark {
-      display: none;
-    }
-
-    &__lettermark--dark {
-      display: block;
-    }
-
-    &__logo--light,
-    &__lettermark--light {
-      display: none;
-    }
-
-    @include layout.media-breakpoint(md) {
-      &__lettermark--dark {
-        display: none;
-      }
-
-      &__logo--dark {
-        display: block;
-      }
-    }
-  }
-
-  @include colour.theme(light) {
-    &__logo--light {
-      display: none;
-    }
-
-    &__lettermark--light {
-      display: block;
-    }
-
-    &__logo--dark,
-    &__lettermark--dark {
-      display: none;
-    }
-
-    @include layout.media-breakpoint(md) {
-      &__lettermark--light {
-        display: none;
-      }
-
-      &__logo--light {
-        display: block;
-      }
     }
   }
 }
