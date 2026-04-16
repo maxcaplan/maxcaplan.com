@@ -14,13 +14,14 @@ export default function Header() {
 
       <div class="header__inner container-full">
         <div class="header__brand">
-          <a
-            href="/"
-            aria-label="Go to the maxcaplan.com homepage"
-            class="header__homepage-link"
-          >
-            <Logo className="header__logo" variant="logo" />
-            <Logo className="header__logo" variant="lettermark" />
+          <a href="/" class="header__homepage-link">
+            <span class="visually-hidden">Go to the homepage</span>
+            <Logo className="header__logo" variant="logo" aria-hidden="true" />
+            <Logo
+              className="header__logo"
+              variant="lettermark"
+              aria-hidden="true"
+            />
           </a>
         </div>
 
@@ -40,18 +41,15 @@ export default function Header() {
 
         <button
           class="header__menu-button header__menu-button--settings"
-          aria-label="Website Settings Menu"
           aria-expanded="false"
         >
-          <Settings width={26} height={26} />
+          <span class="visually-hidden">Website settings menu</span>
+          <Settings width={26} height={26} aria-hidden="true" />
         </button>
 
-        <button
-          class="header__menu-button"
-          aria-label="Menu"
-          aria-expanded="false"
-        >
-          <Menu width={26} height={26} />
+        <button class="header__menu-button" aria-expanded="false">
+          <span class="visually-hidden">Menu</span>
+          <Menu width={26} height={26} aria-hidden="true" />
         </button>
       </div>
     </header>
