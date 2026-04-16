@@ -1,0 +1,18 @@
+@use "styles/abstract/spacing";
+
+.nav-menu {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: spacing.$base-400;
+    list-style: none;
+
+    .nav-menu[data-direction="row"] & {
+      flex-direction: row;
+    }
+
+    .nav-menu[data-direction="col"] & {
+      flex-direction: column;
+    }
+  }
+}
