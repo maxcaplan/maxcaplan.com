@@ -46,7 +46,8 @@ $height-1200: 1.1;
 // Weight
 
 $weight-body: 400;
-$weight-emphasis: 700;
+$weight-medium: 500;
+$weight-strong: 700;
 $weight-display-1: 700;
 $weight-display-2: 500;
 
@@ -386,30 +387,22 @@ $ui-xl-height: var(--mc--type--ui-xl--height);
   font-family: $font-display;
   font-size: $ui-sm-size;
   line-height: $ui-sm-height;
-  font-weight: $weight-body;
-  color: colour.$text;
 }
 
 @mixin ui-md {
   font-family: $font-display;
   font-size: $ui-md-size;
   line-height: $ui-md-height;
-  font-weight: $weight-body;
-  color: colour.$text;
 }
 
 @mixin ui-lg {
   font-family: $font-display;
   font-size: $ui-lg-size;
   line-height: $ui-lg-height;
-  font-weight: $weight-body;
-  color: colour.$text;
 }
 
 @mixin ui-xl {
   font-family: $font-display;
   font-size: $ui-xl-size;
   line-height: $ui-xl-height;
-  font-weight: $weight-body;
-  color: colour.$text;
 }

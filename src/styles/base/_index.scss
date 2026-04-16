@@ -1,9 +1,9 @@
 @use "styles/abstract/spacing";
+@use "styles/abstract/util";
 
 @use "normalize";
 @use "theme";
 @use "typography";
-@use "helpers";
 
 button,
 [type="button"],
@@ -16,6 +16,10 @@ button,
   &:not(:disabled) {
     cursor: pointer;
   }
+}
+
+.visually-hidden {
+  @include util.visually-hidden;
 }
 
 .mc-icon {

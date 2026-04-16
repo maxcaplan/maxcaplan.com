@@ -3,13 +3,53 @@
 @use "styles/abstract/type";
 @use "styles/abstract/layout";
 @use "styles/abstract/border";
+@use "styles/abstract/util";
 
 $mobile-menu-breakpoint: md;
 
-.navbar {
+.header {
+  position: relative;
   background: colour.$surface-100;
   padding-right: 0;
   @include border.border(100, $bottom: true);
+
+  &__skip-link {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 spacing.$base-600;
+    outline: 0;
+    color: colour.$secondary-surface-contrast;
+    @include type.ui-md;
+    font-weight: type.$weight-medium;
+
+    &:visited {
+      color: colour.$secondary-surface-contrast;
+    }
+
+    &:not(:focus-visible) {
+      @include util.visually-hidden;
+    }
+
+    &::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: spacing.$base-300 spacing.$base-400;
+      background-color: colour.$secondary-surface;
+      border-radius: border.$radius-md;
+      @include border.border(secondary, focus, $surface: true);
+    }
+  }
 
   &__inner {
     display: flex;
@@ -44,6 +84,11 @@ $mobile-menu-breakpoint: md;
     }
   }
 
+  /** Visually hide logo when skip link is focused */
+  &:has(#{&}__skip-link:focus-visible) #{&}__homepage-link {
+    opacity: 0;
+  }
+
   &__logo {
     height: spacing.$base-600;
     width: auto;
@@ -67,77 +112,75 @@ $mobile-menu-breakpoint: md;
     }
   }
 
-  &__nav {
+  &__nav-menu {
     align-self: stretch;
     display: none;
 
     @include layout.media-breakpoint($mobile-menu-breakpoint) {
       display: flex;
     }
-  }
 
-  &__nav-list {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    column-gap: spacing.$base-400;
-    height: 100%;
-    list-style: none;
-  }
-
-  &__nav-item {
-    display: flex;
-    align-items: stretch;
-  }
-
-  &__nav-link {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: spacing.$base-400 spacing.$base-500;
-    color: colour.$text-medium;
-    text-decoration: none;
-    outline: 0;
-    @include type.ui-md;
-
-    &--current {
-      color: colour.$text;
-      font-weight: type.$weight-emphasis;
+    .nav-menu__list {
+      align-items: stretch;
+      column-gap: spacing.$base-400;
+      height: 100%;
     }
 
-    &:hover,
-    &:visited:hover {
-      color: colour.$text-secondary;
-      text-decoration: underline;
+    .nav-menu__item {
+      display: flex;
+      align-items: stretch;
     }
 
-    &:visited {
-      color: currentColor;
-    }
+    .nav-menu__link {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: spacing.$base-400 spacing.$base-500;
+      color: colour.$text-medium;
+      text-transform: lowercase;
+      text-decoration: none;
+      outline: 0;
+      @include type.ui-md;
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: spacing.$base-400;
-      bottom: spacing.$base-400;
-      left: 0;
-      right: 0;
-      border-radius: border.$radius-md;
-    }
+      &--current {
+        color: colour.$text;
+        font-weight: type.$weight-strong;
+      }
 
-    &:focus-visible::after {
-      @include border.outline(500, focus);
+      &:hover,
+      &:visited:hover {
+        color: colour.$text-secondary;
+        text-decoration: underline;
+      }
+
+      &:visited {
+        color: colour.$text-medium;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: spacing.$base-400;
+        bottom: spacing.$base-400;
+        left: 0;
+        right: 0;
+        border-radius: border.$radius-md;
+      }
+
+      &:focus-visible::after {
+        @include border.outline(500, focus);
+      }
     }
   }
 
-  &__settings-menu-button,
   &__menu-button {
     position: relative;
     align-self: stretch;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 spacing.$root-padding;
     border-left: thin colour.$border-100 solid;
     outline: 0;
 
@@ -164,8 +207,7 @@ $mobile-menu-breakpoint: md;
     }
   }
 
-  &__settings-menu-button {
-    padding: 0 spacing.$base-600;
+  &__menu-button#{&}__menu-button--settings {
     display: none;
 
     @include layout.media-breakpoint($mobile-menu-breakpoint) {
@@ -173,8 +215,7 @@ $mobile-menu-breakpoint: md;
     }
   }
 
-  &__menu-button {
-    padding: 0 spacing.$base-500;
+  &__menu-button:not(#{&}__menu-button--settings) {
     display: flex;
 
     @include layout.media-breakpoint($mobile-menu-breakpoint) {

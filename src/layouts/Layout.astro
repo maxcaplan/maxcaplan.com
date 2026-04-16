@@ -2,7 +2,8 @@
 import "@/styles/main.scss";
 
 import { Font } from "astro:assets";
-import { Navbar } from "@/components/navigation/Navbar";
+import Navbar from "@/components/navigation/Navbar";
+import Header from "@/components/layout/Header";
 ---
 
 <!doctype html>
@@ -18,7 +19,10 @@ import { Navbar } from "@/components/navigation/Navbar";
   </head>
 
   <body class="theme-system">
-    <Navbar />
-    <slot />
+    <Header />
+
+    <main id="main-content">
+      <slot />
+    </main>
   </body>
 </html>
