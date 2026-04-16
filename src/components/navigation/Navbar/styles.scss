@@ -106,9 +106,14 @@ $mobile-menu-breakpoint: md;
       font-weight: type.$weight-emphasis;
     }
 
-    &:hover {
-      color: colour.$secondary-text;
+    &:hover,
+    &:visited:hover {
+      color: colour.$text-secondary;
       text-decoration: underline;
+    }
+
+    &:visited {
+      color: currentColor;
     }
 
     &::after {
