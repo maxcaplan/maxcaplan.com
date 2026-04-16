@@ -12,7 +12,7 @@ export default function Header() {
         Skip to content
       </a>
 
-      <div class="header__inner">
+      <div class="header__inner container-full">
         <div class="header__brand">
           <a
             href="/"
