@@ -1,11 +1,13 @@
 @use "styles/abstract/colour";
+@use "styles/abstract/util";
 
 body {
   background: colour.$surface-50;
   color: colour.$text;
 }
 
-@mixin theme-dark {
+// Default theme
+@include util.theme(dark, true) {
   #{colour.$surface-50-var}: colour.$dark-surface-50;
   #{colour.$surface-100-var}: colour.$dark-surface-100;
   #{colour.$surface-200-var}: colour.$dark-surface-200;
@@ -76,8 +78,7 @@ body {
   #{colour.$shadow-dark-var}: colour.$dark-shadow-dark;
 }
 
-/// Light theme colour css variables
-@mixin theme-light {
+@include util.theme(light) {
   #{colour.$surface-50-var}: colour.$light-surface-50;
   #{colour.$surface-100-var}: colour.$light-surface-100;
   #{colour.$surface-200-var}: colour.$light-surface-200;
@@ -146,19 +147,6 @@ body {
 
   #{colour.$shadow-var}: colour.$light-shadow;
   #{colour.$shadow-dark-var}: colour.$dark-shadow-dark;
-}
-
-// Default theme
-:root {
-  @include theme-dark;
-}
-
-@include colour.theme(dark) {
-  @include theme-dark;
-}
-
-@include colour.theme(light) {
-  @include theme-light;
 }
 
 .surface-50 {

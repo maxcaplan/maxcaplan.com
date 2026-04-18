@@ -1,44 +1,5 @@
 @use "sass:color";
 
-/// Theme wrapper
-/// @param {'dark'|'light'} $theme ['dark']
-/// @content
-@mixin theme($theme: dark) {
-  @if $theme != dark and $theme != light {
-    $theme: dark;
-  }
-
-  @if & {
-    .theme-#{$theme} & {
-      @content;
-    }
-
-    .theme-system & {
-      @if $theme == light {
-        @media (prefers-color-scheme: light) {
-          @content;
-        }
-      } @else {
-        @content;
-      }
-    }
-  } @else {
-    .theme-#{$theme} {
-      @content;
-    }
-
-    .theme-system {
-      @if $theme == light {
-        @media (prefers-color-scheme: light) {
-          @content;
-        }
-      } @else {
-        @content;
-      }
-    }
-  }
-}
-
 // Primitive Tokens
 
 $warp-50: #0b090f;

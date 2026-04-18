@@ -150,7 +150,7 @@ $radius-xl: spacing.$base-300;
     }
   }
 
-  @return colour.$border-100;
+  @return $variant;
 }
 
 /// Get corresponding width value for a border variant
