@@ -90,6 +90,16 @@ $base-1300: step-up(1rem, 8);
 $base-1400: step-up(1rem, 9);
 $base-1500: step-up(1rem, 10);
 
+$base-150: step-up($base-100, $half: true);
+$base-250: step-up($base-200, $half: true);
+$base-350: step-up($base-300, $half: true);
+$base-450: step-up($base-400, $half: true);
+$base-550: step-up($base-500, $half: true);
+$base-650: step-up($base-600, $half: true);
+$base-750: step-up($base-700, $half: true);
+$base-850: step-up($base-800, $half: true);
+$base-950: step-up($base-900, $half: true);
+
 $relative-100: step-down(1em, 4);
 $relative-200: step-down(1em, 3);
 $relative-300: step-down(1em, 2);
@@ -106,9 +116,19 @@ $relative-1300: step-up(1em, 8);
 $relative-1400: step-up(1em, 9);
 $relative-1500: step-up(1em, 10);
 
+$relative-150: step-up($relative-100, $half: true);
+$relative-250: step-up($relative-200, $half: true);
+$relative-350: step-up($relative-300, $half: true);
+$relative-450: step-up($relative-400, $half: true);
+$relative-550: step-up($relative-500, $half: true);
+$relative-650: step-up($relative-600, $half: true);
+$relative-750: step-up($relative-700, $half: true);
+$relative-850: step-up($relative-800, $half: true);
+$relative-950: step-up($relative-900, $half: true);
+
 // Semantic tokens
 
 $root-padding-var: --mc--spacing--root-padding;
-$root-padding-sm: $base-500;
-$root-padding-lg: $base-600;
+$root-padding-sm: $relative-500;
+$root-padding-lg: $relative-600;
 $root-padding: var($root-padding-var);
