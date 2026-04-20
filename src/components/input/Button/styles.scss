@@ -1,0 +1,169 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/type";
+@use "styles/abstract/border";
+@use "./Button";
+
+.button {
+  display: block;
+  padding: spacing.$base-400 spacing.$base-500;
+  @include type.ui-lg;
+  font-weight: type.$weight-medium;
+  text-transform: lowercase;
+  color: Button.$colour-contrast;
+  background-color: Button.$colour;
+  @include border.border(Button.$colour-border);
+  border-radius: border.$radius-md;
+  opacity: 1;
+
+  &:not(:disabled) {
+    box-shadow: inset 0 -6px 0 0 Button.$colour-shadow;
+
+    &:hover {
+      background-color: Button.$colour-hover;
+      box-shadow: inset 0 -6px 0 0 Button.$colour-hover-shadow;
+    }
+
+    &:active,
+    &[aria-pressed]:not([aria-pressed="false"]) {
+      background-color: Button.$colour-pressed;
+      box-shadow: none;
+
+      .button__inner {
+        transform: translateY(spacing.$base-100);
+      }
+    }
+
+    &:focus-visible {
+      @include border.outline(Button.$colour-focus, focus);
+      outline-offset: spacing.$base-200;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.85;
+    color: Button.$colour-disabled-contrast;
+    background-color: Button.$colour-disabled;
+  }
+
+  &--primary {
+    #{Button.$colour-var}: Button.$colour-primary;
+    #{Button.$colour-contrast-var}: Button.$colour-primary-contrast;
+    #{Button.$colour-border-var}: Button.$colour-primary-border;
+    #{Button.$colour-focus-var}: Button.$colour-primary-focus;
+    #{Button.$colour-shadow-var}: Button.$colour-primary-shadow;
+    #{Button.$colour-hover-var}: Button.$colour-primary-hover;
+    #{Button.$colour-hover-shadow-var}: Button.$colour-primary-hover-shadow;
+    #{Button.$colour-pressed-var}: Button.$colour-primary-pressed;
+    #{Button.$colour-disabled-var}: Button.$colour-primary-disabled;
+    #{Button.$colour-disabled-contrast-var}: Button.$colour-primary-disabled-contrast;
+  }
+
+  &--secondary {
+    #{Button.$colour-var}: Button.$colour-secondary;
+    #{Button.$colour-contrast-var}: Button.$colour-secondary-contrast;
+    #{Button.$colour-border-var}: Button.$colour-secondary-border;
+    #{Button.$colour-focus-var}: Button.$colour-secondary-focus;
+    #{Button.$colour-shadow-var}: Button.$colour-secondary-shadow;
+    #{Button.$colour-hover-var}: Button.$colour-secondary-hover;
+    #{Button.$colour-hover-shadow-var}: Button.$colour-secondary-hover-shadow;
+    #{Button.$colour-pressed-var}: Button.$colour-secondary-pressed;
+    #{Button.$colour-disabled-var}: Button.$colour-secondary-disabled;
+    #{Button.$colour-disabled-contrast-var}: Button.$colour-secondary-disabled-contrast;
+  }
+
+  &--outline,
+  &--ghost {
+    #{Button.$colour-var}: rgba(0, 0, 0, 0);
+    #{Button.$colour-contrast-var}: Button.$colour-outline-contrast;
+    #{Button.$colour-border-var}: Button.$colour-outline-border;
+    #{Button.$colour-focus-var}: Button.$colour-outline-focus;
+    #{Button.$colour-shadow-var}: rgba(0, 0, 0, 0);
+    #{Button.$colour-hover-var}: Button.$colour-outline-hover;
+    #{Button.$colour-hover-shadow-var}: rgba(0, 0, 0, 0);
+    #{Button.$colour-pressed-var}: Button.$colour-outline-pressed;
+    #{Button.$colour-disabled-var}: Button.$colour-outline-disabled;
+    #{Button.$colour-disabled-contrast-var}: Button.$colour-outline-disabled-contrast;
+  }
+
+  &--ghost {
+    #{Button.$colour-border-var}: rgba(0, 0, 0, 0);
+  }
+
+  &--icon {
+    padding: spacing.$base-400;
+  }
+
+  &--icon-left {
+    padding-left: spacing.$base-400;
+  }
+
+  &--icon-right {
+    padding-right: spacing.$base-400;
+  }
+
+  &--sm {
+    padding: spacing.$base-300 spacing.$base-400;
+    @include type.ui-md;
+
+    &.button--icon {
+      padding: spacing.$base-300;
+    }
+
+    &.button--icon-left {
+      padding-left: spacing.$base-300;
+    }
+
+    &.button--icon-right {
+      padding-right: spacing.$base-300;
+    }
+
+    .button__inner {
+      gap: spacing.$base-300;
+    }
+
+    .mc-icon {
+      width: spacing.$base-550;
+      height: spacing.$base-550;
+    }
+  }
+
+  &--lg {
+    padding: spacing.$base-450 spacing.$base-550;
+    @include type.ui-xl;
+
+    &.button--icon {
+      padding: spacing.$base-450;
+    }
+
+    &.button--icon-left {
+      padding-left: spacing.$base-450;
+    }
+
+    &.button--icon-right {
+      padding-right: spacing.$base-450;
+    }
+
+    .button__inner {
+      gap: spacing.$base-450;
+    }
+
+    .mc-icon {
+      width: spacing.$base-600;
+      height: spacing.$base-600;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: spacing.$base-400;
+  }
+
+  .mc-icon {
+    width: spacing.$base-600;
+    height: spacing.$base-600;
+  }
+}

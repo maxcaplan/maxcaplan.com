@@ -1,0 +1,262 @@
+@use "styles/abstract/colour";
+@use "styles/abstract/util";
+
+// Tokens
+
+// Dark Theme
+
+$colour-dark: colour.$surface-500;
+$colour-dark-contrast: colour.$text-medium;
+$colour-dark-border: colour.$border-200;
+$colour-dark-focus: colour.$border-500;
+$colour-dark-shadow: colour.$surface-200;
+$colour-dark-hover: colour.$surface-600;
+$colour-dark-hover-shadow: colour.$surface-400;
+$colour-dark-pressed: colour.$surface-300;
+$colour-dark-disabled: colour.$surface-200;
+$colour-dark-disabled-contrast: colour.$warp-1200;
+
+$colour-dark-primary: colour.$primary;
+$colour-dark-primary-contrast: colour.$primary-contrast;
+$colour-dark-primary-border: colour.$primary-border;
+$colour-dark-primary-focus: colour.$springer-1900;
+$colour-dark-primary-shadow: colour.$springer-1300;
+$colour-dark-primary-hover: colour.$springer-1400;
+$colour-dark-primary-hover-shadow: colour.$springer-1200;
+$colour-dark-primary-pressed: colour.$springer-1100;
+$colour-dark-primary-disabled: colour.$primary;
+$colour-dark-primary-disabled-contrast: colour.$primary-dim-contrast;
+
+$colour-dark-secondary: colour.$secondary;
+$colour-dark-secondary-contrast: colour.$secondary-contrast;
+$colour-dark-secondary-border: colour.$secondary-border;
+$colour-dark-secondary-focus: colour.$thunder-1900;
+$colour-dark-secondary-shadow: colour.$thunder-1500;
+$colour-dark-secondary-hover: colour.$thunder-1600;
+$colour-dark-secondary-hover-shadow: colour.$thunder-1400;
+$colour-dark-secondary-pressed: colour.$thunder-1400;
+$colour-dark-secondary-disabled: colour.$secondary;
+$colour-dark-secondary-disabled-contrast: colour.$secondary-dim-contrast;
+
+$colour-dark-outline-contrast: colour.$text-medium;
+$colour-dark-outline-border: colour.$border-100;
+$colour-dark-outline-focus: colour.$border-500;
+$colour-dark-outline-hover: colour.$surface-400;
+$colour-dark-outline-pressed: colour.$surface-300;
+$colour-dark-outline-disabled: rgba(0, 0, 0, 0);
+$colour-dark-outline-disabled-contrast: colour.$warp-1200;
+
+// Light Theme
+
+$colour-light: colour.$surface-200;
+$colour-light-contrast: colour.$text-medium;
+$colour-light-border: colour.$border-100;
+$colour-light-focus: colour.$border-600;
+$colour-light-shadow: colour.$surface-400;
+$colour-light-hover: colour.$surface-400;
+$colour-light-hover-shadow: colour.$surface-500;
+$colour-light-pressed: colour.$surface-500;
+$colour-light-disabled: colour.$surface-200;
+$colour-light-disabled-contrast: colour.$warp-1000;
+
+$colour-light-primary: colour.$primary;
+$colour-light-primary-contrast: colour.$primary-contrast;
+$colour-light-primary-border: colour.$primary-border;
+$colour-light-primary-focus: colour.$springer-500;
+$colour-light-primary-shadow: colour.$springer-600;
+$colour-light-primary-hover: colour.$springer-600;
+$colour-light-primary-hover-shadow: colour.$springer-500;
+$colour-light-primary-pressed: colour.$springer-500;
+$colour-light-primary-disabled: colour.$primary-dim;
+$colour-light-primary-disabled-contrast: colour.$primary-dim-contrast;
+
+$colour-light-secondary: colour.$secondary;
+$colour-light-secondary-contrast: colour.$secondary-contrast;
+$colour-light-secondary-border: colour.$secondary-border;
+$colour-light-secondary-focus: colour.$secondary-border;
+$colour-light-secondary-shadow: colour.$thunder-700;
+$colour-light-secondary-hover: colour.$thunder-800;
+$colour-light-secondary-hover-shadow: colour.$thunder-600;
+$colour-light-secondary-pressed: colour.$thunder-600;
+$colour-light-secondary-disabled: colour.$secondary-dim;
+$colour-light-secondary-disabled-contrast: colour.$thunder-1900;
+
+$colour-light-outline-contrast: colour.$text-medium;
+$colour-light-outline-border: colour.$border-100;
+$colour-light-outline-focus: colour.$border-600;
+$colour-light-outline-hover: colour.$surface-300;
+$colour-light-outline-pressed: colour.$surface-400;
+$colour-light-outline-disabled: rgba(0, 0, 0, 0);
+$colour-light-outline-disabled-contrast: colour.$warp-1100;
+
+// CSS Variables
+
+$colour-var: --mc--colour--button;
+$colour-contrast-var: --mc--colour--button--contrast;
+$colour-border-var: --mc--colour--button--border;
+$colour-focus-var: --mc--colour--button--focus;
+$colour-shadow-var: --mc--colour--button--shadow;
+$colour-hover-var: --mc--colour--button--hover;
+$colour-hover-shadow-var: --mc--colour--button--hover-shadow;
+$colour-pressed-var: --mc--colour--button--pressed;
+$colour-disabled-var: --mc--colour--button--disabled;
+$colour-disabled-contrast-var: --mc--colour--button--disabled-contrast;
+
+$colour-primary-var: --mc--colour--button--primary;
+$colour-primary-contrast-var: --mc--colour--button--primary--contrast;
+$colour-primary-border-var: --mc--colour--button--primary--border;
+$colour-primary-focus-var: --mc--colour--button--primary--focus;
+$colour-primary-shadow-var: --mc--colour--button--primary--shadow;
+$colour-primary-hover-var: --mc--colour--button--primary--hover;
+$colour-primary-hover-shadow-var: --mc--colour--button--primary--hover-shadow;
+$colour-primary-pressed-var: --mc--colour--button--primary--pressed;
+$colour-primary-disabled-var: --mc--colour--button--primary--disabled;
+$colour-primary-disabled-contrast-var: --mc--colour--button--primary--disabled-contrast;
+
+$colour-secondary-var: --mc--colour--button--secondary;
+$colour-secondary-contrast-var: --mc--colour--button--secondary--contrast;
+$colour-secondary-border-var: --mc--colour--button--secondary--border;
+$colour-secondary-focus-var: --mc--colour--button--secondary--focus;
+$colour-secondary-shadow-var: --mc--colour--button--secondary--shadow;
+$colour-secondary-hover-var: --mc--colour--button--secondary--hover;
+$colour-secondary-hover-shadow-var: --mc--colour--button--secondary--hover-shadow;
+$colour-secondary-pressed-var: --mc--colour--button--secondary--pressed;
+$colour-secondary-disabled-var: --mc--colour--button--secondary--disabled;
+$colour-secondary-disabled-contrast-var: --mc--colour--button--secondary--disabled-contrast;
+
+$colour-outline-contrast-var: --mc--colour--button--outline--contrast;
+$colour-outline-border-var: --mc--colour--button--outline--border;
+$colour-outline-focus-var: --mc--colour--button--outline--focus;
+$colour-outline-hover-var: --mc--colour--button--outline--hover;
+$colour-outline-pressed-var: --mc--colour--button--outline--pressed;
+$colour-outline-disabled-var: --mc--colour--button--outline--disabled;
+$colour-outline-disabled-contrast-var: --mc--colour--button--outline--disabled-contrast;
+
+$colour: var($colour-var);
+$colour-contrast: var($colour-contrast-var);
+$colour-border: var($colour-border-var);
+$colour-focus: var($colour-focus-var);
+$colour-shadow: var($colour-shadow-var);
+$colour-hover: var($colour-hover-var);
+$colour-hover-shadow: var($colour-hover-shadow-var);
+$colour-pressed: var($colour-pressed-var);
+$colour-disabled: var($colour-disabled-var);
+$colour-disabled-contrast: var($colour-disabled-contrast-var);
+
+$colour-primary: var($colour-primary-var);
+$colour-primary-contrast: var($colour-primary-contrast-var);
+$colour-primary-border: var($colour-primary-border-var);
+$colour-primary-focus: var($colour-primary-focus-var);
+$colour-primary-shadow: var($colour-primary-shadow-var);
+$colour-primary-hover: var($colour-primary-hover-var);
+$colour-primary-hover-shadow: var($colour-primary-hover-shadow-var);
+$colour-primary-pressed: var($colour-primary-pressed-var);
+$colour-primary-disabled: var($colour-primary-disabled-var);
+$colour-primary-disabled-contrast: var($colour-primary-disabled-contrast-var);
+
+$colour-secondary: var($colour-secondary-var);
+$colour-secondary-contrast: var($colour-secondary-contrast-var);
+$colour-secondary-border: var($colour-secondary-border-var);
+$colour-secondary-focus: var($colour-secondary-focus-var);
+$colour-secondary-shadow: var($colour-secondary-shadow-var);
+$colour-secondary-hover: var($colour-secondary-hover-var);
+$colour-secondary-hover-shadow: var($colour-secondary-hover-shadow-var);
+$colour-secondary-pressed: var($colour-secondary-pressed-var);
+$colour-secondary-disabled: var($colour-secondary-disabled-var);
+$colour-secondary-disabled-contrast: var(
+  $colour-secondary-disabled-contrast-var
+);
+
+$colour-outline-contrast: var($colour-outline-contrast-var);
+$colour-outline-border: var($colour-outline-border-var);
+$colour-outline-focus: var($colour-outline-focus-var);
+$colour-outline-hover: var($colour-outline-hover-var);
+$colour-outline-pressed: var($colour-outline-pressed-var);
+$colour-outline-disabled: var($colour-outline-disabled-var);
+$colour-outline-disabled-contrast: var($colour-outline-disabled-contrast-var);
+
+@include util.theme(dark, true) {
+  #{$colour-var}: $colour-dark;
+  #{$colour-contrast-var}: $colour-dark-contrast;
+  #{$colour-border-var}: $colour-dark-border;
+  #{$colour-focus-var}: $colour-dark-focus;
+  #{$colour-shadow-var}: $colour-dark-shadow;
+  #{$colour-hover-var}: $colour-dark-hover;
+  #{$colour-hover-shadow-var}: $colour-dark-hover-shadow;
+  #{$colour-pressed-var}: $colour-dark-pressed;
+  #{$colour-disabled-var}: $colour-dark-disabled;
+  #{$colour-disabled-contrast-var}: $colour-dark-disabled-contrast;
+
+  #{$colour-primary-var}: $colour-dark-primary;
+  #{$colour-primary-contrast-var}: $colour-dark-primary-contrast;
+  #{$colour-primary-border-var}: $colour-dark-primary-border;
+  #{$colour-primary-focus-var}: $colour-dark-primary-focus;
+  #{$colour-primary-shadow-var}: $colour-dark-primary-shadow;
+  #{$colour-primary-hover-var}: $colour-dark-primary-hover;
+  #{$colour-primary-hover-shadow-var}: $colour-dark-primary-hover-shadow;
+  #{$colour-primary-pressed-var}: $colour-dark-primary-pressed;
+  #{$colour-primary-disabled-var}: $colour-dark-primary-disabled;
+  #{$colour-primary-disabled-contrast-var}: $colour-dark-primary-disabled-contrast;
+
+  #{$colour-secondary-var}: $colour-dark-secondary;
+  #{$colour-secondary-contrast-var}: $colour-dark-secondary-contrast;
+  #{$colour-secondary-border-var}: $colour-dark-secondary-border;
+  #{$colour-secondary-focus-var}: $colour-dark-secondary-focus;
+  #{$colour-secondary-shadow-var}: $colour-dark-secondary-shadow;
+  #{$colour-secondary-hover-var}: $colour-dark-secondary-hover;
+  #{$colour-secondary-hover-shadow-var}: $colour-dark-secondary-hover-shadow;
+  #{$colour-secondary-pressed-var}: $colour-dark-secondary-pressed;
+  #{$colour-secondary-disabled-var}: $colour-dark-secondary-disabled;
+  #{$colour-secondary-disabled-contrast-var}: $colour-dark-secondary-disabled-contrast;
+
+  #{$colour-outline-contrast-var}: $colour-dark-outline-contrast;
+  #{$colour-outline-border-var}: $colour-dark-outline-border;
+  #{$colour-outline-focus-var}: $colour-dark-outline-focus;
+  #{$colour-outline-hover-var}: $colour-dark-outline-hover;
+  #{$colour-outline-pressed-var}: $colour-dark-outline-pressed;
+  #{$colour-outline-disabled-var}: $colour-dark-outline-disabled;
+  #{$colour-outline-disabled-contrast-var}: $colour-dark-outline-disabled-contrast;
+}
+
+@include util.theme(light) {
+  #{$colour-var}: $colour-light;
+  #{$colour-contrast-var}: $colour-light-contrast;
+  #{$colour-border-var}: $colour-light-border;
+  #{$colour-focus-var}: $colour-light-focus;
+  #{$colour-shadow-var}: $colour-light-shadow;
+  #{$colour-hover-var}: $colour-light-hover;
+  #{$colour-hover-shadow-var}: $colour-light-hover-shadow;
+  #{$colour-pressed-var}: $colour-light-pressed;
+  #{$colour-disabled-var}: $colour-light-disabled;
+  #{$colour-disabled-contrast-var}: $colour-light-disabled-contrast;
+
+  #{$colour-primary-var}: $colour-light-primary;
+  #{$colour-primary-contrast-var}: $colour-light-primary-contrast;
+  #{$colour-primary-border-var}: $colour-light-primary-border;
+  #{$colour-primary-focus-var}: $colour-light-primary-focus;
+  #{$colour-primary-shadow-var}: $colour-light-primary-shadow;
+  #{$colour-primary-hover-var}: $colour-light-primary-hover;
+  #{$colour-primary-hover-shadow-var}: $colour-light-primary-hover-shadow;
+  #{$colour-primary-pressed-var}: $colour-light-primary-pressed;
+  #{$colour-primary-disabled-var}: $colour-light-primary-disabled;
+  #{$colour-primary-disabled-contrast-var}: $colour-light-primary-disabled-contrast;
+
+  #{$colour-secondary-var}: $colour-light-secondary;
+  #{$colour-secondary-contrast-var}: $colour-light-secondary-contrast;
+  #{$colour-secondary-border-var}: $colour-light-secondary-border;
+  #{$colour-secondary-focus-var}: $colour-light-secondary-focus;
+  #{$colour-secondary-shadow-var}: $colour-light-secondary-shadow;
+  #{$colour-secondary-hover-var}: $colour-light-secondary-hover;
+  #{$colour-secondary-hover-shadow-var}: $colour-light-secondary-hover-shadow;
+  #{$colour-secondary-pressed-var}: $colour-light-secondary-pressed;
+  #{$colour-secondary-disabled-var}: $colour-light-secondary-disabled;
+  #{$colour-secondary-disabled-contrast-var}: $colour-light-secondary-disabled-contrast;
+
+  #{$colour-outline-contrast-var}: $colour-light-outline-contrast;
+  #{$colour-outline-border-var}: $colour-light-outline-border;
+  #{$colour-outline-focus-var}: $colour-light-outline-focus;
+  #{$colour-outline-hover-var}: $colour-light-outline-hover;
+  #{$colour-outline-pressed-var}: $colour-light-outline-pressed;
+  #{$colour-outline-disabled-var}: $colour-light-outline-disabled;
+  #{$colour-outline-disabled-contrast-var}: $colour-light-outline-disabled-contrast;
+}
