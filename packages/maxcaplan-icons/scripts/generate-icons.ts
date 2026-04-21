@@ -295,8 +295,6 @@ async function main() {
 
   infolog("Icon data loaded:", load_stats);
 
-  console.log(Object.values(icon_data_map)[0]);
-
   // Clean out dir
   try {
     await fs.stat(components_dir);
