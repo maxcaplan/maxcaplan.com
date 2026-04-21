@@ -30,7 +30,8 @@
     "build": "parcel build"
   },
   "dependencies": {
-    "react": "^19.2.4"
+    "react": "^19.2.4",
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.16.4",

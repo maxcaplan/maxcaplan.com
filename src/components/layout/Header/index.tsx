@@ -44,12 +44,12 @@ export default function Header() {
           aria-expanded="false"
         >
           <span class="visually-hidden">Website settings menu</span>
-          <Settings width={26} height={26} aria-hidden="true" />
+          <Settings width={26} height={26} />
         </button>
 
         <button class="header__menu-button" aria-expanded="false">
           <span class="visually-hidden">Menu</span>
-          <Menu width={26} height={26} aria-hidden="true" />
+          <Menu width={26} height={26} />
         </button>
       </div>
     </header>
