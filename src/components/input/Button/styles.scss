@@ -46,6 +46,10 @@
     background-color: Button.$colour-disabled;
   }
 
+  &:visited {
+    color: Button.$colour-contrast;
+  }
+
   &--primary {
     #{Button.$colour-var}: Button.$colour-primary;
     #{Button.$colour-contrast-var}: Button.$colour-primary-contrast;
