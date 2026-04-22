@@ -155,6 +155,10 @@ $radius-xl: spacing.$base-300;
 
 /// Get corresponding width value for a border variant
 @function getBorderWidth($variant) {
+  @if $variant == default or not $variant {
+    @return $width;
+  }
+
   @if $variant == select {
     @return $width-select;
   }
@@ -163,5 +167,5 @@ $radius-xl: spacing.$base-300;
     @return $width-focus;
   }
 
-  @return $width;
+  @return $variant;
 }
