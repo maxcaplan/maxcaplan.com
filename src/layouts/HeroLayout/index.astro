@@ -1,8 +1,10 @@
 ---
 import "@/styles/main.scss";
+import "./styles.scss";
 
 import { Font } from "astro:assets";
 import Header from "@/components/layout/Header/index.tsx";
+import Hero from "@/components/layout/Hero/index.tsx";
 ---
 
 <!doctype html>
@@ -18,9 +20,12 @@ import Header from "@/components/layout/Header/index.tsx";
   </head>
 
   <body class="theme-system">
-    <Header />
+    <div class="above-the-fold-spacer"></div>
 
-    <main id="main-content" class="main">
+    <Header />
+    <Hero id="main-content" />
+
+    <main class="main">
       <slot />
     </main>
   </body>

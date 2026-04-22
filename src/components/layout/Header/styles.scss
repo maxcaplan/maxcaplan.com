@@ -8,7 +8,8 @@
 $mobile-menu-breakpoint: md;
 
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
   background: colour.$surface-100;
   padding-right: 0;
   @include border.border(100, $bottom: true);

@@ -1,0 +1,131 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
+
+.hero {
+  min-height: 100%;
+  padding-bottom: spacing.$base-500;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: spacing.$base-600;
+    column-gap: spacing.$base-900;
+    height: 100%;
+
+    @include layout.media-breakpoint(lg) {
+      flex-direction: row;
+    }
+  }
+
+  &__heading {
+    margin: spacing.$base-700 0 0 0;
+    max-width: 100%;
+
+    @include layout.media-breakpoint(lg) {
+      flex: 1;
+      margin: spacing.$base-900 0 0 0;
+    }
+  }
+
+  &__body {
+    flex: 1;
+    grid-auto-flow: row;
+    grid-template-rows: min-content 1fr;
+
+    .seperator {
+      margin: spacing.$base-600 0 spacing.$base-600 0;
+    }
+
+    @include layout.media-breakpoint(lg) {
+      display: grid;
+      padding: spacing.$base-500 0 0 0;
+      max-width: min(spacing.$base-1200, 33%);
+
+      .seperator {
+        display: none;
+      }
+    }
+  }
+
+  &__details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: spacing.$base-300;
+
+    @include layout.media-breakpoint(lg) {
+      align-items: end;
+      row-gap: spacing.$base-400;
+      margin: 0 0 spacing.$base-900 0;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: spacing.$base-400;
+    align-items: center;
+    @include type.ui-md;
+    text-transform: lowercase;
+    color: colour.$text-dim;
+
+    .mc-icon {
+      width: spacing.$base-550;
+      height: spacing.$base-550;
+    }
+
+    @include layout.media-breakpoint(lg) {
+      flex-direction: row;
+    }
+  }
+
+  &__call-to-action {
+    display: flex;
+    flex-direction: column;
+    row-gap: spacing.$base-700;
+
+    p {
+      max-width: layout.$width-content;
+      @include type.subtitle-1;
+      text-transform: lowercase;
+    }
+
+    @include layout.media-breakpoint(md) {
+      text-align: justify;
+    }
+  }
+
+  &__call-to-action-footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: stretch;
+    column-gap: spacing.$base-400;
+    row-gap: spacing.$base-500;
+
+    .button__inner {
+      justify-content: space-between;
+    }
+
+    @include layout.media-breakpoint(sm) {
+      flex-direction: row;
+      justify-items: start;
+    }
+  }
+
+  &__social-links {
+    grid-row: 3;
+    display: flex;
+    flex-direction: row;
+    gap: spacing.$base-400;
+    justify-items: start;
+    margin: 0 0 spacing.$base-700 0;
+
+    @include layout.media-breakpoint(lg) {
+      justify-content: end;
+      margin: spacing.$base-800 0 0 0;
+    }
+  }
+}
