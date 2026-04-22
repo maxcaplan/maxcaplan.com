@@ -10,8 +10,9 @@ import NavMenuContext from "./NavMenuContext";
 
 interface NavMenuProps {
   label: string;
+  ordered?: boolean;
   current?: string;
-  direction?: "row" | "col";
+  direction?: "row" | "column";
   class?: string;
   children?: ComponentChildren;
 }
@@ -28,10 +29,14 @@ const NavMenu: NavMenuComponent = (props) => {
     <NavMenuContext.Provider value={{ current: props.current }}>
       <nav
         aria-label={props.label}
-        class={clsx("nav-menu", props.class)}
-        data-direction={props.direction || "row"}
+        class={clsx(
+          "nav-menu",
+          props.direction === "column" && "nav-menu--column",
+          props.class,
+        )}
       >
-        <ul class="nav-menu__list">{props.children}</ul>
+        {props.ordered && <ol class="nav-menu__list">{props.children}</ol>}
+        {!props.ordered && <ul class="nav-menu__list">{props.children}</ul>}
       </nav>
     </NavMenuContext.Provider>
   );

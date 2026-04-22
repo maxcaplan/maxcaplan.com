@@ -7,11 +7,11 @@
     gap: spacing.$base-400;
     list-style: none;
 
-    .nav-menu[data-direction="row"] & {
+    .nav-menu--row & {
       flex-direction: row;
     }
 
-    .nav-menu[data-direction="col"] & {
+    .nav-menu--column & {
       flex-direction: column;
     }
   }
