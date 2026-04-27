@@ -22,6 +22,7 @@ interface WorkCardProps {
   skills?: CollectionEntry<"skills">[];
   description: string;
   cover: string | CoverImageAttributes;
+  "cover-placeholder"?: string;
   "cover-alt"?: string;
 }
 
@@ -59,6 +60,8 @@ export default function WorkCard(props: WorkCardProps) {
             { format: "webp", src_suffix: "_md", media: "(min-width: 480px)" },
             { format: "webp", src_suffix: "_sm" },
           ]}
+          placeholder-url={props["cover-placeholder"]}
+          loading={"lazy"}
         />
       </div>
 

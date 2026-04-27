@@ -35,6 +35,7 @@ export default function FeaturedWorkGrid(props: FeaturedWorkProps) {
             skills={entry.data.skills}
             cover={entry.data.cover}
             cover-alt={entry.data["cover-alt"]}
+            cover-placeholder={entry.placeholders.cover}
           />
         </div>
       ))}

@@ -17,4 +17,7 @@ export type WorkItemEntry = CollectionEntry<"work"> & {
   data: {
     skills?: CollectionEntry<"skills">[];
   };
+  placeholders: {
+    cover?: string;
+  };
 };

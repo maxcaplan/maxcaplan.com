@@ -1,10 +1,15 @@
-import { type CollectionEntry, getCollection, getEntries } from "astro:content";
+import { getEntries } from "astro:content";
 import type { WorkItemEntry } from "@/types";
+import { getCollectionWithImagePlaceholders } from ".";
 
 /** Get sorted work collection entries */
 export async function getWorkCollection(): Promise<WorkItemEntry[]> {
   const entries = await Promise.all(
-    (await getCollection("work")).map(async (entry) => {
+    (
+      await getCollectionWithImagePlaceholders("work", (entry) => ({
+        cover: entry.data.cover.src,
+      }))
+    ).map(async (entry) => {
       const skills = entry.data.skills
         ? await getEntries(entry.data.skills)
         : undefined;
