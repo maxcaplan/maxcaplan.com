@@ -17,10 +17,12 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/mdx": "^5.0.4",
     "@astrojs/preact": "^5.1.1",
     "astro": "^6.1.4",
     "clsx": "^2.1.1",
     "maxcaplan-icons": "workspace:*",
+    "path": "^0.12.7",
     "preact": "^10.29.1"
   },
   "devDependencies": {

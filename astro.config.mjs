@@ -1,5 +1,6 @@
 // @ts-check
 
+import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import { defineConfig, fontProviders } from "astro/config";
 
@@ -104,5 +105,5 @@ export default defineConfig({
     },
   ],
 
-  integrations: [preact({ compat: true })],
+  integrations: [preact({ compat: true }), mdx()],
 });

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../.astro/collections/skills.schema.json",
+  "javascript": {
+    "icon": "javascript",
+    "colour": "yellow"
+  },
+  "react": {
+    "icon": "atom",
+    "colour": "blue"
+  },
+  "vue": {
+    "icon": "vue",
+    "colour": "green"
+  },
+  "ruby": {
+    "icon": "gem",
+    "colour": "red"
+  },
+  "tailwind": {
+    "icon": "tailwind",
+    "colour": "blue"
+  },
+  "sass": {
+    "icon": "s-badge",
+    "colour": "red"
+  },
+  "firebase": {
+    "icon": "flame",
+    "colour": "red"
+  },
+  "wordpress": {
+    "icon": "w-badge",
+    "colour": "blue"
+  },
+  "shopify": {
+    "icon": "s-bag",
+    "colour": "green"
+  },
+  "rust": {
+    "icon": "r-gear",
+    "colour": "red"
+  }
+}
