@@ -4,19 +4,10 @@
 @use "styles/abstract/layout";
 
 .home-nav {
-  display: flex;
-  flex-direction: row;
-  column-gap: spacing.$base-900;
-
-  &__content {
-    flex: 1;
-    padding-top: spacing.$base-700;
-    padding-bottom: spacing.$base-700;
-
-    @include layout.media-breakpoint(md) {
-      padding-top: spacing.$base-1100;
-      padding-bottom: spacing.$base-1100;
-    }
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    column-gap: spacing.$base-900;
   }
 
   &__menu {
@@ -45,6 +36,17 @@
 
     @include layout.media-breakpoint(lg) {
       display: flex;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding-top: spacing.$base-700;
+    padding-bottom: spacing.$base-700;
+
+    @include layout.media-breakpoint(md) {
+      padding-top: spacing.$base-1100;
+      padding-bottom: spacing.$base-1100;
     }
   }
 }

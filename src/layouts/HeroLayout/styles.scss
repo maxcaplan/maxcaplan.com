@@ -4,7 +4,7 @@ body {
 }
 
 .above-the-fold-spacer {
-  min-height: 100vh;
+  min-height: min(100vh, 1080px);
   grid-column: 1 / -1;
   grid-row: 1 / span 2;
 }
