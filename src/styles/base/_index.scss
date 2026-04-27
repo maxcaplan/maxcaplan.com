@@ -1,9 +1,16 @@
 @use "styles/abstract/spacing";
+@use "styles/abstract/layout";
 @use "styles/abstract/util";
 
 @use "normalize";
 @use "theme";
 @use "typography";
+
+html,
+body {
+  scroll-behavior: smooth;
+  scroll-padding-top: layout.$header-height;
+}
 
 button,
 [type="button"],

@@ -8,6 +8,8 @@ $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 
+$header-height: calc(2 * spacing.$base-500 + spacing.$base-600);
+
 /// Media breakpoint wrapper
 /// @param {'sm'|'md'|'lg'} $breakpoint - Media min width
 /// @content

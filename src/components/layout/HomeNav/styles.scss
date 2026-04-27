@@ -1,0 +1,50 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
+
+.home-nav {
+  display: flex;
+  flex-direction: row;
+  column-gap: spacing.$base-900;
+
+  &__content {
+    flex: 1;
+    padding-top: spacing.$base-700;
+    padding-bottom: spacing.$base-700;
+
+    @include layout.media-breakpoint(md) {
+      padding-top: spacing.$base-1100;
+      padding-bottom: spacing.$base-1100;
+    }
+  }
+
+  &__menu {
+    align-self: start;
+    position: sticky;
+    top: calc(50% + layout.$header-height);
+    display: none;
+    transform: translateY(-100%);
+    padding: spacing.$base-500 0 spacing.$base-500 0;
+
+    .nav-menu__link {
+      @include type.ui-lg;
+      color: colour.$text-medium;
+      text-decoration: none;
+      text-transform: lowercase;
+
+      &:hover {
+        color: colour.$text-secondary;
+        text-decoration: underline;
+      }
+
+      &--current {
+        font-weight: type.$weight-strong;
+      }
+    }
+
+    @include layout.media-breakpoint(lg) {
+      display: flex;
+    }
+  }
+}
