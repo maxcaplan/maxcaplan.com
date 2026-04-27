@@ -1,0 +1,8 @@
+@use "styles/abstract/spacing";
+
+:where(.card__header) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: spacing.$base-500;
+}

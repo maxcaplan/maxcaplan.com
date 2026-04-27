@@ -1,0 +1,7 @@
+@use "styles/abstract/spacing";
+
+:where(.card__footer) {
+  display: flex;
+  flex-direction: row;
+  gap: spacing.$base-400;
+}
