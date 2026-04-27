@@ -106,10 +106,6 @@
     column-gap: spacing.$base-400;
     row-gap: spacing.$base-500;
 
-    .button__inner {
-      justify-content: space-between;
-    }
-
     @include layout.media-breakpoint(sm) {
       flex-direction: row;
       justify-items: start;

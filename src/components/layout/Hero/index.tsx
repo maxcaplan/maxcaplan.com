@@ -1,13 +1,6 @@
 import "./styles.scss";
 
-import {
-  ArrowUpRight,
-  Github,
-  Linkedin,
-  Location,
-  Mail,
-  Mastodon,
-} from "maxcaplan-icons";
+import { Location, Mail } from "maxcaplan-icons";
 import Button from "@/components/input/Button";
 import Seperator from "../Seperator";
 import HeroHeading from "./Heading";
@@ -48,31 +41,31 @@ export default function Hero(props: HeroProps) {
             <Button
               href="https://github.com/maxcaplan/"
               target="_blank"
-              icon
-              variant="outline"
+              icon="github"
+              variant="icon"
+              colour="outline"
             >
               <span class="visually-hidden">Max Caplan Github</span>
-              <Github width={26} height={26} />
             </Button>
 
             <Button
               href="https://www.linkedin.com/in/max-caplan/"
               target="_blank"
-              icon
-              variant="outline"
+              icon="linkedin"
+              variant="icon"
+              colour="outline"
             >
               <span class="visually-hidden">Max Caplan Linkedin</span>
-              <Linkedin width={26} height={26} />
             </Button>
 
             <Button
               href="https://mastodon.social/@maxcaplan"
               target="_blank"
-              icon
-              variant="outline"
+              icon="mastodon"
+              variant="icon"
+              colour="outline"
             >
               <span class="visually-hidden">Max Caplan Mastodon</span>
-              <Mastodon width={26} height={26} />
             </Button>
           </div>
 
@@ -84,12 +77,12 @@ export default function Hero(props: HeroProps) {
             </p>
 
             <div class="hero__call-to-action-footer">
-              <Button variant="primary">
-                Get in touch <Mail width={26} height={26} />
+              <Button colour="primary" icon="mail" variant="icon-right">
+                Get in touch
               </Button>
 
-              <Button>
-                Read my blog <ArrowUpRight width={26} height={26} />
+              <Button variant="icon-right" icon="arrow-right">
+                Read my blog
               </Button>
             </div>
           </div>

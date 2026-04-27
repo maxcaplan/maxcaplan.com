@@ -1,51 +1,90 @@
 import "./styles.scss";
 
 import clsx from "clsx";
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "preact";
+import type { IconName, IconStyle } from "maxcaplan-icons";
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ComponentChildren,
+} from "preact";
+import { useIcon } from "@/util/hooks";
 
 type LinkButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement> &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
-type ButtonVariant = "default" | "primary" | "secondary" | "outline" | "ghost";
-
-type ButtonSize = "sm" | "md" | "lg";
+export type ButtonColour =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonVariant = "icon-left" | "icon-right" | "icon";
 
 interface ButtonProps extends LinkButtonAttributes {
-  variant?: ButtonVariant;
+  colour?: ButtonColour;
   size?: ButtonSize;
-  icon?: "left" | "right" | boolean;
+  variant?: ButtonVariant;
+  icon?: IconName;
+  "icon-style"?: IconStyle;
 }
 
-/** Interactive component presented as a button */
-export default function Button(props: ButtonProps) {
-  const { variant, size, icon, children, ...attributes } = props;
+/** Button component wrapper */
+const ButtonWrapper = (
+  props: ButtonProps & { inner_children?: ComponentChildren },
+) => {
+  const {
+    colour,
+    variant,
+    icon,
+    size,
+    class: class_attribute,
+    className,
+    inner_children,
+    ...attributes
+  } = props;
 
-  const variant_name = variant === "default" ? undefined : variant;
-  const size_name = size === "md" ? undefined : size;
-  const icon_name = icon === true ? undefined : icon;
+  const has_colour = colour !== undefined && colour !== "default";
+  const has_variant = icon !== undefined || variant !== undefined;
+  const has_size = size !== undefined && size !== "md";
+
   const is_anchor = props.href !== undefined;
+  const is_icon_variant = inner_children === undefined && icon !== undefined;
 
   const classes = clsx(
     "button",
-    !!variant && `button--${variant_name}`,
-    !!size && `button--${size_name}`,
-    !!icon &&
-      (icon_name === undefined ? "button--icon" : `button--icon-${icon}`),
-    props.class,
-    props.className,
+    has_colour && `button--${colour}`,
+    has_size && `button--${size}`,
+    has_variant &&
+      `button--${variant || (is_icon_variant && "icon") || "icon-left"}`,
+    class_attribute,
+    className,
   );
 
-  if (is_anchor) {
-    return (
-      <a {...attributes} class={classes}>
-        <span class="button__inner">{children}</span>
-      </a>
-    );
-  } else {
-    return (
-      <button {...attributes} class={classes}>
-        <span class="button__inner">{children}</span>
-      </button>
-    );
-  }
+  return is_anchor ? (
+    <a {...attributes} class={classes} />
+  ) : (
+    <button {...attributes} class={classes} />
+  );
+};
+
+/** Interactive component presented as a button */
+export default function Button(props: ButtonProps) {
+  const { children, ...wrapper_props } = props;
+
+  const Icon = useIcon(props.icon, {
+    "icon-style": props["icon-style"],
+    width: 26,
+    height: 26,
+  });
+
+  return (
+    <ButtonWrapper {...wrapper_props} inner_children={children}>
+      <span class="button__inner">
+        {props.variant !== "icon-right" && <Icon />}
+        {children}
+        {props.variant === "icon-right" && <Icon />}
+      </span>
+    </ButtonWrapper>
+  );
 }
