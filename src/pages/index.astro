@@ -1,5 +1,19 @@
 ---
+import { getWorkCollection } from "@/util/content/work.ts";
+
 import HeroLayout from "@/layouts/HeroLayout/index.astro";
+import HomeNavMenu from "@/components/navigation/home/NavMenu/index.tsx";
+import FeaturedWork from "@/components/display/work/Featured";
+
+const work_items = await getWorkCollection();
 ---
 
-<HeroLayout />
+<HeroLayout>
+  <HomeNavMenu.Wrapper>
+    <HomeNavMenu />
+
+    <HomeNavMenu.Content>
+      <FeaturedWork entries={work_items} />
+    </HomeNavMenu.Content>
+  </HomeNavMenu.Wrapper>
+</HeroLayout>
