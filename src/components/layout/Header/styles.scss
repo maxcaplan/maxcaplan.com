@@ -10,8 +10,11 @@ $mobile-menu-breakpoint: md;
 .header {
   position: sticky;
   top: 0;
-  background: colour.$surface-100;
+  z-index: 10;
+  box-sizing: content-box;
+  height: layout.$header-height;
   padding-right: 0;
+  background: colour.$surface-100;
   @include border.border(100, $bottom: true);
 
   &__skip-link {
@@ -47,7 +50,7 @@ $mobile-menu-breakpoint: md;
       right: 0;
       margin: spacing.$base-300 spacing.$base-400;
       background-color: colour.$secondary-surface;
-      border-radius: border.$radius-md;
+      border-radius: border.$radius-sm;
       @include border.border(secondary, focus, $surface: true);
     }
   }
@@ -77,7 +80,7 @@ $mobile-menu-breakpoint: md;
       bottom: spacing.$base-400;
       left: calc(-1 * spacing.$base-300);
       right: calc(-1 * spacing.$base-300);
-      border-radius: border.$radius-md;
+      border-radius: border.$radius-sm;
     }
 
     &:focus-visible::after {
@@ -166,7 +169,7 @@ $mobile-menu-breakpoint: md;
         bottom: spacing.$base-400;
         left: 0;
         right: 0;
-        border-radius: border.$radius-md;
+        border-radius: border.$radius-sm;
       }
 
       &:focus-visible::after {
@@ -182,7 +185,7 @@ $mobile-menu-breakpoint: md;
     justify-content: center;
     align-items: center;
     padding: 0 spacing.$root-padding;
-    border-left: thin colour.$border-100 solid;
+    @include border.border(100, $left: true);
     outline: 0;
 
     @include layout.media-breakpoint(sm) {
@@ -200,7 +203,7 @@ $mobile-menu-breakpoint: md;
       bottom: spacing.$base-300;
       left: spacing.$base-300;
       right: spacing.$base-300;
-      border-radius: border.$radius-md;
+      border-radius: border.$radius-sm;
     }
 
     &:focus-visible::after {
