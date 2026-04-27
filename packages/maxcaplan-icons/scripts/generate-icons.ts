@@ -235,18 +235,54 @@ function generateIconComponentSource(
 
 /** Generate source string for icon components index file */
 function generateIconsIndexSource(icon_data_map: IconDataMap): string {
-  const component_exports = Object.keys(icon_data_map)
-    .map((icon_key) => `export * from "./${icon_key}";`)
+  const component_imports = Object.entries(icon_data_map)
+    .map(
+      ([icon_key, icon_data]) =>
+        `import { ${icon_data.name} } from "./${icon_key}";`,
+    )
     .join("\n");
+
+  const component_exports = `export {\n\t${Object.values(icon_data_map)
+    .map((icon_data) => icon_data.name)
+    .join(",\n\t")}\n};`;
+
+  const icon_map_export = `export const icons = {\n\t${Object.entries(
+    icon_data_map,
+  )
+    .map(([icon_key, icon_data]) => `"${icon_key}": ${icon_data.name},`)
+    .join("\n\t")}\n};`;
 
   const names_export = `export const icon_names = [\n\t${Object.keys(
     icon_data_map,
   )
     .map((icon_key) => `"${icon_key}"`)
     .join(",\n\t")}\n] as const;`;
+
   const names_type_export = `export type IconName = (typeof icon_names)[number];`;
 
-  return `${GENERATED_FILE_HEADER}\n\n${component_exports}\n\n${names_export}\n\n${names_type_export}`;
+  const styles_type_export = `export type IconStyle = ${Object.values(
+    icon_data_map,
+  )
+    .reduce<string[]>((styles, icon_data) => {
+      Object.keys(icon_data.styles).forEach((style_key) => {
+        if (!styles.includes(style_key)) {
+          styles.push(style_key);
+        }
+      });
+      return styles;
+    }, [])
+    .map((style) => `"${style}"`)
+    .join(" | ")};`;
+
+  return (
+    `${GENERATED_FILE_HEADER}\n\n` +
+    `${component_imports}\n\n` +
+    `${names_export}\n\n` +
+    `${names_type_export}\n` +
+    `${styles_type_export}\n\n` +
+    `${icon_map_export}\n\n` +
+    `${component_exports}`
+  );
 }
 
 function infolog(...data: any[]) {
