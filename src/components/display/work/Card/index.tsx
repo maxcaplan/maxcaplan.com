@@ -2,9 +2,7 @@ import "./styles.scss";
 
 import type { CollectionEntry } from "astro:content";
 import clsx from "clsx";
-import { ArrowUpRight } from "maxcaplan-icons";
 import { useMemo } from "preact/hooks";
-import Badge from "@/components/display/Badge";
 import SkillBadge from "@/components/display/Badge/Skill";
 import Card from "@/components/display/Card";
 import Image from "@/components/display/Image";
