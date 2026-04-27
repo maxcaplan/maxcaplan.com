@@ -1,0 +1,53 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/type";
+@use "styles/abstract/border";
+@use "Badge";
+
+.badge {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: spacing.$base-200;
+  padding: spacing.$base-200 spacing.$base-400;
+  @include type.ui-sm;
+  text-transform: lowercase;
+  color: Badge.$colour-contrast;
+  background-color: Badge.$colour;
+  @include border.border(Badge.$colour-border);
+  border-radius: border.$radius-md;
+
+  &--primary {
+    #{Badge.$colour-contrast-var}: Badge.$colour-primary-contrast;
+  }
+
+  &--secondary {
+    #{Badge.$colour-contrast-var}: Badge.$colour-secondary-contrast;
+  }
+
+  &--warning {
+    #{Badge.$colour-contrast-var}: Badge.$colour-warning-contrast;
+  }
+
+  &--danger {
+    #{Badge.$colour-contrast-var}: Badge.$colour-danger-contrast;
+  }
+
+  &--icon {
+    padding: spacing.$base-200 spacing.$base-300;
+  }
+
+  &--icon-left {
+    padding-left: spacing.$base-300;
+  }
+
+  &--icon-right {
+    padding-right: spacing.$base-300;
+  }
+
+  .mc-icon {
+    width: spacing.$base-550;
+    height: spacing.$base-550;
+  }
+}

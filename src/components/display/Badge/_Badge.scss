@@ -1,0 +1,68 @@
+@use "styles/abstract/colour";
+@use "styles/abstract/util";
+
+// Tokens
+
+// Dark Theme
+
+$colour-dark: colour.$surface-400;
+$colour-dark-contrast: colour.$text-medium;
+$colour-dark-border: colour.$border-100;
+
+$colour-dark-primary-contrast: colour.$text-primary;
+$colour-dark-secondary-contrast: colour.$text-secondary;
+$colour-dark-warning-contrast: colour.$text-warning;
+$colour-dark-danger-contrast: colour.$text-danger;
+
+// Light Theme
+
+$colour-light: colour.$surface-100;
+$colour-light-contrast: colour.$text-medium;
+$colour-light-border: colour.$border-100;
+
+$colour-light-primary-contrast: colour.$text-primary;
+$colour-light-secondary-contrast: colour.$text-secondary;
+$colour-light-warning-contrast: colour.$text-warning;
+$colour-light-danger-contrast: colour.$text-danger;
+
+// CSS Variables
+
+$colour-var: --mc--colour--badge;
+$colour-contrast-var: --mc--colour--badge--contrast;
+$colour-border-var: --mc--colour--badge--border;
+
+$colour-primary-contrast-var: --mc--colour--badge--primary--contrast;
+$colour-secondary-contrast-var: --mc--colour--badge--secondary--contrast;
+$colour-warning-contrast-var: --mc--colour--badge--warning--contrast;
+$colour-danger-contrast-var: --mc--colour--badge--danger--contrast;
+
+$colour: var($colour-var);
+$colour-contrast: var($colour-contrast-var);
+$colour-border: var($colour-border-var);
+
+$colour-primary-contrast: var($colour-primary-contrast-var);
+$colour-secondary-contrast: var($colour-secondary-contrast-var);
+$colour-warning-contrast: var($colour-warning-contrast-var);
+$colour-danger-contrast: var($colour-danger-contrast-var);
+
+@include util.theme(dark, true) {
+  #{$colour-var}: $colour-dark;
+  #{$colour-contrast-var}: $colour-dark-contrast;
+  #{$colour-border-var}: $colour-dark-border;
+
+  #{$colour-primary-contrast-var}: $colour-dark-primary-contrast;
+  #{$colour-secondary-contrast-var}: $colour-dark-secondary-contrast;
+  #{$colour-warning-contrast-var}: $colour-dark-warning-contrast;
+  #{$colour-danger-contrast-var}: $colour-dark-danger-contrast;
+}
+
+@include util.theme(light) {
+  #{$colour-var}: $colour-light;
+  #{$colour-contrast-var}: $colour-light-contrast;
+  #{$colour-border-var}: $colour-light-border;
+
+  #{$colour-primary-contrast-var}: $colour-light-primary-contrast;
+  #{$colour-secondary-contrast-var}: $colour-light-secondary-contrast;
+  #{$colour-warning-contrast-var}: $colour-light-warning-contrast;
+  #{$colour-danger-contrast-var}: $colour-light-danger-contrast;
+}
