@@ -1,4 +1,4 @@
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry, CollectionKey } from "astro:content";
 import type { IMAGE_FORMATS } from "./constants";
 
 export type ImageFormat = (typeof IMAGE_FORMATS)[number];
@@ -13,11 +13,21 @@ export interface ImageSource {
   media?: string;
 }
 
-export type WorkItemEntry = CollectionEntry<"work"> & {
-  data: {
-    skills?: CollectionEntry<"skills">[];
+export type WithSkillsEntries<C extends CollectionEntry<CollectionKey>> = Omit<
+  C,
+  "data"
+> & {
+  data: Omit<C["data"], "skills"> & { skills?: CollectionEntry<"skills">[] };
+};
+
+export type WorkItemEntry = WithSkillsEntries<CollectionEntry<"work">> & {
+  placeholders?: {
+    cover?: string;
   };
-  placeholders: {
+};
+
+export type ProjectEntry = WithSkillsEntries<CollectionEntry<"projects">> & {
+  placeholders?: {
     cover?: string;
   };
 };

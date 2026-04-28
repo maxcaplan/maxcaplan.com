@@ -30,4 +30,21 @@ const work = defineCollection({
     }),
 });
 
-export const collections = { work, skills };
+/** Portfolio project items */
+const projects = defineCollection({
+  loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      date: z.coerce.date(),
+      skills: z.array(reference("skills")).optional(),
+      cover: image(),
+      "cover-alt": z.string().optional(),
+      "demo-url": z.string().optional(),
+      "source-url": z.string().optional(),
+      order: z.int().optional(),
+    }),
+});
+
+export const collections = { work, projects, skills };
