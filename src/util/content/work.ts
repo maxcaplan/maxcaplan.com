@@ -1,6 +1,6 @@
 import { getEntries } from "astro:content";
 import type { WorkItemEntry } from "@/types";
-import { sortOr } from "../array";
+import { sortOr } from "../client/array";
 import { getCollectionWithImagePlaceholders } from ".";
 
 /** Get sorted work collection entries */

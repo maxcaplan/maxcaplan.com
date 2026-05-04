@@ -5,15 +5,20 @@ import {
   icons,
 } from "maxcaplan-icons";
 import { useMemo } from "preact/hooks";
+import type { JSX } from "preact/jsx-runtime";
 
 /** Get an icon component for a given icon name */
 export const useIcon = (icon?: string, icon_props?: IconProps<IconStyle>) => {
   return useMemo(() => {
+    if (icon === undefined) {
+      return () => <></>;
+    }
+
     const icon_entry = Object.entries(icons).find(
       ([icon_key]) => icon_key === icon,
     )?.[1];
 
-    if (import.meta.env.DEV && icon_entry === undefined) {
+    if ((import.meta.env.DEV ?? process.env.DEV) && icon_entry === undefined) {
       console.warn(`Could not find icon with name '${icon}'`);
     }
 

@@ -5,8 +5,8 @@ import type { CSSProperties, ImgHTMLAttributes } from "preact";
 import { type PropsWithChildren } from "preact/compat";
 import { useMemo } from "preact/hooks";
 import type { ImageSource } from "@/types";
-import { useImageSources } from "@/util/hooks/image";
-import { getSourceSrc, getSourceType } from "@/util/image";
+import { useImageSources } from "@/util/client/hooks/image";
+import { getSourceSrc, getSourceType } from "@/util/client/image";
 
 export interface ImageProps extends Omit<
   ImgHTMLAttributes<HTMLImageElement>,

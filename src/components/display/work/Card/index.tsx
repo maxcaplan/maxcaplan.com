@@ -1,57 +1,53 @@
 import "./styles.scss";
 
-import type { CollectionEntry } from "astro:content";
 import clsx from "clsx";
 import { useMemo } from "preact/hooks";
 import SkillBadge from "@/components/display/Badge/Skill";
-import Card from "@/components/display/Card";
+import Card, { type CardProps } from "@/components/display/Card";
 import Image from "@/components/display/Image";
 import Button from "@/components/input/Button";
+import type { WorkItemEntry } from "@/types";
+import { formatDate } from "@/util/client/data";
 
-interface CoverImageAttributes {
-  src: string;
-  width?: number | string;
-  height?: number | string;
-}
-
-interface WorkCardProps {
-  id: string;
-  class?: string;
-  title: string;
-  date: string | Date;
-  skills?: CollectionEntry<"skills">[];
-  description: string;
-  cover: string | CoverImageAttributes;
-  "cover-placeholder"?: string;
-  "cover-alt"?: string;
+interface WorkCardProps extends CardProps {
+  work: WorkItemEntry;
+  loading?: "lazy" | "eager";
 }
 
 /** A preview of a portfolio work item */
 export default function WorkCard(props: WorkCardProps) {
+  const {
+    work,
+    class: class_attribute,
+    className,
+    loading,
+    ...card_props
+  } = props;
+
   /** Cover image attributes */
-  const cover_attributes = useMemo<CoverImageAttributes>(() => {
-    if (props.cover instanceof Object) {
-      return props.cover;
-    }
+  const cover_attributes = useMemo(
+    () =>
+      work.data.cover instanceof Object
+        ? work.data.cover
+        : { src: work.data.cover },
+    [work.data.cover],
+  );
 
-    return { src: props.cover };
-  }, [props.cover]);
-
-  /** Formatted date */
-  const date = useMemo(() => {
-    const date = props.date instanceof Date ? props.date : new Date(props.date);
-
-    const year = date.getFullYear();
-    const month = date.getMonth();
-
-    return {
-      iso: date.toISOString(),
-      label: `${month >= 10 ? month : "0" + month}/${year}`,
-    };
-  }, [props.date]);
+  /** Date object */
+  const date = useMemo(
+    () =>
+      work.data.date instanceof Date
+        ? work.data.date
+        : new Date(work.data.date),
+    [work.data.date],
+  );
 
   return (
-    <Card class={clsx("work-card", props.class)} aria-labelledby={props.id}>
+    <Card
+      {...card_props}
+      class={clsx("work-card", class_attribute, className)}
+      aria-labelledby={work.id}
+    >
       <div class="work-card__cover">
         <Image
           {...cover_attributes}
@@ -60,24 +56,32 @@ export default function WorkCard(props: WorkCardProps) {
             { format: "webp", src_suffix: "_md", media: "(min-width: 480px)" },
             { format: "webp", src_suffix: "_sm" },
           ]}
-          placeholder-url={props["cover-placeholder"]}
-          loading={"lazy"}
+          placeholder-url={work.placeholders?.cover}
+          alt={work.data["cover-alt"] ?? ""}
+          loading={loading ?? "lazy"}
         />
       </div>
 
       <div class="work-card__content">
         <Card.Header class="work-card__header">
-          <h3 id={props.id} class="work-card__title">
-            {props.title}
+          <h3 id={work.id} class="work-card__title">
+            {work.data.title}
           </h3>
 
-          <time class="work-card__date subtitle-2" datetime={date.iso}>
-            {date.label}
+          <time
+            class="work-card__date subtitle-2"
+            datetime={date.toISOString()}
+          >
+            {formatDate(date, {
+              month: { digits: 2 },
+              year: true,
+              seperator: "/",
+            })}
           </time>
         </Card.Header>
 
         <ul class="work-card__skills">
-          {props.skills?.map((skill) => (
+          {work.data.skills?.map((skill) => (
             <li>
               <SkillBadge skill={skill} />
             </li>
@@ -85,7 +89,7 @@ export default function WorkCard(props: WorkCardProps) {
         </ul>
 
         <Card.Body class="work-card__body">
-          <p>{props.description}</p>
+          <p>{work.data.description}</p>
         </Card.Body>
 
         <Card.Footer class="work-card__footer">
@@ -93,9 +97,10 @@ export default function WorkCard(props: WorkCardProps) {
             class="work-card__more-link"
             icon="arrow-right"
             variant="icon-right"
-            href={`/work/${props.id}`}
+            href={`/work/${work.id}`}
           >
-            See more <span class="visually-hidden">about {props.title}</span>
+            See more
+            <span class="visually-hidden"> about {work.data.title}</span>
           </Button>
         </Card.Footer>
       </div>

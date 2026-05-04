@@ -52,6 +52,7 @@
 
   &__subtitle {
     text-align: justify;
+    text-transform: lowercase;
     max-width: layout.$width-content;
 
     @include layout.media-breakpoint(md) {
@@ -71,6 +72,8 @@
   }
 
   & &__card-wrapper:nth-child(odd) &__card {
-    grid-column: 2;
+    @include layout.media-breakpoint(md) {
+      grid-column: 2;
+    }
   }
 }

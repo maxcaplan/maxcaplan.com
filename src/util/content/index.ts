@@ -3,7 +3,7 @@ import {
   type CollectionKey,
   getCollection,
 } from "astro:content";
-import { generatePlaceholderUrl } from "../image";
+import { generatePlaceholderUrl } from "../placeholders";
 
 /** Get a content collection and generate placeholder images for all sources returned by a callback */
 export async function getCollectionWithImagePlaceholders<

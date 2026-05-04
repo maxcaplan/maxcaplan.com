@@ -1,42 +1,47 @@
 import "./styles.scss";
 
-import type { CollectionEntry } from "astro:content";
+import { useMemo } from "preact/hooks";
 import WorkCard from "@/components/display/work/Card";
 import type { WorkItemEntry } from "@/types";
 
-interface FeaturedWorkProps {
+interface FeaturedWorkGridProps {
   /** Work item entries. First 3 will be displayed */
   entries: WorkItemEntry[];
+  "title-index"?: number;
 }
 
 /** Grid of 3 cards displaying work items */
-export default function FeaturedWorkGrid(props: FeaturedWorkProps) {
+export default function FeaturedWorkGrid(props: FeaturedWorkGridProps) {
+  const title_index = useMemo(() => {
+    if (props["title-index"] === undefined) {
+      return "01";
+    }
+
+    const index = Math.abs(props["title-index"]);
+    return index >= 10 ? index : "0" + index;
+  }, [props["title-index"]]);
+
+  const featured_work = useMemo(
+    () => props.entries.slice(0, 3),
+    [props.entries],
+  );
+
   return (
     <section class="featured-work" aria-labelledby="work">
       <div class="featured-work__header">
         <h2 id="work" class="featured-work__title display-2">
-          <span aria-hidden>01</span> <span>Work</span>
+          {title_index && <span aria-hidden>{title_index}</span>}{" "}
+          <span>Work</span>
         </h2>
 
         <p class="featured-work__subtitle subtitle-1">
-          a sample of the cool things i got to build with some amazing clients
+          A sample of the cool things i got to build with some amazing clients
         </p>
       </div>
 
-      {props.entries.slice(0, 3).map((entry, idx) => (
+      {featured_work.map((entry) => (
         <div class="featured-work__card-wrapper">
-          <WorkCard
-            key={entry.id}
-            class="featured-work__card"
-            id={entry.id}
-            title={entry.data.title}
-            description={entry.data.description}
-            date={entry.data.date}
-            skills={entry.data.skills}
-            cover={entry.data.cover}
-            cover-alt={entry.data["cover-alt"]}
-            cover-placeholder={entry.placeholders?.cover}
-          />
+          <WorkCard key={entry.id} class="featured-work__card" work={entry} />
         </div>
       ))}
     </section>

@@ -7,7 +7,7 @@ import type {
   ButtonHTMLAttributes,
   ComponentChildren,
 } from "preact";
-import { useIcon } from "@/util/hooks";
+import { useIcon } from "@/util/client/hooks";
 
 type LinkButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement> &
   AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -21,7 +21,7 @@ export type ButtonColour =
 export type ButtonSize = "sm" | "md" | "lg";
 export type ButtonVariant = "icon-left" | "icon-right" | "icon";
 
-interface ButtonProps extends LinkButtonAttributes {
+export interface ButtonProps extends LinkButtonAttributes {
   colour?: ButtonColour;
   size?: ButtonSize;
   variant?: ButtonVariant;

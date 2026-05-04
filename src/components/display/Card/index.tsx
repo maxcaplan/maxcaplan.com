@@ -9,7 +9,7 @@ import CardFooter from "./Footer";
 import type { CardHeaderComponent } from "./Header";
 import CardHeader from "./Header";
 
-interface CardProps extends HTMLAttributes<HTMLElement> {}
+export interface CardProps extends HTMLAttributes<HTMLElement> {}
 
 interface CardComponent {
   (props: CardProps): JSX.Element;

@@ -5,6 +5,7 @@
 @use "./Button";
 
 .button {
+  position: relative;
   display: block;
   padding: spacing.$base-400 spacing.$base-500;
   @include type.ui-lg;

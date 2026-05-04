@@ -3,8 +3,7 @@ import "./styles.scss";
 import clsx from "clsx";
 import type { IconName, IconStyle } from "maxcaplan-icons";
 import type { HTMLAttributes } from "preact";
-import { useMemo } from "preact/hooks";
-import { useIcon } from "@/util/hooks";
+import { useIcon } from "@/util/client/hooks";
 
 export type BadgeColour =
   | "default"
