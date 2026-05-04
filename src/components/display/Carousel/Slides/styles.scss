@@ -1,0 +1,20 @@
+.carousel {
+  :where(&__slides) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    list-style: none;
+    scroll-snap-type: x mandatory;
+  }
+
+  :where(&--interactive &__slides) {
+    scrollbar-width: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

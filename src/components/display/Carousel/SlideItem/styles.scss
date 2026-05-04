@@ -1,0 +1,8 @@
+.carousel {
+  :where(&__slide-item) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    scroll-snap-align: center;
+  }
+}

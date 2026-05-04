@@ -1,0 +1,10 @@
+@use "styles/abstract/spacing";
+
+.carousel {
+  :where(&__controls) {
+    display: flex;
+    flex-direction: row;
+    column-gap: spacing.$base-400;
+    list-style: none;
+  }
+}
