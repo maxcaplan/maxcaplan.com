@@ -1,0 +1,56 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/layout";
+@use "styles/abstract/border";
+
+.project-card {
+  width: 100%;
+
+  &__cover {
+    position: relative;
+    aspect-ratio: 2200 / 1280;
+    overflow: hidden;
+    margin-bottom: spacing.$base-500;
+    width: 100%;
+
+    img,
+    .image {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      @include border.border(100);
+      border-radius: border.$radius-lg;
+
+      @include layout.media-breakpoint(md) {
+        border-radius: border.$radius-xl;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    margin-bottom: spacing.$base-500;
+    flex-direction: column;
+    row-gap: spacing.$base-300;
+
+    @include layout.media-breakpoint(sm) {
+      flex-direction: row;
+    }
+  }
+
+  &__skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: spacing.$base-300;
+    list-style: none;
+    margin-bottom: spacing.$base-600;
+  }
+
+  &__body {
+    margin-bottom: spacing.$base-600;
+  }
+}
