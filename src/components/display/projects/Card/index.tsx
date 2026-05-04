@@ -5,7 +5,7 @@ import type { JSX, Signalish } from "preact";
 import { useMemo } from "preact/hooks";
 import Button from "@/components/input/Button";
 import type { ProjectEntry } from "@/types";
-import { formatDate } from "@/util/client/data";
+import { formatDate } from "@/util/client/format";
 import SkillBadge from "../../Badge/Skill";
 import Card, { type CardProps } from "../../Card";
 import Carousel from "../../Carousel";

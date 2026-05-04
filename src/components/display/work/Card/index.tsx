@@ -7,7 +7,7 @@ import Card, { type CardProps } from "@/components/display/Card";
 import Image from "@/components/display/Image";
 import Button from "@/components/input/Button";
 import type { WorkItemEntry } from "@/types";
-import { formatDate } from "@/util/client/data";
+import { formatDate } from "@/util/client/format";
 
 interface WorkCardProps extends CardProps {
   work: WorkItemEntry;
