@@ -102,6 +102,14 @@ const CarouselSlides: CarouselSlidesComponent = (props) => {
     }
 
     const scroll_value = element_ref.current.scrollLeft;
+    const scroll_between_slides_value =
+      (Math.round(
+        (scroll_value / (getSlideWidth() + getSpaceBetweenSlides())) * 1000,
+      ) /
+        1000) %
+      1;
+
+    carousel_context.setScrollBetweenSlides(scroll_between_slides_value);
 
     if (scroll_value === 0) {
       // Loop from first slide to last

@@ -8,7 +8,7 @@ import {
   toChildArray,
   type VNode,
 } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useMemo, useState } from "preact/hooks";
 import type { CarouselControlButtonComponent } from "./ControlButton";
 import CarouselControlButton from "./ControlButton";
 import type { CarouselControlItemComponent } from "./ControlItem";
@@ -58,7 +58,13 @@ const getSlidesComponent = (
 
 /** Display a collection of items that can be scrolled */
 const Carousel: CarouselComponent = (props) => {
-  const { class: class_attribute, className, children, ...attributes } = props;
+  const {
+    class: class_attribute,
+    className,
+    children,
+    style,
+    ...attributes
+  } = props;
 
   const [is_interactive, setIsInteractive] = useState(false);
   const [total_slides, setTotalSlides] = useState(
@@ -74,9 +80,23 @@ const Carousel: CarouselComponent = (props) => {
   const [scroll_to_slide_index, setScrollToSlideIndex] = useState<
     number | undefined
   >();
+  const [scroll_between_slides, setScrollBetweenSlides] = useState(0);
   const [live_region_slide_index, setLiveRegionSlideIndex] = useState<
     number | undefined
   >();
+
+  /** Add scroll between slides variable to component styles */
+  const style_attribute = useMemo(() => {
+    if (style === undefined || typeof style === "object") {
+      return { ...style, "--scroll-between-slides": scroll_between_slides };
+    }
+
+    return (
+      style +
+      (style.endsWith(";") ? "" : ";") +
+      `--scroll-between-slides:${scroll_between_slides};`
+    );
+  }, [scroll_between_slides, style]);
 
   /** Change to slide at an index */
   const goToSlide = (index: number) => {
@@ -141,8 +161,10 @@ const Carousel: CarouselComponent = (props) => {
         previous_slide_index,
         next_slide_index,
         scroll_to_slide_index,
+        scroll_between_slides,
         setTotalSlides,
         setCurrentSlideIndex,
+        setScrollBetweenSlides,
         goToSlide,
         previousSlide,
         nextSlide,
@@ -157,6 +179,7 @@ const Carousel: CarouselComponent = (props) => {
           class_attribute,
           className,
         )}
+        style={style_attribute}
       >
         {children}
 

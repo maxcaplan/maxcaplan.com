@@ -13,8 +13,10 @@ export interface CarouselContextValue {
   previous_slide_index: number;
   next_slide_index: number;
   scroll_to_slide_index: number | undefined;
+  scroll_between_slides: number;
   setTotalSlides: Dispatch<StateUpdater<number>>;
   setCurrentSlideIndex: Dispatch<StateUpdater<number>>;
+  setScrollBetweenSlides: Dispatch<StateUpdater<number>>;
   goToSlide: GoToSlideCallback;
   previousSlide: PreviousSlideCallback;
   nextSlide: NextSlideCallback;

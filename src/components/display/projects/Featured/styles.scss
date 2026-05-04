@@ -62,6 +62,18 @@
     padding-left: border.$width;
     padding-right: border.$width;
 
+    &.carousel__slide-item--next {
+      transform: scale(
+        clamp(0, calc(0.75 + (var(--scroll-between-slides, 0)) / 2), 1)
+      );
+    }
+
+    &.carousel__slide-item--previous {
+      transform: scale(
+        clamp(0, calc(0.75 + ((1 - var(--scroll-between-slides, 0)) / 2)), 1)
+      );
+    }
+
     .project-card__content {
       flex: 1;
     }
