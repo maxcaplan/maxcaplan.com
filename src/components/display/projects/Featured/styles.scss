@@ -1,0 +1,115 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
+@use "styles/abstract/border";
+
+.featured-projects {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: spacing.$base-600;
+    margin-bottom: spacing.$base-800;
+
+    @include layout.media-breakpoint(md) {
+      row-gap: spacing.$base-700;
+      margin-bottom: spacing.$base-800;
+    }
+  }
+
+  &__title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    & *:last-child {
+      text-align: end;
+    }
+  }
+
+  &__subtitle {
+    max-width: layout.$width-content;
+    text-align: justify;
+    text-transform: lowercase;
+  }
+
+  &__carousel-controls-wrapper {
+    display: grid;
+    margin-bottom: spacing.$base-400;
+
+    @include layout.media-breakpoint(lg) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: spacing.$base-600;
+    }
+  }
+
+  &__carousel-controls {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+
+    @include layout.media-breakpoint(lg) {
+      grid-column: 2;
+    }
+  }
+
+  &__carousel-controls &__carousel-control-item {
+    &:first-child {
+      justify-self: start;
+
+      .button {
+        margin-left: calc(-1 * spacing.$base-400);
+      }
+    }
+
+    &:nth-child(2) {
+      justify-self: center;
+    }
+
+    &:last-child {
+      justify-self: end;
+
+      .button {
+        margin-right: calc(-1 * spacing.$base-400);
+      }
+    }
+  }
+
+  &__carousel-slides {
+    column-gap: spacing.$base-800;
+
+    @include layout.media-breakpoint(lg) {
+      @include border.border(100, $top: true, $bottom: true);
+    }
+  }
+
+  &__slide-item {
+    height: 100%;
+    padding-left: border.$width;
+    padding-right: border.$width;
+
+    .project-card__content {
+      flex: 1;
+    }
+
+    .project-card__footer {
+      flex: 1;
+      align-items: end;
+    }
+
+    @include layout.media-breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: spacing.$base-600;
+
+      .project-card__cover {
+        margin: 0;
+      }
+
+      .project-card__content {
+        padding: spacing.$base-500 0;
+      }
+    }
+  }
+}

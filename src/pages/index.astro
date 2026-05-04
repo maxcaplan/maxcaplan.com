@@ -3,9 +3,12 @@ import { getWorkCollection } from "@/util/content/work.ts";
 
 import HeroLayout from "@/layouts/HeroLayout/index.astro";
 import HomeNavMenu from "@/components/navigation/home/NavMenu/index.tsx";
-import FeaturedWork from "@/components/display/work/Featured";
+import FeaturedWorkGrid from "@/components/display/work/Featured";
+import FeaturedProjectsCarousel from "@/components/display/projects/Featured";
+import { getProjectCollection } from "@/util/content/projects";
 
 const work_items = await getWorkCollection();
+const projects = await getProjectCollection();
 ---
 
 <HeroLayout>
@@ -13,7 +16,9 @@ const work_items = await getWorkCollection();
     <HomeNavMenu />
 
     <HomeNavMenu.Content>
-      <FeaturedWork entries={work_items} />
+      <FeaturedWorkGrid entries={work_items} />
+
+      <FeaturedProjectsCarousel entries={projects} client:idle />
     </HomeNavMenu.Content>
   </HomeNavMenu.Wrapper>
 </HeroLayout>
