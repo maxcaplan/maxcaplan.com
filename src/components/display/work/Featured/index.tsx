@@ -1,43 +1,34 @@
 import "./styles.scss";
 
+import clsx from "clsx";
+import type { HTMLAttributes } from "preact";
 import { useMemo } from "preact/hooks";
 import WorkCard from "@/components/display/work/Card";
 import type { WorkItemEntry } from "@/types";
 
-interface FeaturedWorkGridProps {
-  /** Work item entries. First 3 will be displayed */
-  entries: WorkItemEntry[];
-  "title-index"?: number;
+interface FeaturedWorkGridProps extends HTMLAttributes<HTMLElement> {
+  /** Work item work. First 3 will be displayed */
+  work: WorkItemEntry[];
 }
 
 /** Grid of 3 cards displaying work items */
 export default function FeaturedWorkGrid(props: FeaturedWorkGridProps) {
-  const title_index = useMemo(() => {
-    if (props["title-index"] === undefined) {
-      return "01";
-    }
+  const {
+    work,
+    children,
+    class: class_attribute,
+    className,
+    ...attributes
+  } = props;
 
-    const index = Math.abs(props["title-index"]);
-    return index >= 10 ? index : "0" + index;
-  }, [props["title-index"]]);
-
-  const featured_work = useMemo(
-    () => props.entries.slice(0, 3),
-    [props.entries],
-  );
+  const featured_work = useMemo(() => props.work.slice(0, 3), [props.work]);
 
   return (
-    <section class="featured-work" aria-labelledby="work">
-      <div class="featured-work__header">
-        <h2 id="work" class="featured-work__title display-2">
-          {title_index && <span aria-hidden>{title_index}</span>}{" "}
-          <span>Work</span>
-        </h2>
-
-        <p class="featured-work__subtitle subtitle-1">
-          A sample of the cool things i got to build with some amazing clients
-        </p>
-      </div>
+    <section
+      {...attributes}
+      class={clsx("featured-work", class_attribute, className)}
+    >
+      {children}
 
       {featured_work.map((entry) => (
         <div class="featured-work__card-wrapper">

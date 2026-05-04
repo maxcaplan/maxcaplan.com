@@ -1,45 +1,39 @@
 import "./styles.scss";
 
+import clsx from "clsx";
 import { useMemo } from "preact/hooks";
+import Carousel, { type CarouselProps } from "@/components/display/Carousel";
+import ProjectCard from "@/components/display/projects/Card";
 import type { ProjectEntry } from "@/types";
-import Carousel from "../../Carousel";
-import ProjectCard from "../Card";
+import HomeHeader from "../../home/Header";
 
-interface FeaturedProjectsCarouselProps {
-  entries: ProjectEntry[];
-  "title-index"?: number;
+interface FeaturedProjectsCarouselProps extends CarouselProps {
+  projects: ProjectEntry[];
 }
 
+/** Display a carousel of project cards */
 export default function FeaturedProjectsCarousel(
   props: FeaturedProjectsCarouselProps,
 ) {
-  const title_index = useMemo(() => {
-    if (props["title-index"] === undefined) {
-      return "02";
-    }
-
-    const index = Math.abs(props["title-index"]);
-    return index >= 10 ? index : "0" + index;
-  }, [props["title-index"]]);
+  const {
+    projects,
+    class: class_attribute,
+    className,
+    children,
+    ...carousel_props
+  } = props;
 
   const featured_projects = useMemo(
-    () => props.entries.slice(0, 3),
-    [props.entries],
+    () => projects.slice(0, 3),
+    [props.projects],
   );
 
   return (
-    <Carousel class="featured-projects" aria-labelledby="projects">
-      <div class="featured-projects__header">
-        <h2 id="projects" class="featured-projects__title display-2">
-          <span>Projects</span>{" "}
-          {title_index && <span aria-hidden>{title_index}</span>}
-        </h2>
-
-        <p class="featured-projects__subtitle subtitle-1">
-          Sometimes my side projects actually get finished ... or good enough to
-          share
-        </p>
-      </div>
+    <Carousel
+      {...carousel_props}
+      class={clsx("featured-projects", class_attribute, className)}
+    >
+      {children}
 
       <div class="featured-projects__carousel-controls-wrapper">
         <Carousel.Controls
@@ -61,7 +55,10 @@ export default function FeaturedProjectsCarousel(
           <Carousel.ControlItem class="featured-projects__carousel-control-item">
             <Carousel.Indicator>
               {({ index, slides }) => (
-                <span class="featured-projects__carousel-indicator ui-md">
+                <span
+                  class="featured-projects__carousel-indicator ui-md"
+                  aria-hidden
+                >
                   {slides === 0 ? 0 : index + 1}/{slides}
                 </span>
               )}

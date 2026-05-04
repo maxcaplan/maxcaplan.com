@@ -5,6 +5,7 @@ import HeroLayout from "@/layouts/HeroLayout/index.astro";
 import HomeNavMenu from "@/components/navigation/home/NavMenu/index.tsx";
 import FeaturedWorkGrid from "@/components/display/work/Featured";
 import FeaturedProjectsCarousel from "@/components/display/projects/Featured";
+import HomeHeader from "@/components/display/home/Header";
 import { getProjectCollection } from "@/util/content/projects";
 
 const work_items = await getWorkCollection();
@@ -16,9 +17,32 @@ const projects = await getProjectCollection();
     <HomeNavMenu />
 
     <HomeNavMenu.Content>
-      <FeaturedWorkGrid entries={work_items} />
+      <FeaturedWorkGrid work={work_items}>
+        <HomeHeader>
+          <HomeHeader.Title id="work">
+            <span aria-hidden>01</span>
+            <span>Work</span>
+          </HomeHeader.Title>
 
-      <FeaturedProjectsCarousel entries={projects} client:idle />
+          <HomeHeader.Subtitle>
+            A sample of the cool things i got to build with some amazing clients
+          </HomeHeader.Subtitle>
+        </HomeHeader>
+      </FeaturedWorkGrid>
+
+      <FeaturedProjectsCarousel projects={projects} client:idle>
+        <HomeHeader aria-labelledby="projects">
+          <HomeHeader.Title id="projects">
+            <span>Projects</span>
+            <span aria-hidden>02</span>
+          </HomeHeader.Title>
+
+          <HomeHeader.Subtitle>
+            Sometimes my side projects actually get finished ... or good enough
+            to share
+          </HomeHeader.Subtitle>
+        </HomeHeader>
+      </FeaturedProjectsCarousel>
     </HomeNavMenu.Content>
   </HomeNavMenu.Wrapper>
 </HeroLayout>

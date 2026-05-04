@@ -7,33 +7,6 @@
   display: flex;
   flex-direction: column;
 
-  &__header {
-    display: flex;
-    flex-direction: column;
-    row-gap: spacing.$base-600;
-    margin-bottom: spacing.$base-800;
-
-    @include layout.media-breakpoint(md) {
-      row-gap: spacing.$base-700;
-      margin-bottom: spacing.$base-800;
-    }
-  }
-
-  &__title {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    & *:last-child {
-      text-align: end;
-    }
-  }
-
-  &__subtitle {
-    max-width: layout.$width-content;
-    text-align: justify;
-    text-transform: lowercase;
-  }
-
   &__carousel-controls-wrapper {
     display: grid;
     margin-bottom: spacing.$base-400;

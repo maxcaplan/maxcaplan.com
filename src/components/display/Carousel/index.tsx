@@ -28,7 +28,7 @@ import {
   getTotalSlides,
 } from "./util";
 
-interface CarouselProps extends Omit<
+export interface CarouselProps extends Omit<
   BaseHTMLAttributes<HTMLElement>,
   "role" | "aria-roledescription"
 > {}
