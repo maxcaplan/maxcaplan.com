@@ -5,21 +5,24 @@ import { useMemo } from "preact/hooks";
 import Carousel, { type CarouselProps } from "@/components/display/Carousel";
 import ProjectCard from "@/components/display/projects/Card";
 import type { ProjectEntry } from "@/types";
-import HomeHeader from "../../home/Header";
+import { leadingZeros } from "@/util/client/format";
+import HomeHeader from "../Header";
 
-interface FeaturedProjectsCarouselProps extends CarouselProps {
+interface HomeProjectsSectionProps extends Omit<
+  CarouselProps,
+  "children" | "aria-label" | "aria-labelledby"
+> {
   projects: ProjectEntry[];
+  "section-index"?: number;
 }
 
 /** Display a carousel of project cards */
-export default function FeaturedProjectsCarousel(
-  props: FeaturedProjectsCarouselProps,
-) {
+export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
   const {
     projects,
     class: class_attribute,
     className,
-    children,
+    "section-index": section_index,
     ...carousel_props
   } = props;
 
@@ -31,9 +34,20 @@ export default function FeaturedProjectsCarousel(
   return (
     <Carousel
       {...carousel_props}
+      aria-labelledby="projects"
       class={clsx("featured-projects", class_attribute, className)}
     >
-      {children}
+      <HomeHeader aria-labelledby="projects">
+        <HomeHeader.Title id="projects">
+          <span>Projects</span>
+          <span aria-hidden>{leadingZeros(section_index ?? 2, 2)}</span>
+        </HomeHeader.Title>
+
+        <HomeHeader.Subtitle>
+          Sometimes my side projects actually get finished ... or good enough to
+          share
+        </HomeHeader.Subtitle>
+      </HomeHeader>
 
       <div class="featured-projects__carousel-controls-wrapper">
         <Carousel.Controls
