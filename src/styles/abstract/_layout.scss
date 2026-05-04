@@ -7,6 +7,7 @@ $width-full: 120rem;
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
+$breakpoint-xl: 1380px;
 
 $header-height: calc(2 * spacing.$base-500 + spacing.$base-600);
 
@@ -26,6 +27,10 @@ $header-height: calc(2 * spacing.$base-500 + spacing.$base-600);
 
   @if $breakpoint == lg {
     $min-width: $breakpoint-lg;
+  }
+
+  @if $breakpoint == xl {
+    $min-width: $breakpoint-xl;
   }
 
   @if not $min-width {
