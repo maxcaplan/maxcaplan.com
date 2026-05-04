@@ -94,6 +94,14 @@
     #{type.$subtitle-2-size-var}: type.$desktop-subtitle-2-size-value;
     #{type.$subtitle-2-height-var}: type.$desktop-subtitle-2-height-value;
 
+    #{type.$display-1-size-var}: type.$tablet-display-1-size-value;
+    #{type.$display-1-height-var}: type.$tablet-display-1-height-value;
+
+    #{type.$display-2-size-var}: type.$tablet-display-2-size-value;
+    #{type.$display-2-height-var}: type.$tablet-display-2-height-value;
+  }
+
+  @include layout.media-breakpoint(lg) {
     #{type.$display-1-size-var}: type.$desktop-display-1-size-value;
     #{type.$display-1-height-var}: type.$desktop-display-1-height-value;
 
