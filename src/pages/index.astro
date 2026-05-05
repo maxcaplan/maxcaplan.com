@@ -1,11 +1,12 @@
 ---
 import { getWorkCollection } from "@/util/content/work.ts";
+import { getProjectCollection } from "@/util/content/projects";
 
 import HeroLayout from "@/layouts/HeroLayout/index.astro";
 import HomeNavMenu from "@/components/navigation/home/NavMenu/index.tsx";
 import HomeProjectsSection from "@/components/display/home/ProjectsSection";
 import HomeWorkSection from "@/components/display/home/WorkSection";
-import { getProjectCollection } from "@/util/content/projects";
+import HomeServicesSection from "@/components/display/home/ServicesSection";
 
 const work_items = await getWorkCollection();
 const projects = await getProjectCollection();
@@ -19,6 +20,8 @@ const projects = await getProjectCollection();
       <HomeWorkSection work={work_items} />
 
       <HomeProjectsSection projects={projects} client:idle />
+
+      <HomeServicesSection client:idle />
     </HomeNavMenu.Content>
   </HomeNavMenu.Wrapper>
 </HeroLayout>

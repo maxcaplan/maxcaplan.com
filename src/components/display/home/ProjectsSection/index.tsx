@@ -37,7 +37,7 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
       aria-labelledby="projects"
       class={clsx("featured-projects", class_attribute, className)}
     >
-      <HomeHeader aria-labelledby="projects">
+      <HomeHeader>
         <HomeHeader.Title id="projects">
           <span>Projects</span>
           <span aria-hidden>{leadingZeros(section_index ?? 2, 2)}</span>
