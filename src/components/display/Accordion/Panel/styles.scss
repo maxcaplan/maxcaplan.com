@@ -1,0 +1,10 @@
+.accordion {
+  :where(&__panel) {
+    overflow: hidden;
+    display: none;
+  }
+
+  :where(&--expanded &__panel) {
+    display: block;
+  }
+}

@@ -1,0 +1,57 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/border";
+@use "styles/abstract/util";
+
+.accordion {
+  :where(&__trigger) {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: spacing.$base-500;
+    width: 100%;
+    text-align: start;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    color: currentColor;
+    text-transform: inherit;
+
+    opacity: 1;
+
+    &:focus-visible {
+      outline: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        border-radius: border.$radius-sm;
+        @include border.outline(500, focus);
+        outline-offset: spacing.$base-200;
+      }
+    }
+
+    &:disabled {
+      @include util.theme(dark, true) {
+        color: colour.$warp-1200;
+        opacity: 0.85;
+      }
+    }
+
+    &:disabled {
+      @include util.theme(light) {
+        color: colour.$warp-1100;
+        opacity: 0.85;
+      }
+    }
+  }
+}
