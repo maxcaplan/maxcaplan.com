@@ -1,9 +1,9 @@
 import "./styles.scss";
 
 import type { HTMLAttributes } from "preact";
+import Accordion from "@/components/display/Accordion";
+import HomeHeader from "@/components/display/home/Header";
 import { leadingZeros } from "@/util/client/format";
-import Accordion from "../../Accordion";
-import HomeHeader from "../Header";
 
 export interface HomeServicesSectionProps extends Omit<
   HTMLAttributes<HTMLElement>,

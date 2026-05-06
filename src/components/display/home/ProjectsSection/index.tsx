@@ -3,10 +3,10 @@ import "./styles.scss";
 import clsx from "clsx";
 import { useMemo } from "preact/hooks";
 import Carousel, { type CarouselProps } from "@/components/display/Carousel";
+import HomeHeader from "@/components/display/home/Header";
 import ProjectCard from "@/components/display/projects/Card";
 import type { ProjectEntry } from "@/types";
 import { leadingZeros } from "@/util/client/format";
-import HomeHeader from "../Header";
 
 interface HomeProjectsSectionProps extends Omit<
   CarouselProps,

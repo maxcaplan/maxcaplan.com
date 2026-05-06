@@ -3,10 +3,10 @@ import "./styles.scss";
 import clsx from "clsx";
 import type { HTMLAttributes } from "preact";
 import { useMemo } from "preact/hooks";
+import HomeHeader from "@/components/display/home/Header";
 import WorkCard from "@/components/display/work/Card";
 import type { WorkItemEntry } from "@/types";
 import { leadingZeros } from "@/util/client/format";
-import HomeHeader from "../Header";
 
 interface HomeWorkSectionProps extends Omit<
   HTMLAttributes<HTMLElement>,

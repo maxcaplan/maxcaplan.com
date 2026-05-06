@@ -173,15 +173,15 @@ $colour-button-contact-focus: var($colour-button-contact-focus-var);
     display: flex;
     flex-direction: column;
     gap: spacing.$base-500;
+  }
 
-    .button {
-      color: currentColor;
-      border-color: currentColor;
+  &__social-link-item.button {
+    color: currentColor;
+    border-color: currentColor;
 
-      #{Button.$colour-hover-var}: $colour-button-contact-hover;
-      #{Button.$colour-pressed-var}: $colour-button-contact-pressed;
-      #{Button.$colour-focus-var}: $colour-button-contact-focus;
-    }
+    #{Button.$colour-hover-var}: $colour-button-contact-hover;
+    #{Button.$colour-pressed-var}: $colour-button-contact-pressed;
+    #{Button.$colour-focus-var}: $colour-button-contact-focus;
 
     .mc-icon {
       width: spacing.$base-700;

@@ -1,6 +1,9 @@
 import clsx from "clsx";
 import type { JSX } from "preact";
-import Heading, { type HeadingLevel, type HeadingProps } from "../../Heading";
+import Heading, {
+  type HeadingLevel,
+  type HeadingProps,
+} from "@/components/display/Heading";
 
 export interface AccordionHeaderProps extends Omit<HeadingProps, "level"> {
   level?: HeadingLevel;

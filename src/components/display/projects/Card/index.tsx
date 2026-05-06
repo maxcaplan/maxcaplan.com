@@ -3,14 +3,14 @@ import "./styles.scss";
 import clsx from "clsx";
 import type { JSX, Signalish } from "preact";
 import { useMemo } from "preact/hooks";
+import SkillBadge from "@/components/display/Badge/Skill";
+import Card, { type CardProps } from "@/components/display/Card";
+import Carousel from "@/components/display/Carousel";
+import type { CarouselSlideItemProps } from "@/components/display/Carousel/SlideItem";
+import Image from "@/components/display/Image";
 import Button from "@/components/input/Button";
 import type { ProjectEntry } from "@/types";
 import { formatDate } from "@/util/client/format";
-import SkillBadge from "../../Badge/Skill";
-import Card, { type CardProps } from "../../Card";
-import Carousel from "../../Carousel";
-import type { CarouselSlideItemProps } from "../../Carousel/SlideItem";
-import Image from "../../Image";
 
 interface ProjectCardBaseProps {
   project: ProjectEntry;

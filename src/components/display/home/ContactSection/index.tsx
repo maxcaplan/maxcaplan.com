@@ -2,10 +2,10 @@ import "./styles.scss";
 
 import { Location, Mail } from "maxcaplan-icons";
 import type { HTMLAttributes } from "preact";
-import Button from "@/components/input/Button";
+import HomeHeader from "@/components/display/home/Header";
+import SocialLink from "@/components/navigation/SocialLink";
+import { SOCIAL_MEDIAS } from "@/constants";
 import { leadingZeros } from "@/util/client/format";
-import Accordion from "../../Accordion";
-import HomeHeader from "../Header";
 
 export interface HomeContactSectionProps extends Omit<
   HTMLAttributes<HTMLElement>,
@@ -60,44 +60,15 @@ export default function HomeContactSection(props: HomeContactSectionProps) {
           </div>
 
           <div class="contact-section__social-links">
-            <Button
-              href="https://github.com/maxcaplan/"
-              target="_blank"
-              icon="github"
-              variant="icon-left"
-              colour="outline"
-              size="lg"
-            >
-              <span>
-                <span class="visually-hidden">Max Caplan</span> Github
-              </span>
-            </Button>
-
-            <Button
-              href="https://www.linkedin.com/in/max-caplan/"
-              target="_blank"
-              icon="linkedin"
-              variant="icon-left"
-              colour="outline"
-              size="lg"
-            >
-              <span>
-                <span class="visually-hidden">Max Caplan</span> Linkedin
-              </span>
-            </Button>
-
-            <Button
-              href="https://mastodon.social/@maxcaplan"
-              target="_blank"
-              icon="mastodon"
-              variant="icon-left"
-              colour="outline"
-              size="lg"
-            >
-              <span>
-                <span class="visually-hidden">Max Caplan</span> Mastodon
-              </span>
-            </Button>
+            {Object.keys(SOCIAL_MEDIAS).map((social_media) => (
+              <SocialLink
+                social-media={social_media as keyof typeof SOCIAL_MEDIAS}
+                class="contact-section__social-link-item"
+                variant="icon-left"
+                colour="outline"
+                size="lg"
+              />
+            ))}
           </div>
         </div>
       </div>

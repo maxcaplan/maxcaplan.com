@@ -2,7 +2,9 @@ import "./styles.scss";
 
 import { Location, Mail } from "maxcaplan-icons";
 import Button from "@/components/input/Button";
-import Seperator from "../Seperator";
+import Seperator from "@/components/layout/Seperator";
+import SocialLink from "@/components/navigation/SocialLink";
+import { SOCIAL_MEDIAS } from "@/constants";
 import HeroHeading from "./Heading";
 
 interface HeroProps {
@@ -38,35 +40,12 @@ export default function Hero(props: HeroProps) {
           <Seperator style="dashed" />
 
           <div class="hero__social-links">
-            <Button
-              href="https://github.com/maxcaplan/"
-              target="_blank"
-              icon="github"
-              variant="icon"
-              colour="outline"
-            >
-              <span class="visually-hidden">Max Caplan Github</span>
-            </Button>
-
-            <Button
-              href="https://www.linkedin.com/in/max-caplan/"
-              target="_blank"
-              icon="linkedin"
-              variant="icon"
-              colour="outline"
-            >
-              <span class="visually-hidden">Max Caplan Linkedin</span>
-            </Button>
-
-            <Button
-              href="https://mastodon.social/@maxcaplan"
-              target="_blank"
-              icon="mastodon"
-              variant="icon"
-              colour="outline"
-            >
-              <span class="visually-hidden">Max Caplan Mastodon</span>
-            </Button>
+            {Object.keys(SOCIAL_MEDIAS).map((social_media) => (
+              <SocialLink
+                social-media={social_media as keyof typeof SOCIAL_MEDIAS}
+                colour="outline"
+              />
+            ))}
           </div>
 
           <div class="hero__call-to-action">
