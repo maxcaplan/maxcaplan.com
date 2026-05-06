@@ -3,8 +3,8 @@ import "./styles.scss";
 import { Location, Mail } from "maxcaplan-icons";
 import type { HTMLAttributes } from "preact";
 import HomeHeader from "@/components/display/home/Header";
-import SocialLink from "@/components/navigation/SocialLink";
-import { SOCIAL_MEDIAS } from "@/constants";
+import SocialLinkButton from "@/components/navigation/SocialLinkButton";
+import SocialLinks from "@/components/navigation/SocialLinks";
 import { leadingZeros } from "@/util/client/format";
 
 export interface HomeContactSectionProps extends Omit<
@@ -59,17 +59,17 @@ export default function HomeContactSection(props: HomeContactSectionProps) {
             </div>
           </div>
 
-          <div class="contact-section__social-links">
-            {Object.keys(SOCIAL_MEDIAS).map((social_media) => (
-              <SocialLink
-                social-media={social_media as keyof typeof SOCIAL_MEDIAS}
+          <SocialLinks class="contact-section__social-links" direction="column">
+            {(social_media) => (
+              <SocialLinkButton
                 class="contact-section__social-link-item"
+                social-media={social_media}
                 variant="icon-left"
                 colour="outline"
                 size="lg"
               />
-            ))}
-          </div>
+            )}
+          </SocialLinks>
         </div>
       </div>
     </section>

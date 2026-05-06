@@ -170,8 +170,6 @@ $colour-button-contact-focus: var($colour-button-contact-focus-var);
   }
 
   &__social-links {
-    display: flex;
-    flex-direction: column;
     gap: spacing.$base-500;
   }
 
