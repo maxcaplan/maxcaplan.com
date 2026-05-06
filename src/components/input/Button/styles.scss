@@ -2,6 +2,7 @@
 @use "styles/abstract/colour";
 @use "styles/abstract/type";
 @use "styles/abstract/border";
+@use "styles/abstract/util";
 @use "./Button";
 
 .button {
@@ -172,4 +173,90 @@
     width: spacing.$base-600;
     height: spacing.$base-600;
   }
+}
+
+@include util.theme(dark, true) {
+  #{Button.$colour-var}: Button.$colour-dark;
+  #{Button.$colour-contrast-var}: Button.$colour-dark-contrast;
+  #{Button.$colour-border-var}: Button.$colour-dark-border;
+  #{Button.$colour-focus-var}: Button.$colour-dark-focus;
+  #{Button.$colour-shadow-var}: Button.$colour-dark-shadow;
+  #{Button.$colour-hover-var}: Button.$colour-dark-hover;
+  #{Button.$colour-hover-shadow-var}: Button.$colour-dark-hover-shadow;
+  #{Button.$colour-pressed-var}: Button.$colour-dark-pressed;
+  #{Button.$colour-disabled-var}: Button.$colour-dark-disabled;
+  #{Button.$colour-disabled-contrast-var}: Button.$colour-dark-disabled-contrast;
+
+  #{Button.$colour-primary-var}: Button.$colour-dark-primary;
+  #{Button.$colour-primary-contrast-var}: Button.$colour-dark-primary-contrast;
+  #{Button.$colour-primary-border-var}: Button.$colour-dark-primary-border;
+  #{Button.$colour-primary-focus-var}: Button.$colour-dark-primary-focus;
+  #{Button.$colour-primary-shadow-var}: Button.$colour-dark-primary-shadow;
+  #{Button.$colour-primary-hover-var}: Button.$colour-dark-primary-hover;
+  #{Button.$colour-primary-hover-shadow-var}: Button.$colour-dark-primary-hover-shadow;
+  #{Button.$colour-primary-pressed-var}: Button.$colour-dark-primary-pressed;
+  #{Button.$colour-primary-disabled-var}: Button.$colour-dark-primary-disabled;
+  #{Button.$colour-primary-disabled-contrast-var}: Button.$colour-dark-primary-disabled-contrast;
+
+  #{Button.$colour-secondary-var}: Button.$colour-dark-secondary;
+  #{Button.$colour-secondary-contrast-var}: Button.$colour-dark-secondary-contrast;
+  #{Button.$colour-secondary-border-var}: Button.$colour-dark-secondary-border;
+  #{Button.$colour-secondary-focus-var}: Button.$colour-dark-secondary-focus;
+  #{Button.$colour-secondary-shadow-var}: Button.$colour-dark-secondary-shadow;
+  #{Button.$colour-secondary-hover-var}: Button.$colour-dark-secondary-hover;
+  #{Button.$colour-secondary-hover-shadow-var}: Button.$colour-dark-secondary-hover-shadow;
+  #{Button.$colour-secondary-pressed-var}: Button.$colour-dark-secondary-pressed;
+  #{Button.$colour-secondary-disabled-var}: Button.$colour-dark-secondary-disabled;
+  #{Button.$colour-secondary-disabled-contrast-var}: Button.$colour-dark-secondary-disabled-contrast;
+
+  #{Button.$colour-outline-contrast-var}: Button.$colour-dark-outline-contrast;
+  #{Button.$colour-outline-border-var}: Button.$colour-dark-outline-border;
+  #{Button.$colour-outline-focus-var}: Button.$colour-dark-outline-focus;
+  #{Button.$colour-outline-hover-var}: Button.$colour-dark-outline-hover;
+  #{Button.$colour-outline-pressed-var}: Button.$colour-dark-outline-pressed;
+  #{Button.$colour-outline-disabled-var}: Button.$colour-dark-outline-disabled;
+  #{Button.$colour-outline-disabled-contrast-var}: Button.$colour-dark-outline-disabled-contrast;
+}
+
+@include util.theme(light) {
+  #{Button.$colour-var}: Button.$colour-light;
+  #{Button.$colour-contrast-var}: Button.$colour-light-contrast;
+  #{Button.$colour-border-var}: Button.$colour-light-border;
+  #{Button.$colour-focus-var}: Button.$colour-light-focus;
+  #{Button.$colour-shadow-var}: Button.$colour-light-shadow;
+  #{Button.$colour-hover-var}: Button.$colour-light-hover;
+  #{Button.$colour-hover-shadow-var}: Button.$colour-light-hover-shadow;
+  #{Button.$colour-pressed-var}: Button.$colour-light-pressed;
+  #{Button.$colour-disabled-var}: Button.$colour-light-disabled;
+  #{Button.$colour-disabled-contrast-var}: Button.$colour-light-disabled-contrast;
+
+  #{Button.$colour-primary-var}: Button.$colour-light-primary;
+  #{Button.$colour-primary-contrast-var}: Button.$colour-light-primary-contrast;
+  #{Button.$colour-primary-border-var}: Button.$colour-light-primary-border;
+  #{Button.$colour-primary-focus-var}: Button.$colour-light-primary-focus;
+  #{Button.$colour-primary-shadow-var}: Button.$colour-light-primary-shadow;
+  #{Button.$colour-primary-hover-var}: Button.$colour-light-primary-hover;
+  #{Button.$colour-primary-hover-shadow-var}: Button.$colour-light-primary-hover-shadow;
+  #{Button.$colour-primary-pressed-var}: Button.$colour-light-primary-pressed;
+  #{Button.$colour-primary-disabled-var}: Button.$colour-light-primary-disabled;
+  #{Button.$colour-primary-disabled-contrast-var}: Button.$colour-light-primary-disabled-contrast;
+
+  #{Button.$colour-secondary-var}: Button.$colour-light-secondary;
+  #{Button.$colour-secondary-contrast-var}: Button.$colour-light-secondary-contrast;
+  #{Button.$colour-secondary-border-var}: Button.$colour-light-secondary-border;
+  #{Button.$colour-secondary-focus-var}: Button.$colour-light-secondary-focus;
+  #{Button.$colour-secondary-shadow-var}: Button.$colour-light-secondary-shadow;
+  #{Button.$colour-secondary-hover-var}: Button.$colour-light-secondary-hover;
+  #{Button.$colour-secondary-hover-shadow-var}: Button.$colour-light-secondary-hover-shadow;
+  #{Button.$colour-secondary-pressed-var}: Button.$colour-light-secondary-pressed;
+  #{Button.$colour-secondary-disabled-var}: Button.$colour-light-secondary-disabled;
+  #{Button.$colour-secondary-disabled-contrast-var}: Button.$colour-light-secondary-disabled-contrast;
+
+  #{Button.$colour-outline-contrast-var}: Button.$colour-light-outline-contrast;
+  #{Button.$colour-outline-border-var}: Button.$colour-light-outline-border;
+  #{Button.$colour-outline-focus-var}: Button.$colour-light-outline-focus;
+  #{Button.$colour-outline-hover-var}: Button.$colour-light-outline-hover;
+  #{Button.$colour-outline-pressed-var}: Button.$colour-light-outline-pressed;
+  #{Button.$colour-outline-disabled-var}: Button.$colour-light-outline-disabled;
+  #{Button.$colour-outline-disabled-contrast-var}: Button.$colour-light-outline-disabled-contrast;
 }

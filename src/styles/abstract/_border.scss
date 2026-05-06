@@ -80,10 +80,21 @@ $radius-full: 900px;
 /// @param {String} $thickness - Outline width
 /// @param {String} $style [solid] - Outline style
 /// @param {Boolean} $surface [false] - Surface outline variant
-@mixin outline($variant, $thickness: null, $style: solid, $surface: false) {
+/// @param {String} $offset - Outline offset
+@mixin outline(
+  $variant,
+  $thickness: null,
+  $style: solid,
+  $surface: false,
+  $offset: null
+) {
   outline-color: getBorderColour($variant, $surface);
   outline-width: getBorderWidth($thickness);
   outline-style: $style;
+
+  @if $offset {
+    outline-offset: $offset;
+  }
 }
 
 // Helpers

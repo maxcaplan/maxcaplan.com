@@ -1,0 +1,191 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/layout";
+@use "styles/abstract/border";
+@use "styles/abstract/util";
+@use "components/input/Button/Button";
+
+// Tokens
+
+// Dark Theme
+
+$colour-dark-contact-grid: colour.$thunder-1600;
+
+$colour-dark-button-contact-hover: colour.$thunder-1600;
+$colour-dark-button-contact-pressed: colour.$thunder-1500;
+$colour-dark-button-contact-focus: colour.$primary-contrast;
+
+// Light Theme
+
+$colour-light-contact-grid: colour.$thunder-900;
+
+$colour-light-button-contact-hover: colour.$thunder-900;
+$colour-light-button-contact-pressed: colour.$thunder-800;
+$colour-light-button-contact-focus: colour.$primary-contrast;
+
+// CSS Variables
+
+$colour-contact-grid-var: --mc--colour--contact-grid;
+
+$colour-button-contact-hover-var: --mc--colour--button--contact--hover;
+$colour-button-contact-pressed-var: --mc--colour--button--contact--pressed;
+$colour-button-contact-focus-var: --mc--colour--button--contact--focus;
+
+$colour-contact-grid: var($colour-contact-grid-var);
+
+$colour-button-contact-hover: var($colour-button-contact-hover-var);
+$colour-button-contact-pressed: var($colour-button-contact-pressed-var);
+$colour-button-contact-focus: var($colour-button-contact-focus-var);
+
+// Styles
+
+.contact-section {
+  position: relative;
+  z-index: 0;
+  padding-top: spacing.$base-900;
+  padding-bottom: spacing.$base-900;
+  background-color: colour.$secondary;
+  color: colour.$secondary-contrast;
+
+  @include layout.media-breakpoint(md) {
+    padding-top: spacing.$base-1000;
+    padding-bottom: spacing.$base-1000;
+  }
+
+  @include util.theme(dark, true) {
+    #{$colour-contact-grid-var}: $colour-dark-contact-grid;
+
+    #{$colour-button-contact-hover-var}: $colour-dark-button-contact-hover;
+    #{$colour-button-contact-pressed-var}: $colour-dark-button-contact-pressed;
+    #{$colour-button-contact-focus-var}: $colour-dark-button-contact-focus;
+  }
+
+  @include util.theme(light) {
+    #{$colour-contact-grid-var}: $colour-light-contact-grid;
+
+    #{$colour-button-contact-hover-var}: $colour-light-button-contact-hover;
+    #{$colour-button-contact-pressed-var}: $colour-light-button-contact-pressed;
+    #{$colour-button-contact-focus-var}: $colour-light-button-contact-focus;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-image:
+      linear-gradient(to right, $colour-contact-grid, 1px, transparent 1px),
+      linear-gradient(to bottom, $colour-contact-grid, 1px, transparent 1px);
+    background-size: spacing.$base-900 spacing.$base-900;
+    background-attachment: fixed;
+  }
+
+  * {
+    color: colour.$secondary-contrast;
+  }
+
+  a:not(.button):focus-visible {
+    position: relative;
+    outline: 0;
+    text-decoration: underline;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: border.$radius-sm;
+      @include border.outline(
+        colour.$primary-contrast,
+        border.$width-focus,
+        $offset: spacing.$base-100
+      );
+    }
+  }
+
+  &__header {
+    @include layout.media-breakpoint(xl) {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__title {
+    display: inline;
+  }
+
+  &__subtitle {
+    justify-self: end;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$base-700;
+
+    @include layout.media-breakpoint(md) {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$base-200;
+    padding: spacing.$base-500 0;
+
+    @include border.border(currentColor, $top: true);
+
+    &:last-child {
+      @include border.border(currentColor, $top: true, $bottom: true);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__detail-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: spacing.$base-300;
+
+    .mc-icon {
+      width: spacing.$base-550;
+      height: spacing.$base-550;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$base-500;
+
+    .button {
+      color: currentColor;
+      border-color: currentColor;
+
+      #{Button.$colour-hover-var}: $colour-button-contact-hover;
+      #{Button.$colour-pressed-var}: $colour-button-contact-pressed;
+      #{Button.$colour-focus-var}: $colour-button-contact-focus;
+    }
+
+    .mc-icon {
+      width: spacing.$base-700;
+      height: spacing.$base-700;
+    }
+  }
+}
