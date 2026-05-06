@@ -31,55 +31,59 @@
   }
 
   &__accordion {
-    &.accordion {
-      @include border.border(100, $top: true);
+    @include border.border(100, $top: true);
 
-      &:last-child {
-        @include border.border(100, $top: true, $bottom: true);
-      }
-
-      p {
-        max-width: layout.$width-content;
-      }
+    &:last-child {
+      @include border.border(100, $top: true, $bottom: true);
     }
 
     &.accordion--expanded {
       background-color: colour.$surface-200;
+    }
+  }
 
-      .accordion__trigger-icon {
-        transform: rotate(180deg);
+  &__accordion-trigger {
+    padding: spacing.$base-600 spacing.$base-400 spacing.$base-600
+      spacing.$base-400;
+
+    @include layout.media-breakpoint(md) {
+      padding: spacing.$base-600;
+    }
+
+    &:hover {
+      background-color: colour.$surface-200;
+    }
+
+    .mc-icon {
+      width: spacing.$base-600;
+      height: spacing.$base-600;
+
+      @include layout.media-breakpoint(md) {
+        width: spacing.$base-650;
+        height: spacing.$base-650;
       }
     }
 
-    .accordion {
-      &__trigger {
-        padding: spacing.$base-600 spacing.$base-400 spacing.$base-600
-          spacing.$base-400;
+    .accordion--expanded &:hover {
+      background-color: colour.$surface-400;
+    }
 
-        @include layout.media-breakpoint(md) {
-          padding: spacing.$base-600;
-        }
-      }
+    .accordion--expanded & .mc-icon {
+      transform: rotate(180deg);
+    }
+  }
 
-      &__panel {
-        padding: spacing.$base-400 spacing.$base-400 spacing.$base-600
-          spacing.$base-400;
+  &__accordion-panel {
+    padding: spacing.$base-400 spacing.$base-400 spacing.$base-600
+      spacing.$base-400;
 
-        @include layout.media-breakpoint(md) {
-          padding: spacing.$base-400 spacing.$base-600 spacing.$base-600
-            spacing.$base-600;
-        }
-      }
+    @include layout.media-breakpoint(md) {
+      padding: spacing.$base-400 spacing.$base-600 spacing.$base-600
+        spacing.$base-600;
+    }
 
-      &__trigger-icon {
-        width: spacing.$base-600;
-        height: spacing.$base-600;
-
-        @include layout.media-breakpoint(md) {
-          width: spacing.$base-650;
-          height: spacing.$base-650;
-        }
-      }
+    p {
+      max-width: layout.$width-content;
     }
   }
 }

@@ -38,11 +38,16 @@ export default function HomeServicesSection(props: HomeServicesSectionProps) {
           class="services-section__accordion"
           start-expanded
         >
-          <Accordion.Header>
-            <Accordion.Trigger icon="caret-down">SEO</Accordion.Trigger>
+          <Accordion.Header class="services-section__accordion-header">
+            <Accordion.Trigger
+              class="services-section__accordion-trigger"
+              icon="caret-down"
+            >
+              SEO
+            </Accordion.Trigger>
           </Accordion.Header>
 
-          <Accordion.Panel>
+          <Accordion.Panel class="services-section__accordion-panel">
             <p>
               I conduct comprehensive audits of your website that give insights
               into the key metrics that impact how you reach your target
@@ -54,13 +59,16 @@ export default function HomeServicesSection(props: HomeServicesSectionProps) {
         </Accordion>
 
         <Accordion id="uiux-accordion" class="services-section__accordion">
-          <Accordion.Header>
-            <Accordion.Trigger icon="caret-down">
+          <Accordion.Header class="services-section__accordion-header">
+            <Accordion.Trigger
+              class="services-section__accordion-trigger"
+              icon="caret-down"
+            >
               UI/UX Design
             </Accordion.Trigger>
           </Accordion.Header>
 
-          <Accordion.Panel>
+          <Accordion.Panel class="services-section__accordion-panel">
             <p>
               I provide bespoke design services for new or existing products. I
               leverage fundamental design principles and accessibility driven
@@ -73,13 +81,16 @@ export default function HomeServicesSection(props: HomeServicesSectionProps) {
         </Accordion>
 
         <Accordion id="wordpress-accordion" class="services-section__accordion">
-          <Accordion.Header>
-            <Accordion.Trigger icon="caret-down">
+          <Accordion.Header class="services-section__accordion-header">
+            <Accordion.Trigger
+              class="services-section__accordion-trigger"
+              icon="caret-down"
+            >
               WordPress Development
             </Accordion.Trigger>
           </Accordion.Header>
 
-          <Accordion.Panel>
+          <Accordion.Panel class="services-section__accordion-panel">
             <p>
               I use my purpose built in house toolkit as well as trusted
               community tools to provide bespoke Wordpress theme and plugin
@@ -91,18 +102,21 @@ export default function HomeServicesSection(props: HomeServicesSectionProps) {
         </Accordion>
 
         <Accordion id="fullstack-accordion" class="services-section__accordion">
-          <Accordion.Header>
-            <Accordion.Trigger icon="caret-down">
+          <Accordion.Header class="services-section__accordion-header">
+            <Accordion.Trigger
+              class="services-section__accordion-trigger"
+              icon="caret-down"
+            >
               Fullstack Development
             </Accordion.Trigger>
           </Accordion.Header>
 
-          <Accordion.Panel>
+          <Accordion.Panel class="services-section__accordion-panel">
             <p>
-              From custom user interfaces to website servers, I provide high
-              quality software development aligned with industry standards. I
-              ensure industry standards for code quality and best practices
-              while developing robust and maintainable software
+              From custom user interfaces to web servers, I provide high quality
+              software development aligned with industry standards. All custom
+              development follows best practices for quality and security
+              ensuring robust and maintainable software
             </p>
           </Accordion.Panel>
         </Accordion>
