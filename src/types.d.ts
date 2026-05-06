@@ -1,5 +1,5 @@
 import type { CollectionEntry, CollectionKey } from "astro:content";
-import type { IMAGE_FORMATS } from "./constants";
+import type { IMAGE_FORMATS, SOCIAL_MEDIAS } from "./constants";
 
 export type ImageFormat = (typeof IMAGE_FORMATS)[number];
 
@@ -12,6 +12,8 @@ export interface ImageSource {
   format?: ImageFormat;
   media?: string;
 }
+
+export type SocialMedia = keyof typeof SOCIAL_MEDIAS;
 
 export type WithSkillsEntries<C extends CollectionEntry<CollectionKey>> = Omit<
   C,
