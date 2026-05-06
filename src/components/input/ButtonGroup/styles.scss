@@ -1,0 +1,18 @@
+@use "styles/abstract/spacing";
+
+.button-group {
+  :where(&) {
+    display: flex;
+    flex-direction: row;
+    gap: spacing.$base-400;
+    list-style: none;
+  }
+
+  :where(&--column) {
+    flex-direction: column;
+  }
+
+  :where(&--wrap) {
+    flex-wrap: wrap;
+  }
+}
