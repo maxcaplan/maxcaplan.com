@@ -1,23 +1,28 @@
 import "./styles.scss";
 
+import clsx from "clsx";
 import { Location, Mail } from "maxcaplan-icons";
-import Button from "@/components/input/Button";
+import type { HTMLAttributes } from "preact";
+import ButtonGroup from "@/components/input/ButtonGroup";
 import Seperator from "@/components/layout/Seperator";
-import SocialLink from "@/components/navigation/SocialLink";
-import { SOCIAL_MEDIAS } from "@/constants";
+import SocialLinkButton from "@/components/navigation/SocialLinkButton";
+import SocialLinks from "@/components/navigation/SocialLinks";
 import HeroHeading from "./Heading";
 
-interface HeroProps {
-  id?: string;
-}
+interface HeroProps extends Omit<
+  HTMLAttributes<HTMLElement>,
+  "children" | "aria-label" | "aria-labelledby"
+> {}
 
 /** Landing page hero section */
 export default function Hero(props: HeroProps) {
+  const { class: class_attribute, className, ...attributes } = props;
+
   return (
     <section
+      {...attributes}
       aria-labelledby="hero__label"
-      id={props.id}
-      class="hero root-padding"
+      class={clsx("hero root-padding", class_attribute, className)}
     >
       <h1 id="hero__label" class="visually-hidden">
         Developer and Designer
@@ -39,14 +44,11 @@ export default function Hero(props: HeroProps) {
 
           <Seperator style="dashed" />
 
-          <div class="hero__social-links">
-            {Object.keys(SOCIAL_MEDIAS).map((social_media) => (
-              <SocialLink
-                social-media={social_media as keyof typeof SOCIAL_MEDIAS}
-                colour="outline"
-              />
-            ))}
-          </div>
+          <SocialLinks class="hero__social-links">
+            {(social_media) => (
+              <SocialLinkButton social-media={social_media} colour="outline" />
+            )}
+          </SocialLinks>
 
           <div class="hero__call-to-action">
             <p>
@@ -55,15 +57,28 @@ export default function Hero(props: HeroProps) {
               cool things
             </p>
 
-            <div class="hero__call-to-action-footer">
-              <Button colour="primary" icon="mail" variant="icon-right">
+            <ButtonGroup
+              class="hero__call-to-action-footer"
+              direction="column"
+              wrap
+            >
+              <ButtonGroup.Item
+                class="hero__call-to-action-button"
+                colour="primary"
+                icon="mail"
+                variant="icon-right"
+              >
                 Get in touch
-              </Button>
+              </ButtonGroup.Item>
 
-              <Button variant="icon-right" icon="arrow-right">
+              <ButtonGroup.Item
+                class="hero__call-to-action-button"
+                variant="icon-right"
+                icon="arrow-right"
+              >
                 Read my blog
-              </Button>
-            </div>
+              </ButtonGroup.Item>
+            </ButtonGroup>
           </div>
         </div>
       </div>

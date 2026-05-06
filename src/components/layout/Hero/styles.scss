@@ -99,24 +99,20 @@
   }
 
   &__call-to-action-footer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-items: stretch;
     column-gap: spacing.$base-400;
     row-gap: spacing.$base-500;
 
     @include layout.media-breakpoint(sm) {
       flex-direction: row;
-      justify-items: start;
     }
+  }
+
+  &__call-to-action-button {
+    justify-self: stretch;
   }
 
   &__social-links {
     grid-row: 3;
-    display: flex;
-    flex-direction: row;
-    gap: spacing.$base-400;
     justify-items: start;
     margin: 0 0 spacing.$base-700 0;
 
