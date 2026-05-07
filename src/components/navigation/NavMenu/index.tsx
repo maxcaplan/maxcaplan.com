@@ -1,20 +1,17 @@
 import "./styles.scss";
 
 import clsx from "clsx";
-import { type ComponentChildren, type JSX } from "preact";
+import type { HTMLAttributes, JSX } from "preact";
 import type { NavMenuItemComponent } from "./Item";
 import NavMenuItem from "./Item";
 import type { NavMenuLinkComponent } from "./Link";
 import NavMenuLink from "./Link";
 import NavMenuContext from "./NavMenuContext";
 
-interface NavMenuProps {
-  label: string;
+interface NavMenuProps extends HTMLAttributes<HTMLElement> {
   ordered?: boolean;
   current?: string;
   direction?: "row" | "column";
-  class?: string;
-  children?: ComponentChildren;
 }
 
 interface NavMenuComponent {
@@ -25,18 +22,29 @@ interface NavMenuComponent {
 
 /** Navigation menu */
 const NavMenu: NavMenuComponent = (props) => {
+  const {
+    class: class_attribute,
+    className,
+    children,
+    ordered,
+    current,
+    direction,
+    ...attributes
+  } = props;
+
   return (
-    <NavMenuContext.Provider value={{ current: props.current }}>
+    <NavMenuContext.Provider value={{ current: current }}>
       <nav
-        aria-label={props.label}
+        {...attributes}
         class={clsx(
           "nav-menu",
-          props.direction === "column" && "nav-menu--column",
-          props.class,
+          direction === "column" && "nav-menu--column",
+          class_attribute,
+          className,
         )}
       >
-        {props.ordered && <ol class="nav-menu__list">{props.children}</ol>}
-        {!props.ordered && <ul class="nav-menu__list">{props.children}</ul>}
+        {ordered && <ol class="nav-menu__list">{children}</ol>}
+        {!ordered && <ul class="nav-menu__list">{children}</ul>}
       </nav>
     </NavMenuContext.Provider>
   );

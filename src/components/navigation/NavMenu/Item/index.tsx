@@ -1,16 +1,20 @@
 import clsx from "clsx";
-import type { ComponentChildren, JSX } from "preact";
+import type { HTMLAttributes, JSX } from "preact";
 
-interface NavMenuItemProps {
-  class?: string;
-  children?: ComponentChildren;
-}
+interface NavMenuItemProps extends HTMLAttributes<HTMLLIElement> {}
 
 export type NavMenuItemComponent = (props: NavMenuItemProps) => JSX.Element;
 
 /** Navigation menu item */
 const NavMenuItem: NavMenuItemComponent = (props: NavMenuItemProps) => {
-  return <li class={clsx("nav-menu__item", props.class)}>{props.children}</li>;
+  const { class: class_attribute, className, ...attributes } = props;
+
+  return (
+    <li
+      {...attributes}
+      class={clsx("nav-menu__item", class_attribute, className)}
+    />
+  );
 };
 
 export default NavMenuItem;

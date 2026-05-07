@@ -29,7 +29,7 @@ const HomeNavMenu: HomeNavMenuComponent = () => {
   return (
     <NavMenu
       class="home-nav__menu"
-      label="Table of Contents"
+      aria-label="Table of Contents"
       ordered
       direction="column"
       current="#work"

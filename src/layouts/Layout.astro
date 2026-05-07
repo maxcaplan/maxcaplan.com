@@ -3,6 +3,7 @@ import "@/styles/main.scss";
 
 import { Font } from "astro:assets";
 import Header from "@/components/layout/Header/index.tsx";
+import Footer from "@/components/layout/Footer/index.tsx";
 ---
 
 <!doctype html>
@@ -23,5 +24,7 @@ import Header from "@/components/layout/Header/index.tsx";
     <main id="main-content" class="main">
       <slot />
     </main>
+
+    <Footer />
   </body>
 </html>

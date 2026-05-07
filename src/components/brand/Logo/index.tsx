@@ -9,16 +9,22 @@ interface LogoProps extends LogoSvgProps {
   variant?: "logo" | "lettermark";
 }
 
-export default function Logo(props?: LogoProps) {
-  const { variant, className, ...svgProps } = props || {};
+/** Brand logo svg */
+export default function Logo(props: LogoProps) {
+  const { class: class_attribute, className, variant, ...svg_props } = props;
 
   const is_lettermark = variant === "lettermark";
 
-  const classes = clsx("logo", is_lettermark && "logo--lettermark", className);
+  const component_class = clsx(
+    "logo",
+    is_lettermark && "logo--lettermark",
+    class_attribute,
+    className,
+  );
 
   if (is_lettermark) {
-    return <LettermarkSvg className={classes} {...svgProps} />;
+    return <LettermarkSvg {...svg_props} class={component_class} />;
   } else {
-    return <LogoSvg className={classes} {...svgProps} />;
+    return <LogoSvg {...svg_props} class={component_class} />;
   }
 }

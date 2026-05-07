@@ -4,6 +4,7 @@ import "./styles.scss";
 
 import { Font } from "astro:assets";
 import Header from "@/components/layout/Header/index.tsx";
+import Footer from "@/components/layout/Footer/index.tsx";
 import Hero from "@/components/layout/Hero/index.tsx";
 ---
 
@@ -28,5 +29,7 @@ import Hero from "@/components/layout/Hero/index.tsx";
     <main class="main">
       <slot />
     </main>
+
+    <Footer />
   </body>
 </html>
