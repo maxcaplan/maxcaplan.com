@@ -16,7 +16,7 @@ $desktop-layout-breakpoint: lg;
   &__inner {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    row-gap: spacing.$base-600;
+    row-gap: spacing.$base-700;
 
     @include layout.media-breakpoint($desktop-layout-breakpoint) {
       grid-template-columns: repeat(3, 1fr) max-content;
@@ -90,7 +90,6 @@ $desktop-layout-breakpoint: lg;
   &__nav-menu {
     grid-column: 1 / span 2;
     grid-row: 2;
-    padding: spacing.$base-600 0;
 
     @include layout.media-breakpoint($desktop-layout-breakpoint) {
       grid-column: 2 / span 2;
@@ -101,7 +100,8 @@ $desktop-layout-breakpoint: lg;
     .nav-menu__list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: spacing.$base-600;
+      column-gap: spacing.$base-600;
+      row-gap: spacing.$base-800;
 
       @include layout.media-breakpoint($desktop-layout-breakpoint) {
         gap: 0;
@@ -154,7 +154,7 @@ $desktop-layout-breakpoint: lg;
       padding: 0;
 
       @include layout.media-breakpoint($desktop-layout-breakpoint) {
-        padding: spacing.$base-700;
+        padding: spacing.$base-500 spacing.$base-700;
 
         @include border.border(100, $left: true);
 
