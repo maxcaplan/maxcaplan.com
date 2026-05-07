@@ -3,7 +3,7 @@ import type { AnchorHTMLAttributes, JSX } from "preact";
 import { useContext } from "preact/hooks";
 import NavMenuContext from "../NavMenuContext";
 
-interface NavMenuLinkProps extends Omit<
+export interface NavMenuLinkProps extends Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   "aria-current"
 > {}

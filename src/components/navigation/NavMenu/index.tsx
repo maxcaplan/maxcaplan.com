@@ -8,13 +8,13 @@ import type { NavMenuLinkComponent } from "./Link";
 import NavMenuLink from "./Link";
 import NavMenuContext from "./NavMenuContext";
 
-interface NavMenuProps extends HTMLAttributes<HTMLElement> {
+export interface NavMenuProps extends HTMLAttributes<HTMLElement> {
   ordered?: boolean;
   current?: string;
   direction?: "row" | "column";
 }
 
-interface NavMenuComponent {
+export interface NavMenuComponent {
   (props: NavMenuProps): JSX.Element;
   Item: NavMenuItemComponent;
   Link: NavMenuLinkComponent;

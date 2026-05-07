@@ -1,0 +1,9 @@
+@use "styles/abstract/spacing";
+
+.home-nav {
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    column-gap: spacing.$base-900;
+  }
+}

@@ -1,0 +1,19 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/layout";
+
+.home-nav {
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: spacing.$base-900;
+    padding-top: spacing.$base-700;
+    padding-bottom: spacing.$base-700;
+
+    @include layout.media-breakpoint(md) {
+      row-gap: spacing.$base-1100;
+      padding-top: spacing.$base-1100;
+      padding-bottom: spacing.$base-1100;
+    }
+  }
+}

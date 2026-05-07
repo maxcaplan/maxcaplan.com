@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { HTMLAttributes, JSX } from "preact";
 
-interface NavMenuItemProps extends HTMLAttributes<HTMLLIElement> {}
+export interface NavMenuItemProps extends HTMLAttributes<HTMLLIElement> {}
 
 export type NavMenuItemComponent = (props: NavMenuItemProps) => JSX.Element;
 

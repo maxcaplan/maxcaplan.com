@@ -2,14 +2,9 @@
 @use "styles/abstract/colour";
 @use "styles/abstract/type";
 @use "styles/abstract/layout";
+@use "styles/abstract/border";
 
 .home-nav {
-  &__inner {
-    display: flex;
-    flex-direction: row;
-    column-gap: spacing.$base-900;
-  }
-
   &__menu {
     align-self: start;
     position: sticky;
@@ -19,14 +14,27 @@
     padding: spacing.$base-500 0 spacing.$base-500 0;
 
     .nav-menu__link {
+      position: relative;
       @include type.ui-lg;
       color: colour.$text-medium;
       text-decoration: none;
       text-transform: lowercase;
+      outline: 0;
 
       &:hover {
         color: colour.$text-secondary;
         text-decoration: underline;
+      }
+
+      &:focus-visible::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: border.$radius-sm;
+        @include border.outline(500, focus, $offset: spacing.$base-200);
       }
 
       &--current {
@@ -36,21 +44,6 @@
 
     @include layout.media-breakpoint(lg) {
       display: flex;
-    }
-  }
-
-  &__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    row-gap: spacing.$base-900;
-    padding-top: spacing.$base-700;
-    padding-bottom: spacing.$base-700;
-
-    @include layout.media-breakpoint(md) {
-      row-gap: spacing.$base-1100;
-      padding-top: spacing.$base-1100;
-      padding-bottom: spacing.$base-1100;
     }
   }
 }
