@@ -11,6 +11,7 @@ $desktop-layout-breakpoint: lg;
 .footer {
   padding-top: spacing.$base-800;
   padding-bottom: spacing.$base-600;
+  background-color: colour.$surface-100;
   @include border.border(100, $top: true);
 
   &__inner {
