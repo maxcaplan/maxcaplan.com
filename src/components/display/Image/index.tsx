@@ -6,7 +6,11 @@ import { type PropsWithChildren } from "preact/compat";
 import { useMemo } from "preact/hooks";
 import type { ImageSource } from "@/types";
 import { useImageSources } from "@/util/client/hooks/image";
-import { getSourceSrc, getSourceType } from "@/util/client/image";
+import {
+  createPlaceholderImage,
+  getSourceSrc,
+  getSourceType,
+} from "@/util/client/image";
 
 export interface ImageProps extends Omit<
   ImgHTMLAttributes<HTMLImageElement>,
@@ -42,19 +46,15 @@ export default function Image(props: ImageProps) {
   const image_sources = useImageSources(props.src, props.sources);
 
   const background_styles = useMemo(() => {
-    if (placeholder_url === undefined) {
-      return undefined;
-    }
-
-    const background_image_value = `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><image width="100%" height="100%" preserveAspectRatio="none" href="${placeholder_url}" image-rendering="optimizeSpeed" style="image-rendering:pixelated"/></svg>')`;
-
-    return {
-      backgroundImage: background_image_value,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundOrigin: "border-box",
-    };
+    return placeholder_url
+      ? {
+          backgroundImage: createPlaceholderImage(placeholder_url),
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundOrigin: "border-box",
+        }
+      : undefined;
   }, [placeholder_url]);
 
   return (

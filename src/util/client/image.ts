@@ -78,3 +78,8 @@ export const getSourceType = (source: ImageSource, src: string) => {
 
   return `image/${format}`;
 };
+
+/** Create a CSS value for a placeholder image from a url */
+export const createPlaceholderImage = (placeholder_url: string) => {
+  return `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><image width="100%" height="100%" preserveAspectRatio="none" href="${placeholder_url}" image-rendering="optimizeSpeed" style="image-rendering:pixelated"/></svg>')`;
+};
