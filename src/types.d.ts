@@ -33,3 +33,5 @@ export type ProjectEntry = WithSkillsEntries<CollectionEntry<"projects">> & {
     cover?: string;
   };
 };
+
+export type PortfolioItemEntry = WorkItemEntry | ProjectEntry;
