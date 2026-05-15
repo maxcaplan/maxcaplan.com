@@ -1,30 +1,29 @@
 ---
-import "@/styles/main.scss";
-
-import { Font } from "astro:assets";
+import BaseLayout, { type BaseLayoutProps } from "@/layouts/BaseLayout.astro";
 import Header from "@/components/layout/Header/index.tsx";
 import Footer from "@/components/layout/Footer/index.tsx";
+
+export interface LayoutProps extends BaseLayoutProps {
+  "main-content"?: boolean;
+}
+
+type Props = LayoutProps;
+
+const { title, "main-content": main_content } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>Max Caplan - Portfolio | Developer && Designer</title>
-    <Font cssVariable="--mc--type--font--display" />
-    <Font cssVariable="--mc--type--font--body" />
-  </head>
+<BaseLayout title={title}>
+  <slot name="head" slot="head" />
 
-  <body class="theme-system">
-    <Header />
+  <slot name="before-header" />
+  <Header />
+  <slot name="after-header" />
 
-    <main id="main-content" class="main">
-      <slot />
-    </main>
+  <main id={main_content !== false ? "main-content" : undefined} class="main">
+    <slot />
+  </main>
 
-    <Footer />
-  </body>
-</html>
+  <slot name="before-footer" />
+  <Footer />
+  <slot name="after-footer" />
+</BaseLayout>

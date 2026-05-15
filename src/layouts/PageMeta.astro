@@ -1,0 +1,24 @@
+---
+import "@/styles/main.scss";
+
+import { Font } from "astro:assets";
+
+export interface PageMetaProps {
+  title?: string;
+}
+
+type Props = PageMetaProps;
+
+const { title } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <title>{title ?? "Max Caplan - Portfolio | Developer && Designer"}</title>
+  <Font cssVariable="--mc--type--font--display" />
+  <Font cssVariable="--mc--type--font--body" />
+  <slot />
+</head>

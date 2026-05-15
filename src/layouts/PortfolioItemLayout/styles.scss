@@ -1,0 +1,219 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
+@use "styles/abstract/border";
+
+.page-container {
+  &__inner {
+    display: grid;
+    width: 100%;
+
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+
+    @include layout.media-breakpoint(lg) {
+      grid-template-columns:
+        fit-content(spacing.step-up(spacing.$base-1100, $half: true))
+        1fr;
+      grid-template-rows: repeat(3, min-content) 1fr;
+    }
+
+    @include layout.media-breakpoint(xl) {
+      grid-template-columns: fit-content(spacing.$base-1200) 1fr;
+    }
+  }
+}
+
+.page-header {
+  grid-column: 1;
+  grid-row: 1;
+  padding: spacing.$base-700 spacing.$root-padding;
+  @include border.border(100, $bottom: true);
+
+  @include layout.media-breakpoint(lg) {
+    padding: spacing.$base-600 spacing.$base-600 spacing.$base-700
+      spacing.$root-padding;
+    background-color: colour.$surface-200;
+    @include border.border(100, $top: false);
+  }
+
+  &__title {
+    margin-bottom: spacing.$base-300;
+  }
+
+  &__date {
+    display: block;
+    margin-bottom: spacing.$base-500;
+  }
+
+  &__subtitle {
+    max-width: layout.$width-content;
+  }
+}
+
+.page-aside {
+  position: relative;
+  grid-row: 4;
+  padding: spacing.$base-700 spacing.$root-padding 0 spacing.$root-padding;
+
+  @include layout.media-breakpoint(lg) {
+    padding: spacing.$base-600 spacing.$root-padding;
+    grid-column: 1;
+    grid-row: 2 / span 5;
+    background-color: colour.$surface-100;
+    @include border.border(100, $left: true, $right: true);
+  }
+}
+
+.page-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: spacing.$base-600;
+
+  @include layout.media-breakpoint(lg) {
+    position: sticky;
+    top: calc(layout.$header-height + spacing.$base-600);
+  }
+
+  &__menu .nav-menu__link {
+    color: colour.$text-secondary;
+    @include type.ui-md;
+    font-weight: type.$weight-semistrong;
+    text-decoration: none;
+
+    &:visited {
+      color: colour.$text-secondary;
+    }
+
+    &:hover,
+    &:visited:hover {
+      color: colour.$text-secondary;
+      text-decoration: underline;
+    }
+
+    @include layout.media-breakpoint(lg) {
+      color: colour.$text-dim;
+
+      &:visited {
+        color: colour.$text-dim;
+      }
+
+      &--current,
+      &--current:visited,
+      &--current:visited:hover {
+        color: colour.$text-secondary;
+      }
+    }
+  }
+
+  &__menu .table-of-contents__sublist {
+    margin-bottom: spacing.$base-400;
+    padding-left: spacing.$base-500;
+  }
+
+  &__menu .table-of-contents__sublist .nav-menu__link {
+    font-weight: type.$weight-body;
+  }
+}
+
+.page-cover {
+  grid-row: 2;
+  display: block;
+  @include border.border(100, $bottom: true);
+  width: 100%;
+
+  @include layout.media-breakpoint(lg) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    @include border.border(100, $bottom: true, $right: true);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.page-details {
+  grid-row: 3;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: spacing.$base-600;
+  padding: spacing.$base-600 spacing.$root-padding 0 spacing.$root-padding;
+
+  @include layout.media-breakpoint(lg) {
+    grid-column: 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    padding: spacing.$base-600 spacing.$root-padding 0 spacing.$base-600;
+    @include border.border(100, $right: true);
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: spacing.$base-400;
+  }
+
+  &__skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: spacing.$base-200;
+    row-gap: spacing.$base-300;
+
+    @include layout.media-breakpoint(lg) {
+      justify-content: end;
+    }
+  }
+}
+
+.page-content {
+  position: relative;
+  grid-row: 5;
+  padding: spacing.$base-800 spacing.$root-padding spacing.$base-900
+    spacing.$root-padding;
+
+  @include layout.media-breakpoint(lg) {
+    grid-column: 2;
+    padding: spacing.$base-800 spacing.$root-padding spacing.$base-900 0;
+    @include border.border(100, $right: true);
+  }
+
+  & > * {
+    max-width: layout.$width-content;
+
+    @include layout.media-breakpoint(lg) {
+      margin-left: spacing.$base-800;
+    }
+
+    @include layout.media-breakpoint(xl) {
+      margin-left: spacing.$base-900;
+    }
+  }
+
+  & > img,
+  & > figure {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  & > figure {
+    @include layout.media-breakpoint(lg) {
+      margin-left: 0;
+      padding-left: spacing.$base-600;
+    }
+  }
+
+  & > img {
+    @include layout.media-breakpoint(lg) {
+      width: calc(100% - spacing.$root-padding) !important;
+      margin-left: spacing.$base-600;
+    }
+  }
+}

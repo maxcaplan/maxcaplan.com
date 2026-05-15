@@ -1,0 +1,125 @@
+---
+import "./styles.scss";
+
+import Layout, { type LayoutProps } from "@/layouts/Layout.astro";
+import Heading from "@/components/display/Heading";
+import { formatDate } from "@/util/client/format";
+import type { PortfolioItemEntry } from "@/types";
+import { render } from "astro:content";
+import Image from "astro/components/Image.astro";
+import Button from "@/components/input/Button/index.tsx";
+import SkillBadge from "@/components/display/Badge/Skill";
+import { createPlaceholderImage } from "@/util/client/image";
+import NavBar from "@/components/layout/NavBar/index.tsx";
+import TableOfContents from "@/components/navigation/TableOfContents/index.tsx";
+
+export interface PortfolioItemLayoutProps extends LayoutProps {
+  entry: PortfolioItemEntry;
+}
+
+type Props = PortfolioItemLayoutProps;
+
+const { entry, ...layout_props } = Astro.props;
+
+const { Content, headings } = await render(entry);
+---
+
+<Layout {...layout_props}>
+  {
+    Astro.slots.has("breadcrumb") && (
+      <NavBar class="page-navbar" slot="after-header">
+        <slot name="breadcrumb" />
+      </NavBar>
+    )
+  }
+
+  <div class="page-container container-full">
+    <div class="page-container__inner">
+      <div class="page-header">
+        <Heading class="page-header__title" level={1}>
+          {entry.data.title}
+        </Heading>
+
+        <time
+          class="page-header__date subtitle-2"
+          datetime={entry.data.date.toISOString()}
+        >
+          {formatDate(entry.data.date, { month: { digits: 2 }, year: true })}
+        </time>
+
+        <p class="page-header__subtitle subtitle-1">{entry.data.description}</p>
+      </div>
+
+      <aside class="page-aside">
+        <div class="page-contents">
+          <p class="page-contents__title heading-4">Contents</p>
+
+          <TableOfContents
+            class="page-contents__menu"
+            title-heading={{ text: entry.data.title }}
+            headings={headings}
+            client:load
+          />
+        </div>
+      </aside>
+
+      <div class="page-cover">
+        <Image
+          src={entry.data.cover}
+          alt={entry.data["cover-alt"] ?? ""}
+          loading="eager"
+          class="page-cover__image"
+          style={{
+            backgroundImage: entry.placeholders?.cover
+              ? createPlaceholderImage(entry.placeholders.cover)
+              : undefined,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundOrigin: "border-box",
+          }}
+        />
+      </div>
+
+      <div class="page-details">
+        <div class="page-details__links">
+          {
+            !!entry.data["demo-url"] && (
+              <Button
+                class="page-details__link-button"
+                href={entry.data["demo-url"]}
+                target="_blank"
+                icon="joystick"
+                variant="icon-left"
+              >
+                <span class="visually-hidden">{entry.data.title} </span>Demo
+              </Button>
+            )
+          }
+
+          {
+            !!entry.data["source-url"] && (
+              <Button
+                class="page-details__link-button"
+                href={entry.data["source-url"]}
+                target="_blank"
+                icon="code"
+                variant="icon-left"
+              >
+                <span class="visually-hidden">{entry.data.title} </span>Source
+              </Button>
+            )
+          }
+        </div>
+
+        <div class="page-details__skills">
+          {entry.data.skills?.map((skill) => <SkillBadge skill={skill} />)}
+        </div>
+      </div>
+
+      <article class="page-content prose">
+        <Content />
+      </article>
+    </div>
+  </div>
+</Layout>

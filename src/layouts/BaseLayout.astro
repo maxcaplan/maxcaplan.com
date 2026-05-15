@@ -1,0 +1,21 @@
+---
+import PageMeta from "@/layouts/PageMeta.astro";
+import type { PageMetaProps } from "@/layouts/PageMeta.astro";
+
+export type BaseLayoutProps = PageMetaProps;
+
+type Props = BaseLayoutProps;
+
+const { ...page_meta_props } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <PageMeta {...page_meta_props}>
+    <slot name="head" />
+  </PageMeta>
+
+  <body class="theme-system">
+    <slot />
+  </body>
+</html>

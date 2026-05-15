@@ -1,35 +1,14 @@
 ---
-import "@/styles/main.scss";
 import "./styles.scss";
 
-import { Font } from "astro:assets";
-import Header from "@/components/layout/Header/index.tsx";
-import Footer from "@/components/layout/Footer/index.tsx";
+import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/layout/Hero/index.tsx";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>Max Caplan - Portfolio | Developer && Designer</title>
-    <Font cssVariable="--mc--type--font--display" />
-    <Font cssVariable="--mc--type--font--body" />
-  </head>
+<Layout main-content={false}>
+  <div class="above-the-fold-spacer" slot="before-header"></div>
 
-  <body class="theme-system">
-    <div class="above-the-fold-spacer"></div>
+  <Hero id="main-content" slot="after-header" />
 
-    <Header />
-    <Hero id="main-content" />
-
-    <main class="main">
-      <slot />
-    </main>
-
-    <Footer />
-  </body>
-</html>
+  <slot />
+</Layout>
