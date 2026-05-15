@@ -1,6 +1,8 @@
 @use "styles/abstract/type";
+@use "styles/abstract/spacing";
 @use "styles/abstract/colour";
 @use "styles/abstract/layout";
+@use "styles/abstract/border";
 
 :root {
   #{type.$body-size-var}: type.$mobile-body-size-value;
@@ -117,6 +119,8 @@ p,
 }
 
 label,
+figcaption,
+figcaption *,
 .label {
   @include type.label;
 }
@@ -197,4 +201,71 @@ a {
 
 .ui-xl {
   @include type.ui-xl;
+}
+
+.prose {
+  p,
+  a,
+  b,
+  i,
+  code,
+  ul,
+  ol {
+    margin-bottom: spacing.$base-500;
+  }
+
+  figure,
+  img {
+    margin-top: spacing.$base-700;
+    margin-bottom: spacing.$base-600;
+  }
+
+  figure img {
+    margin-top: 0;
+    margin-bottom: spacing.$base-400;
+  }
+
+  figure {
+    margin-bottom: spacing.$base-700;
+  }
+
+  img {
+    border-radius: border.$radius-md;
+    @include border.border(100);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: spacing.$base-600;
+    margin-bottom: spacing.$base-500;
+  }
+
+  ul,
+  ol {
+    padding-left: spacing.$base-600;
+  }
+
+  figure,
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  hr {
+    margin-top: spacing.$base-600;
+    margin-bottom: spacing.$base-600;
+    @include border.border(100, $top: true);
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
 }
