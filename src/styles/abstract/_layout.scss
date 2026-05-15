@@ -1,7 +1,8 @@
 @use "spacing";
 
 $width-content: 34.5rem;
-$width-container: spacing.step-up(spacing.step-up(1rem, 9), 1, $quarter: true);
+$width-container: spacing.step-up(spacing.$base-1400, 1, $quarter: true);
+$width-wide: spacing.step-up(spacing.$base-1400, 1, $half: true);
 $width-full: 120rem;
 
 $breakpoint-sm: 640px;
@@ -43,7 +44,7 @@ $header-height: calc(2 * spacing.$base-500 + spacing.$base-600);
 }
 
 /// Layout container
-/// @param {'container'|'full'|'content'} $width ['container'] - Max container width
+/// @param {'container'|'full'|'wide'|'content'} $width ['container'] - Max container width
 @mixin container($width: container) {
   $max-width: $width-container;
 
@@ -51,8 +52,12 @@ $header-height: calc(2 * spacing.$base-500 + spacing.$base-600);
     $max-width: $width-full;
   }
 
+  @if $width == wide {
+    $max-width: $width-content;
+  }
+
   @if $width == content {
-    $max-width: $width-container;
+    $max-width: $width-content;
   }
 
   width: 100%;
