@@ -1,0 +1,66 @@
+@use "styles/abstract/colour";
+@use "styles/abstract/spacing";
+@use "styles/abstract/type";
+@use "styles/abstract/layout";
+@use "styles/abstract/border";
+
+.breadcrumb {
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: spacing.$base-200;
+    border-radius: border.$radius-sm;
+    @include type.ui-sm;
+    color: colour.$text-medium;
+    text-decoration: none;
+    text-transform: lowercase;
+
+    &[href]:hover,
+    &[href]:visited:hover {
+      color: colour.$text-secondary;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: colour.$text-medium;
+    }
+
+    &:focus-visible {
+      @include border.outline(500, focus);
+    }
+
+    .mc-icon {
+      width: spacing.$base-550;
+      height: spacing.$base-550;
+    }
+
+    @include layout.media-breakpoint(md) {
+      @include type.ui-md;
+
+      .mc-icon {
+        width: spacing.$base-600;
+        height: spacing.$base-600;
+      }
+    }
+  }
+
+  &__seperator {
+    margin-left: spacing.$base-200;
+
+    &.mc-icon {
+      width: spacing.$base-550;
+      height: spacing.$base-550;
+    }
+  }
+
+  &__item:has(.nav-menu__link--current) &__seperator {
+    display: none;
+  }
+}

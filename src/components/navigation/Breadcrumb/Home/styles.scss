@@ -1,0 +1,13 @@
+@use "styles/abstract/colour";
+@use "styles/abstract/border";
+
+.breadcrumb {
+  &__item--home &__link {
+    @include border.border(transparent);
+
+    &:hover {
+      background-color: colour.$secondary-surface;
+      @include border.border(secondary);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use "styles/abstract/spacing";
+
+.breadcrumb {
+  &:has(.nav-menu:has(&__item)) {
+    margin-left: calc(-1 * spacing.$base-400);
+  }
+
+  & .nav-menu {
+    &__list {
+      column-gap: spacing.$base-200;
+      row-gap: spacing.$base-300;
+      align-items: center;
+    }
+  }
+}
