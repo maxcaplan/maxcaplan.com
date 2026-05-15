@@ -4,63 +4,26 @@ description: "A simple interactive task and project manager for the command line
 date: "2025-12-01"
 cover: "./cover.png"
 skills: ["rust"]
-source: "https://github.com/maxcaplan/toado"
+source-url: "https://github.com/maxcaplan/toado"
 ---
+
+import { Image } from "astro:assets";
+import toado_help from "./toado_help.png";
+import toado_add_task from "./toado_add_task.png";
+import toado_list_tasks from "./toado_list_tasks.png";
 
 Toado is a simple interactive task and project manager for the command line built in rust.
 
-<picture>
-  <source
-    srcSet="/assets/images/projects/toado/toado_help.webp"
-    type="image/webp"
-  />
-  <source
-    srcSet="/assets/images/projects/toado/toado_help.png"
-    type="image/png"
-  />
-  <img
-    src="/assets/images/projects/toado/toado_help.png"
-    alt="Toado help message"
-    title="Toado help message"
-  />
-</picture>
+<Image src={toado_help} alt="Message displayed by the toado help command" />
 
 Toado is my first complete project built in rust and acted as a way for me to learn more about the language and it's workflow.
 This was also my first time building a command line app and it taught me a lot about the thought and considerations that go into designing one.
 
-<picture>
-  <source
-    srcSet="/assets/images/projects/toado/toado_add_task.webp"
-    type="image/webp"
-  />
-  <source
-    srcSet="/assets/images/projects/toado/toado_add_task.png"
-    type="image/png"
-  />
-  <img
-    src="/assets/images/projects/toado/toado_add_task.png"
-    alt="Toado add task"
-    title="Toado add task command"
-  />
-</picture>
+<Image src={toado_add_task} alt="Toado add task" />
 
 My goals were to create a simple but robust app with a workflow similar to that of other command line tools.
 
-<picture>
-  <source
-    srcSet="/assets/images/projects/toado/toado_list_tasks.webp"
-    type="image/webp"
-  />
-  <source
-    srcSet="/assets/images/projects/toado/toado_list_tasks.png"
-    type="image/png"
-  />
-  <img
-    src="/assets/images/projects/toado/toado_list_tasks.png"
-    alt="Toado list tasks"
-    title="Toado list tasks command"
-  />
-</picture>
+<Image src={toado_list_tasks} alt="Toado add task" />
 
 ## Features
 

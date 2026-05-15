@@ -4,7 +4,7 @@ description: "Design and implementation of a demo e-commerce platform for GoodGo
 date: "2020-07-01"
 cover: "./cover.png"
 skills: ["vue", "javascript", "firebase"]
-demo: "https://nuxt--good-goods.netlify.app/"
+demo-url: "https://nuxt--good-goods.netlify.app/"
 ---
 
 Worked for GoodGoodsCAN as a freelance full-stack developer to develop a multi-vendor e-commerce web app.

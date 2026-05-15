@@ -4,8 +4,8 @@ description: "A full site redesign of connorbell.ca improving responsiveness and
 date: "2022-09-01"
 cover: "./cover.png"
 skills: ["ruby", "javascript", "tailwind"]
-source: "https://github.com/maxcaplan/connor-bell"
-demo: "http://connorbell.ca/"
+source-url: "https://github.com/maxcaplan/connor-bell"
+demo-url: "http://connorbell.ca/"
 order: 0
 ---
 

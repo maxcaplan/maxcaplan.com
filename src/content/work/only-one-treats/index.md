@@ -4,7 +4,7 @@ description: "Site wide performance optimization, improving page speed, user exp
 date: "2024-11-01"
 cover: "./cover.png"
 skills: ["shopify", "javascript"]
-demo: "https://onlyonetreats.com"
+demo-url: "https://onlyonetreats.com"
 ---
 
 Provided freelance development services for the ecommerce website **onlyontreats.com**.

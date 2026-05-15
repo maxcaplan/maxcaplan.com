@@ -4,9 +4,14 @@ description: "An exercise in accessibility driven design with a comprehensive re
 date: "2025-12-01"
 cover: "./cover.png"
 skills: ["javascript", "react", "sass"]
-source: "https://github.com/maxcaplan/NSCC-Homepage-Redesign-Demo"
-demo: "https://maxcaplan.github.io/NSCC-Homepage-Redesign-Demo"
+source-url: "https://github.com/maxcaplan/NSCC-Homepage-Redesign-Demo"
+demo-url: "https://maxcaplan.github.io/NSCC-Homepage-Redesign-Demo"
 ---
+
+import { Image } from "astro:assets";
+import nscc_current_homepage from "./nscc_current_homepage.png";
+import nscc_design_system from "./nscc_design_system.png";
+import nscc_mockups from "./nscc_mockups.png";
 
 Nova Scotia Community College (NSCC) is a local post-secondary school that provides programs and courses for a wide range of disciplines. Their website [nscc.ca](http://nscc.ca) provides students, prospective and attending alike, tools and resources for everything regarding the school.
 
@@ -19,25 +24,11 @@ As a practice exercise, I built a demo redesign for the homepage of [nscc.ca](ht
 An in depth audit and analysis of the current NSCC homepage was conducted to determine what the current design does well, and what aspects and areas could be improved upon.
 
 <figure>
-    <picture>
-        <source
-            srcSet="/assets/images/projects/nscc_redesign/nscc_current_homepage.webp"
-            type="image/webp"
-        />
-        <source
-            srcSet="/assets/images/projects/nscc_redesign/nscc_current_homepage.png"
-            type="image/png"
-        />
-        <img
-            srcSet="/assets/images/projects/nscc_redesign/nscc_current_homepage.png"
-            alt="Screenshot of the current nscc.ca homepage"
-            class="rounded"
-        />
-    </picture>
-
-<figcaption>
-    The current nscc.ca homepage
-</figcaption>
+  <Image
+    src={nscc_current_homepage}
+    alt="Screenshot of the current nscc.ca homepage"
+  />
+  <figcaption>The current nscc.ca homepage</figcaption>
 </figure>
 
 Some key takeaways from this analysis were as follows:
@@ -85,49 +76,21 @@ Mockups were created using Figma. The main goals of the design process was to ad
 A basic design system was established outlining the colours, spacing, and typography used throughout the design. This ensures the final design maintains a high level of consistency and balance.
 
 <figure>
-    <picture>
-        <source
-            srcSet="/assets/images/projects/nscc_redesign/nscc_design_system.webp"
-            type="image/webp"
-        />
-        <source
-            srcSet="/assets/images/projects/nscc_redesign/nscc_design_system.png"
-            type="image/png"
-        />
-        <img
-            srcSet="/assets/images/projects/nscc_redesign/nscc_design_system.png"
-            alt="Design system for the NSCC homepage redesign"
-            class="rounded"
-        />
-    </picture>
-
-<figcaption>
-    Design system for the NSCC homepage redesign
-</figcaption>
+  <Image
+    src={nscc_design_system}
+    alt="Design system for the NSCC homepage redesign"
+  />
+  <figcaption>Design system for the NSCC homepage redesign</figcaption>
 </figure>
 
 Mockups were created for desktop, tablet, and mobile layouts to demonstrate the responsive design across different breakpoints. Additionally, mockups were created for the various states of interactive elements in the design including navigation menus, carousels, and tab menus.
 
 <figure>
-    <picture>
-        <source
-            srcSet="/assets/images/projects/nscc_redesign/nscc_mockups.webp"
-            type="image/webp"
-        />
-        <source
-            srcSet="/assets/images/projects/nscc_redesign/nscc_mockups.png"
-            type="image/png"
-        />
-        <img
-            srcSet="/assets/images/projects/nscc_redesign/nscc_mockups.png"
-            alt="Mockups for the redesign of the NSCC homepage"
-            class="rounded"
-        />
-    </picture>
-
-<figcaption>
-    Mockups for the redesign of the NSCC homepage
-</figcaption>
+  <Image
+    src={nscc_mockups}
+    alt="Mockups for the redesign of the NSCC homepage"
+  />
+  <figcaption>Mockups for the redesign of the NSCC homepage</figcaption>
 </figure>
 
 ### Live Demo Implementation
