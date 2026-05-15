@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro";
+import Breadcrumb from "@/components/navigation/Breadcrumb/index.tsx";
+import type { ProjectEntry } from "@/types";
+
+import PortfolioItemLayout from "@/layouts/PortfolioItemLayout/index.astro";
+import { getProjectCollection } from "@/util/content/projects";
+
+interface Props {
+  project: ProjectEntry;
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await getProjectCollection();
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+};
+
+const { project } = Astro.props;
+---
+
+<PortfolioItemLayout entry={project}>
+  <Breadcrumb current={Astro.url.pathname} slot="breadcrumb">
+    <Breadcrumb.Home />
+
+    <Breadcrumb.Item>projects</Breadcrumb.Item>
+
+    <Breadcrumb.Item href={`/projects/${project.id}`} current>
+      {project.data.title}
+    </Breadcrumb.Item>
+  </Breadcrumb>
+</PortfolioItemLayout>

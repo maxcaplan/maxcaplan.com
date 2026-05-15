@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro";
+import Breadcrumb from "@/components/navigation/Breadcrumb/index.tsx";
+import { getWorkCollection } from "@/util/content/work";
+import type { WorkItemEntry } from "@/types";
+
+import PortfolioItemLayout from "@/layouts/PortfolioItemLayout/index.astro";
+
+interface Props {
+  work: WorkItemEntry;
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const work_items = await getWorkCollection();
+  return work_items.map((work) => ({
+    params: { id: work.id },
+    props: { work },
+  }));
+};
+
+const { work } = Astro.props;
+---
+
+<PortfolioItemLayout entry={work}>
+  <Breadcrumb current={Astro.url.pathname} slot="breadcrumb">
+    <Breadcrumb.Home />
+
+    <Breadcrumb.Item>work</Breadcrumb.Item>
+
+    <Breadcrumb.Item href={`/work/${work.id}`} current>
+      {work.data.title}
+    </Breadcrumb.Item>
+  </Breadcrumb>
+</PortfolioItemLayout>
