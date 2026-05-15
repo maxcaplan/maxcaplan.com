@@ -12,6 +12,7 @@ export interface NavMenuProps extends HTMLAttributes<HTMLElement> {
   ordered?: boolean;
   current?: string;
   direction?: "row" | "column";
+  wrap?: boolean;
 }
 
 export interface NavMenuComponent {
@@ -28,6 +29,7 @@ const NavMenu: NavMenuComponent = (props) => {
     children,
     ordered,
     current,
+    wrap,
     direction,
     ...attributes
   } = props;
@@ -39,6 +41,7 @@ const NavMenu: NavMenuComponent = (props) => {
         class={clsx(
           "nav-menu",
           direction === "column" && "nav-menu--column",
+          wrap && "nav-menu--wrap",
           class_attribute,
           className,
         )}

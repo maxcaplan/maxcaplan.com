@@ -1,0 +1,16 @@
+@use "styles/abstract/spacing";
+
+.table-of-contents {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    row-gap: spacing.$base-500;
+  }
+
+  &__sublist {
+    display: flex;
+    flex-direction: column;
+    row-gap: spacing.$base-500;
+    list-style: none;
+  }
+}

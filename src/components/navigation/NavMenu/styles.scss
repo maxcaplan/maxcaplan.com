@@ -14,5 +14,9 @@
     .nav-menu--column & {
       flex-direction: column;
     }
+
+    .nav-menu--wrap & {
+      flex-wrap: wrap;
+    }
   }
 }
