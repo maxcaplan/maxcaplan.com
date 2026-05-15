@@ -1,0 +1,10 @@
+@use "styles/abstract/spacing";
+@use "styles/abstract/colour";
+@use "styles/abstract/border";
+
+.navbar {
+  padding-top: spacing.$base-400;
+  padding-bottom: spacing.$base-400;
+  background-color: colour.$surface-200;
+  @include border.border(100, $bottom: true);
+}
