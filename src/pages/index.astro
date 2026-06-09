@@ -1,9 +1,13 @@
 ---
+/** Portfolio landing page */
+
+import "./styles.scss";
+
 import { getWorkCollection } from "@/util/content/work.ts";
 import { getProjectCollection } from "@/util/content/projects";
 
 import HeroLayout from "@/layouts/HeroLayout/index.astro";
-import HomeNav from "@/components/navigation/home/Nav/index.tsx";
+import TableOfContents from "@/components/navigation/TableOfContents";
 import HomeProjectsSection from "@/components/display/home/ProjectsSection";
 import HomeWorkSection from "@/components/display/home/WorkSection";
 import HomeServicesSection from "@/components/display/home/ServicesSection";
@@ -14,25 +18,29 @@ const projects = await getProjectCollection();
 ---
 
 <HeroLayout>
-  <HomeNav>
-    <HomeNav.Menu
-      anchors={[
-        { name: "Work", id: "work" },
-        { name: "Projects", id: "projects" },
-        { name: "Services", id: "services" },
-        { name: "Contact", id: "contact" },
-      ]}
-      client:load
-    />
+  <div class="root-padding">
+    <div class="home-side-nav container-full">
+      <aside class="home-side-nav__menu">
+        <TableOfContents
+          headings={[
+            { text: "Work", slug: "work" },
+            { text: "Projects", slug: "projects" },
+            { text: "Services", slug: "services" },
+            { text: "Contact", slug: "contact" },
+          ]}
+          client:load
+        />
+      </aside>
 
-    <HomeNav.Content>
-      <HomeWorkSection work={work_items} />
+      <div class="home-side-nav__body">
+        <HomeWorkSection work={work_items} />
 
-      <HomeProjectsSection projects={projects} client:idle />
+        <HomeProjectsSection projects={projects} client:idle />
 
-      <HomeServicesSection client:idle />
-    </HomeNav.Content>
-  </HomeNav>
+        <HomeServicesSection client:idle />
+      </div>
+    </div>
+  </div>
 
   <HomeContactSection />
 </HeroLayout>
