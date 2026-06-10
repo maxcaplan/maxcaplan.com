@@ -21,7 +21,7 @@ export default function Footer(props: FooterProps) {
       {...attributes}
       class={clsx("footer root-padding", class_attribute, className)}
     >
-      <div class="footer__inner container-full">
+      <div class="footer__inner container--full">
         <div class="footer__brand">
           <a href="/" class="footer__homepage-link">
             <span class="visually-hidden">Go to the homepage</span>

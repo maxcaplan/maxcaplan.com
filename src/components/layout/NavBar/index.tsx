@@ -14,7 +14,7 @@ export default function NavBar(props: NavBarProps) {
       {...attributes}
       class={clsx("navbar", "root-padding", class_attribute, className)}
     >
-      <div class="navbar__inner container-full">{children}</div>
+      <div class="navbar__inner container--full">{children}</div>
     </div>
   );
 }

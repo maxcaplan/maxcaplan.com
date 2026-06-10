@@ -28,7 +28,7 @@ export default function Hero(props: HeroProps) {
         Developer and Designer
       </h1>
 
-      <div class="hero__container container-full">
+      <div class="hero__container container--full">
         <HeroHeading class="hero__heading" />
 
         <div class="hero__body">

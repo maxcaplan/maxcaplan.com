@@ -2,12 +2,14 @@
 
 .container {
   @include layout.container;
-}
 
-.container-full {
-  @include layout.container("full");
-}
+  &--full,
+  &#{&}--full {
+    @include layout.container("full");
+  }
 
-.container-content {
-  @include layout.container("content");
+  &--content,
+  &#{&}--content {
+    @include layout.container("content");
+  }
 }

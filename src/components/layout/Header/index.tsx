@@ -24,7 +24,7 @@ export default function Header(props: HeaderProps) {
         Skip to content
       </a>
 
-      <div class="header__inner container-full">
+      <div class="header__inner container--full">
         <div class="header__brand">
           <a href="/" class="header__homepage-link">
             <span class="visually-hidden">Go to the homepage</span>
