@@ -1,7 +1,7 @@
 @use "styles/abstract/spacing";
 @use "styles/abstract/layout";
 
-.home-header {
+.home-section-header {
   display: flex;
   flex-direction: column;
   row-gap: spacing.$base-600;

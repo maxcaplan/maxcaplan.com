@@ -3,7 +3,7 @@ import "./styles.scss";
 import clsx from "clsx";
 import type { HTMLAttributes } from "preact";
 import { useMemo } from "preact/hooks";
-import HomeHeader from "@/components/display/home/Header";
+import HomeSectionHeader from "../Header";
 import WorkCard from "@/components/display/work/Card";
 import type { WorkItemEntry } from "@/types";
 import { leadingZeros } from "@/util/client/format";
@@ -17,7 +17,7 @@ interface HomeWorkSectionProps extends Omit<
   "section-index"?: number;
 }
 
-/** Grid of 3 cards displaying work items */
+/** Home page section for featured work */
 export default function HomeWorkSection(props: HomeWorkSectionProps) {
   const {
     work,
@@ -33,22 +33,26 @@ export default function HomeWorkSection(props: HomeWorkSectionProps) {
     <section
       {...attributes}
       aria-labelledby="work"
-      class={clsx("featured-work", class_attribute, className)}
+      class={clsx("home-work-section", class_attribute, className)}
     >
-      <HomeHeader>
-        <HomeHeader.Title id="work">
+      <HomeSectionHeader class="home-work-section__header">
+        <HomeSectionHeader.Title id="work" class="home-work-section__title">
           <span aria-hidden>{leadingZeros(section_index ?? 1, 2)}</span>
           <span>Work</span>
-        </HomeHeader.Title>
+        </HomeSectionHeader.Title>
 
-        <HomeHeader.Subtitle>
+        <HomeSectionHeader.Subtitle class="home-work-section__subtitle">
           A sample of the cool things i got to build with some amazing clients
-        </HomeHeader.Subtitle>
-      </HomeHeader>
+        </HomeSectionHeader.Subtitle>
+      </HomeSectionHeader>
 
       {featured_work.map((entry) => (
-        <div class="featured-work__card-wrapper">
-          <WorkCard key={entry.id} class="featured-work__card" work={entry} />
+        <div class="home-work-section__card-wrapper">
+          <WorkCard
+            key={entry.id}
+            class="home-work-section__card"
+            work={entry}
+          />
         </div>
       ))}
     </section>

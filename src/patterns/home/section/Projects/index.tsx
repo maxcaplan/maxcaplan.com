@@ -3,7 +3,7 @@ import "./styles.scss";
 import clsx from "clsx";
 import { useMemo } from "preact/hooks";
 import Carousel, { type CarouselProps } from "@/components/display/Carousel";
-import HomeHeader from "@/components/display/home/Header";
+import HomeSectionHeader from "../Header";
 import ProjectCard from "@/components/display/projects/Card";
 import type { ProjectEntry } from "@/types";
 import { leadingZeros } from "@/util/client/format";
@@ -16,7 +16,7 @@ interface HomeProjectsSectionProps extends Omit<
   "section-index"?: number;
 }
 
-/** Display a carousel of project cards */
+/** Home page section for featured projects */
 export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
   const {
     projects,
@@ -35,28 +35,31 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
     <Carousel
       {...carousel_props}
       aria-labelledby="projects"
-      class={clsx("featured-projects", class_attribute, className)}
+      class={clsx("home-projects-section", class_attribute, className)}
     >
-      <HomeHeader>
-        <HomeHeader.Title id="projects">
+      <HomeSectionHeader class="home-projects-section__header">
+        <HomeSectionHeader.Title
+          id="projects"
+          class="home-projects-section__title"
+        >
           <span>Projects</span>
           <span aria-hidden>{leadingZeros(section_index ?? 2, 2)}</span>
-        </HomeHeader.Title>
+        </HomeSectionHeader.Title>
 
-        <HomeHeader.Subtitle>
+        <HomeSectionHeader.Subtitle class="home-projects-section__subtitle">
           Sometimes my side projects actually get finished ... or good enough to
           share
-        </HomeHeader.Subtitle>
-      </HomeHeader>
+        </HomeSectionHeader.Subtitle>
+      </HomeSectionHeader>
 
-      <div class="featured-projects__carousel-controls-wrapper">
+      <div class="home-projects-section__carousel-controls-wrapper">
         <Carousel.Controls
-          class="featured-projects__carousel-controls"
+          class="home-projects-section__carousel-controls"
           aria-label="Featured Projects carousel controls"
         >
-          <Carousel.ControlItem class="featured-projects__carousel-control-item">
+          <Carousel.ControlItem class="home-projects-section__carousel-control-item">
             <Carousel.ControlButton
-              class="featured-projects__carousel-control-button"
+              class="home-projects-section__carousel-control-button"
               direction="previous"
               icon="arrow-left"
               variant="icon"
@@ -66,11 +69,11 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
             </Carousel.ControlButton>
           </Carousel.ControlItem>
 
-          <Carousel.ControlItem class="featured-projects__carousel-control-item">
+          <Carousel.ControlItem class="home-projects-section__carousel-control-item">
             <Carousel.Indicator>
               {({ index, slides }) => (
                 <span
-                  class="featured-projects__carousel-indicator ui-md"
+                  class="home-projects-section__carousel-indicator ui-md"
                   aria-hidden
                 >
                   {slides === 0 ? 0 : index + 1}/{slides}
@@ -79,9 +82,9 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
             </Carousel.Indicator>
           </Carousel.ControlItem>
 
-          <Carousel.ControlItem class="featured-projects__carousel-control-item">
+          <Carousel.ControlItem class="home-projects-section__carousel-control-item">
             <Carousel.ControlButton
-              class="featured-projects__carousel-control-button"
+              class="home-projects-section__carousel-control-button"
               direction="next"
               icon="arrow-right"
               variant="icon"
@@ -93,11 +96,11 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
         </Carousel.Controls>
       </div>
 
-      <Carousel.Slides class="featured-projects__carousel-slides">
+      <Carousel.Slides class="home-projects-section__carousel-slides">
         {featured_projects.map((entry) => (
           <ProjectCard.SlideItem
             key={entry.id}
-            class="featured-projects__slide-item"
+            class="home-projects-section__slide-item"
             project={entry}
           />
         ))}

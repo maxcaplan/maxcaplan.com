@@ -5,16 +5,21 @@ import Heading, {
   type HeadingProps,
 } from "@/components/display/Heading";
 
-export interface HomeHeaderSubtitleProps extends Omit<HeadingProps, "level"> {
+export interface HomeSectionHeaderSubtitleProps extends Omit<
+  HeadingProps,
+  "level"
+> {
   level?: HeadingLevel;
 }
 
-export interface HomeHeaderSubtitleComponent {
-  (props: HomeHeaderSubtitleProps): JSX.Element;
+export interface HomeSectionHeaderSubtitleComponent {
+  (props: HomeSectionHeaderSubtitleProps): JSX.Element;
 }
 
 /** Home page section header subtitle */
-const HomeHeaderSubtitle: HomeHeaderSubtitleComponent = (props) => {
+const HomeSectionHeaderSubtitle: HomeSectionHeaderSubtitleComponent = (
+  props,
+) => {
   const {
     level,
     type,
@@ -28,9 +33,9 @@ const HomeHeaderSubtitle: HomeHeaderSubtitleComponent = (props) => {
       {...attributes}
       level={level ?? 7}
       type={type ?? "subtitle-1"}
-      class={clsx("home-header__subtitle", class_attribute, className)}
+      class={clsx("home-section-header__subtitle", class_attribute, className)}
     />
   );
 };
 
-export default HomeHeaderSubtitle;
+export default HomeSectionHeaderSubtitle;

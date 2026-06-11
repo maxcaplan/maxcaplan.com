@@ -8,10 +8,10 @@ import { getProjectCollection } from "@/util/content/projects";
 
 import HeroLayout from "@/layouts/HeroLayout/index.astro";
 import TableOfContents from "@/components/navigation/TableOfContents";
-import HomeProjectsSection from "@/components/display/home/ProjectsSection";
-import HomeWorkSection from "@/components/display/home/WorkSection";
-import HomeServicesSection from "@/components/display/home/ServicesSection";
-import HomeContactSection from "@/components/display/home/ContactSection";
+import HomeWorkSection from "@/patterns/home/section/Work";
+import HomeProjectsSection from "@/patterns/home/section/Projects";
+import HomeServicesSection from "@/patterns/home/section/Services";
+import HomeContactSection from "@/patterns/home/section/Contact";
 
 const work_items = await getWorkCollection();
 const projects = await getProjectCollection();

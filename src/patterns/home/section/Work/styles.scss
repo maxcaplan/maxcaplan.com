@@ -2,7 +2,7 @@
 @use "styles/abstract/layout";
 @use "styles/abstract/border";
 
-.featured-work {
+.home-work-section {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
@@ -26,7 +26,7 @@
     }
   }
 
-  .home-header {
+  &__header {
     display: grid;
     grid-template-columns: 1fr;
     column-gap: calc(2 * spacing.$base-500);
@@ -37,18 +37,18 @@
       grid-template-columns: 1fr 1fr;
       padding: 0 spacing.$base-500 0 spacing.$base-500;
     }
+  }
 
-    &__title {
-      grid-column: span 2;
-    }
+  &__title {
+    grid-column: span 2;
+  }
 
-    &__subtitle {
-      grid-column: span 2;
+  &__subtitle {
+    grid-column: span 2;
 
-      @include layout.media-breakpoint(md) {
-        grid-column: 2;
-        justify-self: end;
-      }
+    @include layout.media-breakpoint(md) {
+      grid-column: 2;
+      justify-self: end;
     }
   }
 
