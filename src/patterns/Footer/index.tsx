@@ -8,7 +8,7 @@ import Button from "@/components/input/Button";
 import NavMenu from "@/components/navigation/NavMenu";
 import SocialLinkButton from "@/components/navigation/SocialLinkButton";
 import SocialLinks from "@/components/navigation/SocialLinks";
-import Seperator from "../Seperator";
+import Seperator from "@/components/layout/Seperator";
 
 export interface FooterProps extends HTMLAttributes<HTMLElement> {}
 
