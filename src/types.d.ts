@@ -22,16 +22,18 @@ export type WithSkillsEntries<C extends CollectionEntry<CollectionKey>> = Omit<
   data: Omit<C["data"], "skills"> & { skills?: CollectionEntry<"skills">[] };
 };
 
-export type WorkItemEntry = WithSkillsEntries<CollectionEntry<"work">> & {
-  placeholders?: {
-    cover?: string;
-  };
-};
+export type PortfolioItemCollectionKey = "work" | "projects";
 
-export type ProjectEntry = WithSkillsEntries<CollectionEntry<"projects">> & {
-  placeholders?: {
-    cover?: string;
+export type PortfolioItemEntry<C extends PortfolioItemCollectionKey> =
+  WithSkillsEntries<CollectionEntry<C>> & {
+    placeholders?: {
+      cover?: string;
+    };
   };
-};
 
-export type PortfolioItemEntry = WorkItemEntry | ProjectEntry;
+export type WorkItemEntry = PortfolioItemEntry<"work">;
+export type ProjectEntry = PortfolioItemEntry<"projects">;
+
+export type PortfolioItemEntryType = {
+  [K in PortfolioItemCollectionKey]: PortfolioItemEntry<K>;
+}[PortfolioItemCollectionKey];

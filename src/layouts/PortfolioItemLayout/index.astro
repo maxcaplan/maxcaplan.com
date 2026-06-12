@@ -4,7 +4,7 @@ import "./styles.scss";
 import Layout, { type LayoutProps } from "@/layouts/Layout.astro";
 import Heading from "@/components/display/Heading";
 import { formatDate } from "@/util/client/format";
-import type { PortfolioItemEntry } from "@/types";
+import type { PortfolioItemEntryType } from "@/types";
 import { render } from "astro:content";
 import Image from "astro/components/Image.astro";
 import Button from "@/components/input/Button/index.tsx";
@@ -14,7 +14,7 @@ import NavBar from "@/components/layout/NavBar/index.tsx";
 import TableOfContents from "@/components/navigation/TableOfContents/index.tsx";
 
 export interface PortfolioItemLayoutProps extends LayoutProps {
-  entry: PortfolioItemEntry;
+  entry: PortfolioItemEntryType;
 }
 
 type Props = PortfolioItemLayoutProps;

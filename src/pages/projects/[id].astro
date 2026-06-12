@@ -4,14 +4,14 @@ import Breadcrumb from "@/components/navigation/Breadcrumb/index.tsx";
 import type { ProjectEntry } from "@/types";
 
 import PortfolioItemLayout from "@/layouts/PortfolioItemLayout/index.astro";
-import { getProjectCollection } from "@/util/content/projects";
+import { getProjectsCollection } from "@/util/content/portfolio_items";
 
 interface Props {
   project: ProjectEntry;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await getProjectCollection();
+  const projects = await getProjectsCollection();
   return projects.map((project) => ({
     params: { id: project.id },
     props: { project },
