@@ -1,21 +1,31 @@
 import clsx from "clsx";
 import React, { useMemo } from "react";
 
+// export interface IconProps<
+//   Styles extends string | number | symbol,
+// > extends Omit<React.ComponentPropsWithRef<"svg">, "children"> {
+//   ["icon-style"]?: Styles;
+//   title?: string;
+//   class?: string;
+// }
+
 export interface IconProps<
   Styles extends string | number | symbol,
-> extends Omit<React.ComponentPropsWithRef<"svg">, "children"> {
+> extends Omit<React.SVGProps<SVGSVGElement>, "children"> {
   ["icon-style"]?: Styles;
   title?: string;
   class?: string;
 }
 
+interface IconRootProps extends React.SVGProps<SVGSVGElement> {}
+
 export type Icon<Styles extends string | number | symbol> = (
   props?: IconProps<Styles>,
 ) => React.JSX.Element;
 
-export interface IconStyleComponent {
-  root: (props?: React.ComponentPropsWithRef<"svg">) => React.JSX.Element;
-  content: React.ReactNode;
+interface IconStyleComponent {
+  root: (props: IconRootProps) => React.JSX.Element;
+  content: React.JSX.Element;
 }
 
 /** Create a new icon component */
@@ -31,10 +41,10 @@ export function createIconComponent<Styles extends string | number | symbol>(
     const {
       "icon-style": icon_style,
       title,
-      class: elementClass,
       className,
-      "aria-hidden": ariaHidden,
-      ...element_props
+      class: class_attribute,
+      "aria-hidden": aria_hidden,
+      ...root_props
     } = props ?? {};
 
     // Get the component for an icon style
@@ -48,9 +58,9 @@ export function createIconComponent<Styles extends string | number | symbol>(
 
     return (
       <IconStyleComponent.root
-        className={clsx(`mc-icon mc-icon--${key}`, className, elementClass)}
-        aria-hidden={ariaHidden === undefined && !title ? true : ariaHidden}
-        {...element_props}
+        className={clsx(`mc-icon mc-icon--${key}`, class_attribute, className)}
+        aria-hidden={aria_hidden === undefined && !title ? true : aria_hidden}
+        {...root_props}
       >
         {title && <title>{title}</title>}
         {IconStyleComponent.content}
