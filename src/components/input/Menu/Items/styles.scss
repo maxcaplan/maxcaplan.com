@@ -1,0 +1,10 @@
+.menu {
+  :where(&__items) {
+    position: absolute;
+    display: none;
+  }
+
+  :where(&__items#{&}__items--expanded) {
+    display: block;
+  }
+}

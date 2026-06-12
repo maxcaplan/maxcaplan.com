@@ -103,6 +103,22 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
             class="home-projects-section__slide-item"
             item={entry}
             href={`/projects/${entry.id}`}
+            cover_sources={
+              entry.images && [
+                {
+                  src: entry.images.cover_md_webp?.src,
+                  format: "webp",
+                  media: "(min-width: 500px)",
+                },
+                {
+                  src: entry.images.cover_md?.src,
+                  format: "png",
+                  media: "(min-width: 500px)",
+                },
+                { src: entry.images.cover_sm_webp?.src, format: "webp" },
+                { src: entry.images.cover_sm?.src, format: "png" },
+              ]
+            }
           />
         ))}
       </Carousel.Slides>

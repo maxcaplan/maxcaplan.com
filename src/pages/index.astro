@@ -3,8 +3,10 @@
 
 import "./styles.scss";
 
-import { getWorkCollection } from "@/util/content/portfolio_items";
-import { getProjectsCollection } from "@/util/content/portfolio_items";
+import {
+  getWorkCollection,
+  getProjectsCollection,
+} from "@/util/content/portfolio_items";
 
 import HeroLayout from "@/layouts/HeroLayout/index.astro";
 import TableOfContents from "@/components/navigation/TableOfContents";
@@ -13,8 +15,8 @@ import HomeProjectsSection from "@/patterns/home/section/Projects";
 import HomeServicesSection from "@/patterns/home/section/Services";
 import HomeContactSection from "@/patterns/home/section/Contact";
 
-const work_items = await getWorkCollection();
-const projects = await getProjectsCollection();
+const work_items = await getWorkCollection({ generate_images: true });
+const projects = await getProjectsCollection({ generate_images: true });
 ---
 
 <HeroLayout>

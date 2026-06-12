@@ -5,12 +5,7 @@ import type { CSSProperties, ImgHTMLAttributes } from "preact";
 import { type PropsWithChildren } from "preact/compat";
 import { useMemo } from "preact/hooks";
 import type { ImageSource } from "@/types";
-import { useImageSources } from "@/util/client/hooks/image";
-import {
-  createPlaceholderImage,
-  getSourceSrc,
-  getSourceType,
-} from "@/util/client/image";
+import { createPlaceholderImage, getSourceType } from "@/util/client/image";
 
 export interface ImageProps extends Omit<
   ImgHTMLAttributes<HTMLImageElement>,
@@ -42,9 +37,6 @@ export default function Image(props: ImageProps) {
     ...attributes
   } = props;
 
-  /** Picture source attributes */
-  const image_sources = useImageSources(props.src, props.sources);
-
   const background_styles = useMemo(() => {
     return placeholder_url
       ? {
@@ -59,9 +51,9 @@ export default function Image(props: ImageProps) {
 
   return (
     <ImageWrapper {...props}>
-      {image_sources?.map((source) => (
+      {sources?.map((source) => (
         <source
-          srcset={getSourceSrc(source, props.src)}
+          srcset={source.src}
           type={getSourceType(source, props.src)}
           media={source.media}
         />

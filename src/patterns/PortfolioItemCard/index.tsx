@@ -6,7 +6,11 @@ import SkillBadge from "@/components/display/Badge/Skill";
 import Card, { type CardProps } from "@/components/display/Card";
 import Image from "@/components/display/Image";
 import Button from "@/components/input/Button";
-import type { PortfolioItemCollectionKey, PortfolioItemEntry } from "@/types";
+import type {
+  ImageSource,
+  PortfolioItemCollectionKey,
+  PortfolioItemEntry,
+} from "@/types";
 import { formatDate } from "@/util/client/format";
 
 export interface PortfolioItemCardProps<
@@ -15,6 +19,7 @@ export interface PortfolioItemCardProps<
   item: PortfolioItemEntry<C>;
   /** href for portfolio items page */
   href: string;
+  cover_sources?: ImageSource[];
   loading?: "lazy" | "eager";
 }
 
@@ -25,9 +30,10 @@ export default function PortfolioItemCard<C extends PortfolioItemCollectionKey>(
   const {
     item,
     href,
+    cover_sources,
+    loading,
     class: class_attribute,
     className,
-    loading,
     ...card_props
   } = props;
 
@@ -35,7 +41,11 @@ export default function PortfolioItemCard<C extends PortfolioItemCollectionKey>(
   const cover_attributes = useMemo(
     () =>
       item.data.cover instanceof Object
-        ? item.data.cover
+        ? {
+            src: item.data.cover.src,
+            width: item.data.cover.width,
+            height: item.data.cover.height,
+          }
         : { src: item.data.cover },
     [item.data.cover],
   );
@@ -58,11 +68,7 @@ export default function PortfolioItemCard<C extends PortfolioItemCollectionKey>(
       <div class="portfolio-item-card__cover">
         <Image
           {...cover_attributes}
-          sources={[
-            { format: "webp", src_suffix: "_lg", media: "(min-width: 640px)" },
-            { format: "webp", src_suffix: "_md", media: "(min-width: 480px)" },
-            { format: "webp", src_suffix: "_sm" },
-          ]}
+          sources={cover_sources}
           placeholder-url={item.placeholders?.cover}
           alt={item.data["cover-alt"] ?? ""}
           loading={loading ?? "lazy"}

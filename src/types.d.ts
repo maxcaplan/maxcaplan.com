@@ -1,14 +1,11 @@
 import type { CollectionEntry, CollectionKey } from "astro:content";
 import type { IMAGE_FORMATS, SOCIAL_MEDIAS } from "./constants";
+import type { GetImageResult } from "astro";
 
 export type ImageFormat = (typeof IMAGE_FORMATS)[number];
 
 export interface ImageSource {
   src?: string;
-  /** src file name prefix */
-  src_prefix?: string;
-  /** src file name suffix */
-  src_suffix?: string;
   format?: ImageFormat;
   media?: string;
 }
@@ -28,6 +25,14 @@ export type PortfolioItemEntry<C extends PortfolioItemCollectionKey> =
   WithSkillsEntries<CollectionEntry<C>> & {
     placeholders?: {
       cover?: string;
+    };
+    images?: {
+      cover_lg?: GetImageResult;
+      cover_md?: GetImageResult;
+      cover_sm?: GetImageResult;
+      cover_lg_webp?: GetImageResult;
+      cover_md_webp?: GetImageResult;
+      cover_sm_webp?: GetImageResult;
     };
   };
 

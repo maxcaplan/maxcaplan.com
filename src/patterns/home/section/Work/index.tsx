@@ -53,6 +53,22 @@ export default function HomeWorkSection(props: HomeWorkSectionProps) {
             class="home-work-section__card"
             item={entry}
             href={`/work/${entry.id}`}
+            cover_sources={
+              entry.images && [
+                {
+                  src: entry.images.cover_md_webp?.src,
+                  format: "webp",
+                  media: "(min-width: 500px)",
+                },
+                {
+                  src: entry.images.cover_md?.src,
+                  format: "png",
+                  media: "(min-width: 500px)",
+                },
+                { src: entry.images.cover_sm_webp?.src, format: "webp" },
+                { src: entry.images.cover_sm?.src, format: "png" },
+              ]
+            }
           />
         </div>
       ))}
