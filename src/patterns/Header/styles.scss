@@ -178,40 +178,42 @@ $mobile-menu-breakpoint: md;
     }
   }
 
-  &__menu-button {
-    position: relative;
-    align-self: stretch;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 spacing.$root-padding;
-    @include border.border(100, $left: true);
-    outline: 0;
+  &__menu {
+    .menu__trigger {
+      position: relative;
+      align-self: stretch;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 spacing.$root-padding;
+      @include border.border(100, $left: true);
+      outline: 0;
 
-    @include layout.media-breakpoint(sm) {
-      padding: 0 spacing.$base-600;
-    }
+      @include layout.media-breakpoint(sm) {
+        padding: 0 spacing.$base-600;
+      }
 
-    &:hover {
-      background-color: colour.$surface-400;
-    }
+      &:hover {
+        background-color: colour.$surface-400;
+      }
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: spacing.$base-300;
-      bottom: spacing.$base-300;
-      left: spacing.$base-300;
-      right: spacing.$base-300;
-      border-radius: border.$radius-sm;
-    }
+      &::after {
+        content: "";
+        position: absolute;
+        top: spacing.$base-300;
+        bottom: spacing.$base-300;
+        left: spacing.$base-300;
+        right: spacing.$base-300;
+        border-radius: border.$radius-sm;
+      }
 
-    &:focus-visible::after {
-      @include border.outline(500, focus);
+      &:focus-visible::after {
+        @include border.outline(500, focus);
+      }
     }
   }
 
-  &__menu-button#{&}__menu-button--settings {
+  &__menu#{&}__menu--settings {
     display: none;
 
     @include layout.media-breakpoint($mobile-menu-breakpoint) {
@@ -219,7 +221,7 @@ $mobile-menu-breakpoint: md;
     }
   }
 
-  &__menu-button:not(#{&}__menu-button--settings) {
+  &__menu:not(#{&}__menu--settings) {
     display: flex;
 
     @include layout.media-breakpoint($mobile-menu-breakpoint) {

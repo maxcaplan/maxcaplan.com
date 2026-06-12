@@ -4,9 +4,9 @@ import clsx from "clsx";
 import { useMemo } from "preact/hooks";
 import Carousel, { type CarouselProps } from "@/components/display/Carousel";
 import HomeSectionHeader from "../Header";
-import ProjectCard from "@/components/display/projects/Card";
 import type { ProjectEntry } from "@/types";
 import { leadingZeros } from "@/util/client/format";
+import PortfolioItemSlideItem from "@/patterns/PortfolioItemSlideItem";
 
 interface HomeProjectsSectionProps extends Omit<
   CarouselProps,
@@ -98,10 +98,11 @@ export default function HomeProjectsSection(props: HomeProjectsSectionProps) {
 
       <Carousel.Slides class="home-projects-section__carousel-slides">
         {featured_projects.map((entry) => (
-          <ProjectCard.SlideItem
+          <PortfolioItemSlideItem
             key={entry.id}
             class="home-projects-section__slide-item"
-            project={entry}
+            item={entry}
+            href={`/projects/${entry.id}`}
           />
         ))}
       </Carousel.Slides>

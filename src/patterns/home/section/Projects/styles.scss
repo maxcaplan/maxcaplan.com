@@ -74,11 +74,11 @@
       );
     }
 
-    .project-card__content {
+    .portfolio-item-slide-item__content {
       flex: 1;
     }
 
-    .project-card__footer {
+    .portfolio-item-slide-item__footer {
       flex: 1;
       align-items: end;
     }
@@ -88,11 +88,11 @@
       grid-template-columns: 1fr 1fr;
       column-gap: spacing.$base-600;
 
-      .project-card__cover {
+      .portfolio-item-slide-item__cover {
         margin: 0;
       }
 
-      .project-card__content {
+      .portfolio-item-slide-item__content {
         padding: spacing.$base-500 0;
       }
     }

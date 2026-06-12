@@ -1,10 +1,11 @@
 import "./styles.scss";
 
 import clsx from "clsx";
-import { Menu, Settings } from "maxcaplan-icons";
+import { Menu as MenuIcon, Settings } from "maxcaplan-icons";
 import type { HTMLAttributes } from "preact";
 import Logo from "@/components/brand/Logo";
 import NavMenu from "@/components/navigation/NavMenu";
+import Menu from "@/components/input/Menu";
 
 export interface HeaderProps extends Omit<
   HTMLAttributes<HTMLElement>,
@@ -51,18 +52,35 @@ export default function Header(props: HeaderProps) {
           </NavMenu.Item>
         </NavMenu>
 
-        <button
-          class="header__menu-button header__menu-button--settings"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Website settings menu</span>
-          <Settings width={26} height={26} />
-        </button>
+        <Menu class="header__menu header__menu--settings">
+          <Menu.Trigger>
+            <span class="visually-hidden">Website settings menu</span>
+            <Settings width={26} height={26} />
+          </Menu.Trigger>
 
-        <button class="header__menu-button" aria-expanded="false">
-          <span class="visually-hidden">Menu</span>
-          <Menu width={26} height={26} />
-        </button>
+          <Menu.Items>
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </Menu.Items>
+        </Menu>
+
+        <Menu class="header__menu">
+          <Menu.Trigger>
+            <span class="visually-hidden">Menu</span>
+            <MenuIcon width={26} height={26} />
+          </Menu.Trigger>
+
+          <Menu.Items>
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </Menu.Items>
+        </Menu>
       </div>
     </header>
   );

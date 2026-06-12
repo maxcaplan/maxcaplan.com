@@ -4,9 +4,9 @@ import clsx from "clsx";
 import type { HTMLAttributes } from "preact";
 import { useMemo } from "preact/hooks";
 import HomeSectionHeader from "../Header";
-import WorkCard from "@/components/display/work/Card";
 import type { WorkItemEntry } from "@/types";
 import { leadingZeros } from "@/util/client/format";
+import PortfolioItemCard from "@/patterns/PortfolioItemCard";
 
 interface HomeWorkSectionProps extends Omit<
   HTMLAttributes<HTMLElement>,
@@ -48,10 +48,11 @@ export default function HomeWorkSection(props: HomeWorkSectionProps) {
 
       {featured_work.map((entry) => (
         <div class="home-work-section__card-wrapper">
-          <WorkCard
+          <PortfolioItemCard
             key={entry.id}
             class="home-work-section__card"
-            work={entry}
+            item={entry}
+            href={`/work/${entry.id}`}
           />
         </div>
       ))}
